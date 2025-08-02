@@ -2,13 +2,15 @@ project:
   type: website
 
 website:
-  title: "My Course Materials"
+  title: "Data Science Training Program"
   navbar:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Lectures"
+      - text: "Session 1"
         href: ./Training_Session_1/Notes_session1.qmd
+      - text: "Session 2"
+        href: ./Training_Session_2/Notes_session2.qmd
       # - text: "Assignments"
       #   href: assignments.qmd
 
@@ -17,7 +19,7 @@ format:
     theme:
       - cosmo
       - brand
-    css: styles.css
+    # css: styles.css
     toc: true
 
 editor: visual
