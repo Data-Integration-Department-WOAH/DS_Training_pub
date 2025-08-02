@@ -236,5 +236,68 @@
     "title": "PRRS",
     "section": "County",
     "text": "County\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\ncharacter\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n28\n\n\nMode\n“Wright”\n\n\n\n\n\n\n\n\n\n\n\n\nReport generation information:\n\nCreated by: Gilles Guillot (username: g.guillot).\nReport creation time: Tue Jul 22 2025 16:21:03\nReport was run from directory: C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data Science - Documents/Data Science Training 2025/Training_Session_1\ndataReporter v1.0.5 [Pkg: 2025-04-13 from CRAN (R 4.5.1)]\nR version 4.5.1 (2025-06-13 ucrt).\nPlatform: x86_64-w64-mingw32/x64(Europe/Berlin).\nFunction call: makeDataReport(data = .)"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html",
+    "href": "Training_Session_2/Notes_session2.html",
+    "title": "Lecture notes",
+    "section": "",
+    "text": "After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc… The R package dplyr contains functions and a common set of rules (syntax/grammar) to do that. This package needs to be installed as:\n\ninstall.packages(\"dplyr\")\ninstall.packages(\"tidyr\")\n\nand loaded\n\nlibrary(dplyr)\nlibrary(tidyr)\n\nIn this session, we are going to work with toy dataset included in R, the mtcars dataset"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#filtering",
+    "href": "Training_Session_2/Notes_session2.html#filtering",
+    "title": "Lecture notes",
+    "section": "2.1 Filtering",
+    "text": "2.1 Filtering\nWe can retain rows of a dataset matching a condition with filter()\n\n#  creating a subset of the data with only cars having 4  gears\ndat0 = mtcars_data %&gt;% filter(gear == 4) \n\ndat0\n\n# A tibble: 12 × 12\n   make          mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Mazda RX4    21       6 160     110  3.9   2.62  16.5     0     1     4     4\n 2 Mazda RX4 …  21       6 160     110  3.9   2.88  17.0     0     1     4     4\n 3 Datsun 710   22.8     4 108      93  3.85  2.32  18.6     1     1     4     1\n 4 Merc 240D    24.4     4 147.     62  3.69  3.19  20       1     0     4     2\n 5 Merc 230     22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2\n 6 Merc 280     19.2     6 168.    123  3.92  3.44  18.3     1     0     4     4\n 7 Merc 280C    17.8     6 168.    123  3.92  3.44  18.9     1     0     4     4\n 8 Fiat 128     32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1\n 9 Honda Civic  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2\n10 Toyota Cor…  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1\n11 Fiat X1-9    27.3     4  79      66  4.08  1.94  18.9     1     1     4     1\n12 Volvo 142E   21.4     4 121     109  4.11  2.78  18.6     1     1     4     2"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#re-arranging-rows-with-arrange",
+    "href": "Training_Session_2/Notes_session2.html#re-arranging-rows-with-arrange",
+    "title": "Lecture notes",
+    "section": "2.2 Re-arranging rows with arrange()",
+    "text": "2.2 Re-arranging rows with arrange()\nWe can arrange rows of a data set with arrange(), for example by car make or mpg of gears:\n\n# creating a dataset with same variables but rows sorted by mpg\ndat1 = mtcars_data %&gt;% arrange(mpg)\ndat1\n\n# A tibble: 32 × 12\n   make          mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Cadillac F…  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4\n 2 Lincoln Co…  10.4     8  460    215  3     5.42  17.8     0     0     3     4\n 3 Camaro Z28   13.3     8  350    245  3.73  3.84  15.4     0     0     3     4\n 4 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4\n 5 Chrysler I…  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4\n 6 Maserati B…  15       8  301    335  3.54  3.57  14.6     0     1     5     8\n 7 Merc 450SLC  15.2     8  276.   180  3.07  3.78  18       0     0     3     3\n 8 AMC Javelin  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2\n 9 Dodge Chal…  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2\n10 Ford Pante…  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#selecting-columns",
+    "href": "Training_Session_2/Notes_session2.html#selecting-columns",
+    "title": "Lecture notes",
+    "section": "2.3 Selecting columns",
+    "text": "2.3 Selecting columns\nWe can select a subset of columns with select()\n\n# creaintg a subset of the data containing only variables mpg and cyl\ndat2 = mtcars_data %&gt;% select(mpg,cyl)\ndat2\n\n# A tibble: 32 × 2\n     mpg   cyl\n   &lt;dbl&gt; &lt;dbl&gt;\n 1  21       6\n 2  21       6\n 3  22.8     4\n 4  21.4     6\n 5  18.7     8\n 6  18.1     6\n 7  14.3     8\n 8  24.4     4\n 9  22.8     4\n10  19.2     6\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#creating-a-new-variable-with-mutate",
+    "href": "Training_Session_2/Notes_session2.html#creating-a-new-variable-with-mutate",
+    "title": "Lecture notes",
+    "section": "2.4 Creating a new variable with mutate()",
+    "text": "2.4 Creating a new variable with mutate()\nWe can create a new variable, for example the power to weight ratio, defined as hp/wt with mutate() as:\n\n# creating a new dataset with new variable  ratio, defined as hp/wt\ndat3 = mtcars_data %&gt;% mutate(ratio = hp/wt)\ndat3\n\n# A tibble: 32 × 13\n   make    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb ratio\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Mazd…  21       6  160    110  3.9   2.62  16.5     0     1     4     4  42.0\n 2 Mazd…  21       6  160    110  3.9   2.88  17.0     0     1     4     4  38.3\n 3 Dats…  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1  40.1\n 4 Horn…  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1  34.2\n 5 Horn…  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2  50.9\n 6 Vali…  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1  30.3\n 7 Dust…  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4  68.6\n 8 Merc…  24.4     4  147.    62  3.69  3.19  20       1     0     4     2  19.4\n 9 Merc…  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2  30.2\n10 Merc…  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4  35.8\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#combining-several-operations-with-multiple-pipes",
+    "href": "Training_Session_2/Notes_session2.html#combining-several-operations-with-multiple-pipes",
+    "title": "Lecture notes",
+    "section": "2.5 Combining several operations with multiple pipes",
+    "text": "2.5 Combining several operations with multiple pipes\nMultiple data wrangling operations can be combined into a single, longer R expression as\n\ndat5 =  mtcars_data %&gt;% \n  filter(gear == 4) %&gt;%  # only 4-gear cars\n  arrange(mpg) %&gt;%  # arranging by mpg\n  mutate(ratio = hp/wt) # new variable\ndat5\n\n# A tibble: 12 × 13\n   make    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb ratio\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Merc…  17.8     6 168.    123  3.92  3.44  18.9     1     0     4     4  35.8\n 2 Merc…  19.2     6 168.    123  3.92  3.44  18.3     1     0     4     4  35.8\n 3 Mazd…  21       6 160     110  3.9   2.62  16.5     0     1     4     4  42.0\n 4 Mazd…  21       6 160     110  3.9   2.88  17.0     0     1     4     4  38.3\n 5 Volv…  21.4     4 121     109  4.11  2.78  18.6     1     1     4     2  39.2\n 6 Dats…  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1  40.1\n 7 Merc…  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2  30.2\n 8 Merc…  24.4     4 147.     62  3.69  3.19  20       1     0     4     2  19.4\n 9 Fiat…  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1  34.1\n10 Hond…  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2  32.2\n11 Fiat…  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1  30  \n12 Toyo…  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1  35.4"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#basic-ggplot-syntax",
+    "href": "Training_Session_2/Notes_session2.html#basic-ggplot-syntax",
+    "title": "Lecture notes",
+    "section": "3.1 Basic ggplot syntax",
+    "text": "3.1 Basic ggplot syntax\nA scatter plot of mpg against hp:\n\nlibrary(ggplot2)\n\nmtcars_data %&gt;%  # what data?\n  ggplot( aes(x = hp, y = mpg) ) + # what variables on the axes?\n  geom_point() # what type of representation?"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#larger-dots-with-colours",
+    "href": "Training_Session_2/Notes_session2.html#larger-dots-with-colours",
+    "title": "Lecture notes",
+    "section": "3.2 Larger dots, with colours",
+    "text": "3.2 Larger dots, with colours\nA slightly nicer plot with wt as colour shades (colour = wt) and larger dots (cex=2)\n\nmtcars_data %&gt;% \n  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +\n  geom_point() + \n  scale_size(guide = \"none\")"
+  },
+  {
+    "objectID": "Training_Session_2/Notes_session2.html#adding-a-title-and-axes-labels",
+    "href": "Training_Session_2/Notes_session2.html#adding-a-title-and-axes-labels",
+    "title": "Lecture notes",
+    "section": "3.3 Adding a title and axes labels",
+    "text": "3.3 Adding a title and axes labels\n\nmtcars_data %&gt;% \n  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +\n  geom_point() +\n  scale_size(guide = \"none\") + \n  labs(title = \"MPG vs Horsepower\",\n       x = \"Horsepower (hp)\",\n       y = \"Miles per Gallon (mpg)\")"
   }
 ]
