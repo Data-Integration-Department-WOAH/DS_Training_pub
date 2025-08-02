@@ -1,0 +1,59 @@
+---
+title: "Training Program in Data Science - Syllabus"
+author: "Data Integration Department, WOAH"
+# date: last-modified
+# format:
+#   html:
+#     embed-resources: true
+#     toc: true
+#     number-sections: true
+---
+
+This syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.
+
+The present document will be continuously updated and used as the main entry point to share information and references throughout the program.
+
+## Poking around Rstudio and loading data
+
+-   Objectives
+
+    -   Find your way in the Rstudio environment
+
+    -   Learn how to load an external dataset and summarize it
+
+-   External resource: [Basic Basics lesson unit from R-Ladies Sydney](https://rladiessydney.org/courses/ryouwithme/basicbasics)
+
+## Common data structures, basic of R and dplyr syntax
+
+-   Objective: learn principles underlying the grammar of data manipulation `dplyr`
+
+-   External resources
+
+    -   [dplyr overview](https://dplyr.tidyverse.org/)
+    -   [Intro to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+
+## Data manipulation and transformation
+
+## Professional quality graphics
+
+## Reporting with Quarto
+
+-   Reference: [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
+
+## Descrptive statistics and data exploration
+
+## From description to prediction: fitting statistical models
+
+## Leveraging AI
+
+-   Co-pilot support to Rstudio IDE
+-   Systematic use of a third-party LLMs to automate data analysis and reporting
+-   Running locally an LLM
+
+## Packaging
+
+## Collaborating with git
+
+## References
+
+-   [R for Data Science](https://r4ds.hadley.nz/), 2nd edition, H. Wickham 2023

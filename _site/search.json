@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "",
+    "text": "This syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.\nThe present document will be continuously updated and used as the main entry point to share information and references throughout the program."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html",
+    "href": "Training_Session_1/Notes_session1.html",
+    "title": "Lecture notes",
+    "section": "",
+    "text": "Teams -&gt; Data Science -&gt;  Data Science Training 2025\nPM to @g.guillot via teams or email"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#the-various-panes",
+    "href": "Training_Session_1/Notes_session1.html#the-various-panes",
+    "title": "Lecture notes",
+    "section": "2.1 The various panes",
+    "text": "2.1 The various panes\n-   `Source`\n\n-   `Console`\n\n-   `Environment` etc...\n\n-   `Files`, `plots` etc..."
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#clicking-vs-scripting",
+    "href": "Training_Session_1/Notes_session1.html#clicking-vs-scripting",
+    "title": "Lecture notes",
+    "section": "2.2 Clicking vs Scripting",
+    "text": "2.2 Clicking vs Scripting\n\nClicking is user-friendly but error prone, not scalable, not traceable, not reproducible\nScripting is reliable (less error prone), scalable, traceable, reproducible"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#rstudio-as-a-pocket-calculator",
+    "href": "Training_Session_1/Notes_session1.html#rstudio-as-a-pocket-calculator",
+    "title": "Lecture notes",
+    "section": "2.3 Rstudio as a pocket calculator",
+    "text": "2.3 Rstudio as a pocket calculator\n\n    2+2\n\n[1] 4\n\n    x=3\n    x\n\n[1] 3\n\n    y=4\n    y\n\n[1] 4\n\n    x+y\n\n[1] 7\n\n    x=1:10\n    x\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n    y=10:1\n    y\n\n [1] 10  9  8  7  6  5  4  3  2  1\n\n    x+y\n\n [1] 11 11 11 11 11 11 11 11 11 11\n\n    # checking my R objects\n    ls()  # even more information found in the 'Environment' pane\n\n[1] \"x\" \"y\"\n\n\n\nSetting the working directory\n\nMethod 1 (GUI): Session -&gt; Set Working Directory\nMethod 2 (command line)\n\n\n\n# line below to be updated\nsetwd(\"C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data Science - Documents/Data Science Training 2025/Training_Session_1\")\n\nNB: any character found after a # is treated as a comment (disregarded by R). It is strongly recommended to add brief informative comments to your code to help your next-door colleague or you future self ."
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#a-tiny-dataset-in-txt-format",
+    "href": "Training_Session_1/Notes_session1.html#a-tiny-dataset-in-txt-format",
+    "title": "Lecture notes",
+    "section": "3.1 A tiny dataset in txt format",
+    "text": "3.1 A tiny dataset in txt format\n\nTry to load the books.csv data using the GUI\nDo the same using R commands as below:\n\n\n# installing  a special library to read external data\n# install.packages('readr') # has to be done only once\n\n# loading the package\nlibrary(readr) # has to be done at start of each R session\nbook_data &lt;- read_csv(\"data/books.csv\")"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#where-are-my-data",
+    "href": "Training_Session_1/Notes_session1.html#where-are-my-data",
+    "title": "Lecture notes",
+    "section": "3.2 Where are my data?",
+    "text": "3.2 Where are my data?\nYou can inspect the content of the dataset you just created by\n\nClicking on the object name in the `Environment` pane\nR commands:\n\n\nlibrary(magrittr) # load a library for modern R syntax writing \n\nbook_data # print the dataset in the console\n\nbook_data |&gt; str() # print info on  structure (more efficient in case of large dataset)"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#miscellaneous-remarks",
+    "href": "Training_Session_1/Notes_session1.html#miscellaneous-remarks",
+    "title": "Lecture notes",
+    "section": "3.3 Miscellaneous remarks",
+    "text": "3.3 Miscellaneous remarks\n\n3.3.1 Piping\n\nIn older R code book_data |&gt; str() used to be written str(book_data). More generally data |&gt; function() used to be written as function(data). The latter is still widely found.\nThe three characters |&gt; (pronounced ‘pipe’) can be obtained with the keyboard shortcut Ctrl + Shift + M\nIn this training, we will strive to use the modern syntax data %&gt;% function() or more generally data %&gt;% function(opt_arg = my_option)\n\n\n\n3.3.2 Code formatting\n\nNaming conventions:\n\nObject names should start with a letter (numbers and most special characters are forbidden)\nCompound names are welcome\n\nsnake style (preferred): my_data\ncamel style: MyData\n\nExecuting lines, blocks,full scripts\n\nNo rule on code formatting (space, indentation, line end)"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#a-larger-dataset-in-excel-format",
+    "href": "Training_Session_1/Notes_session1.html#a-larger-dataset-in-excel-format",
+    "title": "Lecture notes",
+    "section": "3.4 A larger dataset, in excel format",
+    "text": "3.4 A larger dataset, in excel format\nTry now to load the PRRS.xlsx dataset.\n\nlibrary(tidyverse) # loading several useful packages\nlibrary(readxl) # to load excel data into R\n\nPRRS = read_excel(\"./data/PRRS.xlsx\")\n\n\nProprietary formats like .xlsx not preferred in Open Source world. Excel de facto standard in corporate world and well supported by Rstudio. Many other formats supported, e.g. .csv, .tsv, .rds, .rda, .json etc.\nWhere are my data ?!?\n\nIn Excel: a lot of screen space for data values, not much for scripting\nIn Rstudio:\n\nRecognition that editing a data file is error prone, not scalable, not traceable, not reproducible\nFocus on scripting, not on data values\nType `ls()` in the console to get a list of your data\n\n\nThe environment pane"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#exploring-the-structure-of-the-prrs-dataset",
+    "href": "Training_Session_1/Notes_session1.html#exploring-the-structure-of-the-prrs-dataset",
+    "title": "Lecture notes",
+    "section": "3.5 Exploring the structure of the PRRS dataset",
+    "text": "3.5 Exploring the structure of the PRRS dataset\n\nMethod 1 GUI: inspect information in the Environment pane (limited)\nMethod 2: asking questions about the dataset via a script\n\n\n# How many rows and columns?\nPRRS %&gt;% dim()\n# number of columns\nPRRS %&gt;% ncol()\n# number of rows (note the naming consistency!)\nPRRS %&gt;% nrow()\n# variable names\nPRRS %&gt;% colnames()\n# name and class (character, numeric) of variables?\nPRRS %&gt;% str()\n# quick statistical summary of all variables\nPRRS %&gt;% summary()"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#rectangular-tables",
+    "href": "Training_Session_1/Notes_session1.html#rectangular-tables",
+    "title": "Lecture notes",
+    "section": "4.1 Rectangular tables",
+    "text": "4.1 Rectangular tables\n\nIn Excel, data are organised in sheets and there is also almost no constraint on what a sheet can contain and how material is organised in a sheet\nIn R, there are constraints\nA rectangular table in R is most commonly stored as a data.frame (old style) or a tibble (preferred)\n\ncan mix numeric and character variables (columns)"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#handling-loosely-structured-data",
+    "href": "Training_Session_1/Notes_session1.html#handling-loosely-structured-data",
+    "title": "Lecture notes",
+    "section": "4.2 Handling loosely structured data",
+    "text": "4.2 Handling loosely structured data\nWhen a dataset can not fit in a rectangular table, a good option is often to store it as a list (or list of lists).\nLet’s consider the simple dataset below. This could be stored as rectangular table with 4 rows and 3 columns.\n\n# NB: this mock dataset was generated by chatGPT (#genderstereotypes)\npeople &lt;- list(\n  name = c(\"Fred\", \"John\", \"Paul\", \"Henry\"),\n  wife = c(\"Mary\", \"Linda\", \"Susan\", \"Kate\"),\n  no.children = c(3, 2, 4, 1)\n)\n#\npeople\n\nNow consider a slightly more complex example with new variables child.age, phone and address. The number of entries of child.age varies depending on the number of children.\nWith a list, this is not an issue:\n\npeople &lt;- list(\n  name = c(\"Fred\", \"John\", \"Paul\", \"Henry\"),\n  wife = c(\"Mary\", \"Linda\", \"Susan\", \"Kate\"),\n  no.children = c(3, 2, 4, 0),\n  child.age = list(\n    c(4, 7, 9),      # Fred's kids\n    c(5, 6),         # John's kids\n    c(2, 4, 6, 8),   # Paul's kids\n    c(NA)             # Not Available\n  ),\n  phone = list(\n    mobile = c(\"555-1111\", \"555-2222\", \"555-3333\", \"555-4444\"),\n    landline = c(\"555-1010\", \"555-2020\", \"555-3030\", \"555-4040\")\n  ),\n  address = list(\n    street = c(\"123 Main St\", \"456 Elm St\", \"789 Oak St\", \"101 Maple St\"),\n    city = c(\"Springfield\", \"Rivertown\", \"Lakeside\", \"Hillside\"),\n    state = c(\"IL\", \"TX\", \"CA\", \"NY\"),\n    zip = c(\"62704\", \"73301\", \"90210\", \"10001\")\n  )\n)\n#\npeople$child.age\n#\npeople$phone\n\nRemark: Note the use of the object NA (not available).\n\nused whenever a single value is missing\nunderstand algebra: try typing NA+3, 2/NA, 5*NA"
+  },
+  {
+    "objectID": "Training_Session_1/Notes_session1.html#take-home-messages",
+    "href": "Training_Session_1/Notes_session1.html#take-home-messages",
+    "title": "Lecture notes",
+    "section": "6.1 Take-home messages",
+    "text": "6.1 Take-home messages\n\nR users write scripts\nCommon packages to load external data include readr and readxl\n\nhave to be installed (one off) with install.packages(\"\") before use,\nloaded with library(\"\"), within each R session\n\nCommon package functions to load external data include readr::read_csv and readxl::read_excel\nInfo on R objects in current session:\n\nin Environment pane\nls(), data %&gt;% ncol, data %&gt;% dim(), data %&gt;% str()\n\nAI\n\nBefore you know it, LLMs such as co-pilot, chatGPT and Gemini will become your best friend to help you scripting in R.\nFeel free to ask LLMs general questions on any R related topic, a good place to start is chatGPT R and Rstudio tutor\nIn the first weeks of this training , please refrain asking an LLM to write R scripts for you, or you will never learn anything."
+  },
+  {
+    "objectID": "index.html#poking-around-rstudio-and-loading-data",
+    "href": "index.html#poking-around-rstudio-and-loading-data",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Poking around Rstudio and loading data",
+    "text": "Poking around Rstudio and loading data\n\nObjectives\n\nFind your way in the Rstudio environment\nLearn how to load an external dataset and summarize it\n\nExternal resource: Basic Basics lesson unit from R-Ladies Sydney"
+  },
+  {
+    "objectID": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax",
+    "href": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Common data structures, basic of R and dplyr syntax",
+    "text": "Common data structures, basic of R and dplyr syntax\n\nObjective: learn principles underlying the grammar of data manipulation dplyr\nExternal resources\n\ndplyr overview\nIntro to dplyr"
+  },
+  {
+    "objectID": "index.html#data-manipulation-and-transformation",
+    "href": "index.html#data-manipulation-and-transformation",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Data manipulation and transformation",
+    "text": "Data manipulation and transformation"
+  },
+  {
+    "objectID": "index.html#professional-quality-graphics",
+    "href": "index.html#professional-quality-graphics",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Professional quality graphics",
+    "text": "Professional quality graphics"
+  },
+  {
+    "objectID": "index.html#reporting-with-quarto",
+    "href": "index.html#reporting-with-quarto",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Reporting with Quarto",
+    "text": "Reporting with Quarto\n\nReference: Tutorial: Hello, Quarto"
+  },
+  {
+    "objectID": "index.html#descrptive-statistics-and-data-exploration",
+    "href": "index.html#descrptive-statistics-and-data-exploration",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Descrptive statistics and data exploration",
+    "text": "Descrptive statistics and data exploration"
+  },
+  {
+    "objectID": "index.html#from-description-to-prediction-fitting-statistical-models",
+    "href": "index.html#from-description-to-prediction-fitting-statistical-models",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "From description to prediction: fitting statistical models",
+    "text": "From description to prediction: fitting statistical models"
+  },
+  {
+    "objectID": "index.html#leveraging-ai",
+    "href": "index.html#leveraging-ai",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Leveraging AI",
+    "text": "Leveraging AI\n\nCo-pilot support to Rstudio IDE\nSystematic use of a third-party LLMs to automate data analysis and reporting\nRunning locally an LLM"
+  },
+  {
+    "objectID": "index.html#packaging",
+    "href": "index.html#packaging",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Packaging",
+    "text": "Packaging"
+  },
+  {
+    "objectID": "index.html#collaborating-with-git",
+    "href": "index.html#collaborating-with-git",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "Collaborating with git",
+    "text": "Collaborating with git"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Training Program in Data Science - Syllabus",
+    "section": "References",
+    "text": "References\n\nR for Data Science, 2nd edition, H. Wickham 2023"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html",
+    "href": "Training_Session_1/dataReporter_PRRS.html",
+    "title": "PRRS",
+    "section": "",
+    "text": "The dataset examined has the following dimensions:\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nNumber of observations\n1353\n\n\nNumber of variables\n8\n\n\n\n\n\nThe following variable checks were performed, depending on the data type of each variable:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \ncharacter\nfactor\nlabelled\nhaven labelled\nnumeric\ninteger\nlogical\nDate\n\n\n\n\nIdentify miscoded missing values\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\n\\(\\times\\)\n\n\nIdentify prefixed and suffixed whitespace\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\n\n\n\n\n\nIdentify levels with &lt; 6 obs.\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\n\n\n\n\n\nIdentify case issues\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\n\n\n\n\n\nIdentify misclassified numeric or integer variables\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\\(\\times\\)\n\n\n\n\n\n\nIdentify outliers\n\n\n\n\n\\(\\times\\)\n\\(\\times\\)\n\n\\(\\times\\)\n\n\n\nPlease note that all numerical values in the following have been rounded to 2 decimals."
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#result",
+    "href": "Training_Session_1/dataReporter_PRRS.html#result",
+    "title": "PRRS",
+    "section": "Result",
+    "text": "Result\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\ncharacter\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n2\n\n\nMode\n“No”"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#sex",
+    "href": "Training_Session_1/dataReporter_PRRS.html#sex",
+    "title": "PRRS",
+    "section": "Sex",
+    "text": "Sex\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\ncharacter\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n2\n\n\nMode\n“H”"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#age",
+    "href": "Training_Session_1/dataReporter_PRRS.html#age",
+    "title": "PRRS",
+    "section": "Age",
+    "text": "Age\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\nnumeric\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n83\n\n\nMedian\n24\n\n\n1st and 3rd quartiles\n14; 46\n\n\nMin. and max.\n6; 180\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote that the following possible outlier values were detected: \"180\"."
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#otherspecies",
+    "href": "Training_Session_1/dataReporter_PRRS.html#otherspecies",
+    "title": "PRRS",
+    "section": "OtherSpecies",
+    "text": "OtherSpecies\n\nNote that this variable is treated as a factor variable below, as it only takes a few unique values.\n\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\nnumeric\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n2\n\n\nMode\n“0”\n\n\nReference category\n0"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#id",
+    "href": "Training_Session_1/dataReporter_PRRS.html#id",
+    "title": "PRRS",
+    "section": "id",
+    "text": "id\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\nnumeric\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n40\n\n\nMedian\n13\n\n\n1st and 3rd quartiles\n6; 24\n\n\nMin. and max.\n1; 40"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#name",
+    "href": "Training_Session_1/dataReporter_PRRS.html#name",
+    "title": "PRRS",
+    "section": "name",
+    "text": "name\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\ncharacter\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n40\n\n\nMode\n“Iowa Select Farms Inc”"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#farm_type",
+    "href": "Training_Session_1/dataReporter_PRRS.html#farm_type",
+    "title": "PRRS",
+    "section": "farm_type",
+    "text": "farm_type\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\ncharacter\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n5\n\n\nMode\n“sow farm”"
+  },
+  {
+    "objectID": "Training_Session_1/dataReporter_PRRS.html#county",
+    "href": "Training_Session_1/dataReporter_PRRS.html#county",
+    "title": "PRRS",
+    "section": "County",
+    "text": "County\n\n\n\n\n\n\n\nFeature\nResult\n\n\n\n\nVariable type\ncharacter\n\n\nNumber of missing obs.\n0 (0 %)\n\n\nNumber of unique values\n28\n\n\nMode\n“Wright”\n\n\n\n\n\n\n\n\n\n\n\n\nReport generation information:\n\nCreated by: Gilles Guillot (username: g.guillot).\nReport creation time: Tue Jul 22 2025 16:21:03\nReport was run from directory: C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data Science - Documents/Data Science Training 2025/Training_Session_1\ndataReporter v1.0.5 [Pkg: 2025-04-13 from CRAN (R 4.5.1)]\nR version 4.5.1 (2025-06-13 ucrt).\nPlatform: x86_64-w64-mingw32/x64(Europe/Berlin).\nFunction call: makeDataReport(data = .)"
+  }
+]

@@ -1,0 +1,327 @@
+---
+title: "Lecture notes"
+subtitle: "Session 1"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: false
+  message: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    toc: true
+    number-sections: true
+---
+
+# Where to ask questions?
+
+-   `Teams -> Data Science ->  Data Science Training 2025`
+
+-   PM to `@g.guillot` via teams or email
+
+# Poking around Rstudio
+
+## The various panes
+
+```         
+-   `Source`
+
+-   `Console`
+
+-   `Environment` etc...
+
+-   `Files`, `plots` etc...
+```
+
+## Clicking vs Scripting
+
+-   Clicking is user-friendly but **error prone, not scalable, not traceable, not reproducible**
+
+-   Scripting is reliable (less error prone), scalable, traceable, reproducible
+
+## Rstudio as a pocket calculator
+
+```{r,eval=TRUE}
+    2+2
+    x=3
+    x
+    y=4
+    y
+    x+y
+    
+    x=1:10
+    x
+    
+    y=10:1
+    y
+    
+    x+y
+    
+    # checking my R objects
+    ls()  # even more information found in the 'Environment' pane
+```
+
+-   Setting the working directory
+
+    -   Method 1 (GUI): Session -\> Set Working Directory
+
+    -   Method 2 (command line)
+
+```{r}
+# line below to be updated
+setwd("C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data Science - Documents/Data Science Training 2025/Training_Session_1")
+```
+
+NB: any character found after a \# is treated as a comment (disregarded by R). It is strongly recommended to add brief informative comments to your code to help your next-door colleague or you future self .
+
+# Loading data
+
+-   Method 1 GUI: File -\> Import Dataset -\> From Excel (note the code preview)
+-   Method 2: use R commands (prefered, cf below)
+
+## A tiny dataset in `txt` format
+
+-   Try to load the `books.csv` data using the GUI
+
+-   Do the same using R commands as below:
+
+```{r}
+# installing  a special library to read external data
+# install.packages('readr') # has to be done only once
+
+# loading the package
+library(readr) # has to be done at start of each R session
+book_data <- read_csv("data/books.csv")
+```
+
+## Where are my data?
+
+You can inspect the content of the dataset you just created by
+
+-   Clicking on the object name in the \`Environment\` pane
+
+-   R commands:
+
+```{r}
+library(magrittr) # load a library for modern R syntax writing 
+
+book_data # print the dataset in the console
+
+book_data |> str() # print info on  structure (more efficient in case of large dataset)
+```
+
+## Miscellaneous remarks
+
+### Piping
+
+-   In older R code `book_data |> str()` used to be written `str(book_data)`. More generally `data |> function()` used to be written as `function(data)`. The latter is still widely found.
+
+-   The three characters `|>` (pronounced 'pipe') can be obtained with the keyboard shortcut `Ctrl + Shift + M`
+
+-   In this training, we will strive to use the modern syntax `data %>% function()` or more generally `data %>% function(opt_arg = my_option)`
+
+### Code formatting
+
+-   Naming conventions:
+
+    -   Object names should start with a letter (numbers and most special characters are forbidden)
+
+    -   Compound names are welcome
+
+        -   snake style (preferred): `my_data`
+        -   camel style: `MyData`
+
+    -   Executing lines, blocks,full scripts
+
+-   No rule on code formatting (space, indentation, line end)
+
+## A larger dataset, in excel format
+
+Try now to load the `PRRS.xlsx` dataset.
+
+```{r}
+library(tidyverse) # loading several useful packages
+library(readxl) # to load excel data into R
+
+PRRS = read_excel("./data/PRRS.xlsx")
+```
+
+-   Proprietary formats like .xlsx not preferred in Open Source world. Excel *de facto* standard in corporate world and well supported by Rstudio. Many other formats supported, e.g. .csv, .tsv, .rds, .rda, .json etc.
+
+-   Where are my data ?!?
+
+    -   In Excel: a lot of screen space for data values, not much for scripting
+
+    -   In Rstudio:
+
+        -   Recognition that editing a data file is error prone, not scalable, not traceable, not reproducible
+        -   Focus on scripting, not on data values
+        -   Type \`ls()\` in the console to get a list of your data
+
+-   The `environment` pane
+
+## Exploring the structure of the `PRRS` dataset
+
+-   Method 1 GUI: inspect information in the `Environment` pane (limited)
+-   Method 2: asking questions about the dataset via a script
+
+```{r}
+# How many rows and columns?
+PRRS %>% dim()
+# number of columns
+PRRS %>% ncol()
+# number of rows (note the naming consistency!)
+PRRS %>% nrow()
+# variable names
+PRRS %>% colnames()
+# name and class (character, numeric) of variables?
+PRRS %>% str()
+# quick statistical summary of all variables
+PRRS %>% summary()
+```
+
+# Common data structures
+
+## Rectangular tables
+
+-   In Excel, data are organised in sheets and there is also almost no constraint on what a sheet can contain and how material is organised in a sheet
+-   In R, there are constraints
+-   A rectangular table in R is most commonly stored as a `data.frame` (old style) or a `tibble` (preferred)
+    -   can mix numeric and character variables (columns)
+
+## Handling loosely structured data
+
+When a dataset can not fit in a rectangular table, a good option is often to store it as a list (or list of lists).
+
+Let's consider the simple dataset below. This could be stored as rectangular table with 4 rows and 3 columns.
+
+```{r}
+# NB: this mock dataset was generated by chatGPT (#genderstereotypes)
+people <- list(
+  name = c("Fred", "John", "Paul", "Henry"),
+  wife = c("Mary", "Linda", "Susan", "Kate"),
+  no.children = c(3, 2, 4, 1)
+)
+#
+people
+```
+
+Now consider a slightly more complex example with new variables `child.age`, `phone` and `address`. The number of entries of `child.age` varies depending on the number of children.
+
+With a `list`, this is not an issue:
+
+```{r}
+people <- list(
+  name = c("Fred", "John", "Paul", "Henry"),
+  wife = c("Mary", "Linda", "Susan", "Kate"),
+  no.children = c(3, 2, 4, 0),
+  child.age = list(
+    c(4, 7, 9),      # Fred's kids
+    c(5, 6),         # John's kids
+    c(2, 4, 6, 8),   # Paul's kids
+    c(NA)             # Not Available
+  ),
+  phone = list(
+    mobile = c("555-1111", "555-2222", "555-3333", "555-4444"),
+    landline = c("555-1010", "555-2020", "555-3030", "555-4040")
+  ),
+  address = list(
+    street = c("123 Main St", "456 Elm St", "789 Oak St", "101 Maple St"),
+    city = c("Springfield", "Rivertown", "Lakeside", "Hillside"),
+    state = c("IL", "TX", "CA", "NY"),
+    zip = c("62704", "73301", "90210", "10001")
+  )
+)
+#
+people$child.age
+#
+people$phone
+```
+
+Remark: Note the use of the object `NA` (not available).
+
+-   used whenever a single value is missing
+-   understand algebra: try typing `NA+3`, `2/NA`, `5*NA`
+
+# Checking formatting issues in a dataset
+
+-   In this example we are using an add-on to R (something known as an R package) called `dataReporter` to check the dataset for common issues.
+
+-   The R package `dataReporter` is not seen as a panacea for fixing all formatting and coding issues in an dataset. It is shown merely as an example.
+
+```{r, eval=FALSE}
+library(dataReporter) 
+
+# checking the dataset 
+PRRS %>% makeDataReport() # create an external pdf report
+```
+
+NB: writing explicitly `library(dataReporter)` loads all the package (functions and dataset). It is an 'overkill' when only one function is required. For parsimony (and to spare one line of code), we can skip `library(dataReporter)` and write `PRRS %>% dataReporter::makeDataReport()`
+
+Generically:
+
+```{r,eval=FALSE}
+library(my_package)
+dataset %>% my_function()
+  # can be replaced by
+  dataset %>% my_package::my_function()
+```
+
+# Final remarks
+
+## Take-home messages
+
+-   R users write scripts
+-   Common packages to load external data include `readr` and `readxl`
+    -   have to be installed (one off) with `install.packages("")` before use,
+    -   loaded with `library("")`, within each R session
+-   Common package functions to load external data include `readr::read_csv` and `readxl::read_excel`
+-   Info on R objects in current session:
+    -   in `Environment` pane
+    -   `ls()`, `data %>% ncol`, `data %>% dim()`, `data %>% str()`
+-   AI
+    -   Before you know it, LLMs such as **co-pilot, chatGPT** and **Gemini** will become your best friend to help you scripting in R.
+    -   Feel free to ask LLMs general questions on any R related topic, a good place to start is [chatGPT R and Rstudio tutor](https://chatgpt.com/g/g-iedyANQtM-r-and-r-studio-tutor)
+    -   In the first weeks of this training , please **refrain asking an LLM to write R scripts for you**, or you will never learn anything.
+
+# In-class exercise
+
+-   The exercise consists in writing a short R script that executes the various steps below:
+
+    -   load into Rstudio the file `cars_dataset.csv`
+    -   get the number of rows and columns via the `nrow()` and `ncol()` functions
+    -   rename the variable `wt` into `weight` using the function `rename()` of the R package `dplyr` (hint: make sure the package is installed and loaded , type `? rename` for on-line help and see the example given)
+
+-   Check each line of your script by executing it before attempting to write the next line
+
+-   Add comments to your instructions
+
+-   Make sure to save your script in a file (with a \`.R\` extension) for future reference.
+
+-   Close the `.R` file containing your script.
+
+-   Re-open your script file and update it so that it performs the same task (rename variable `carat` into `weight`)
+
+# Self-study exercise
+
+-   Chose an excel file related to one of your current projects
+
+-   Review the on-line documentation of the `read_excel` function (`readxl` package)
+
+-   Use `read_excel` to load one of the sheets of the excel file into your R session
+
+-   Run `dataReporter::makeDataReport()` on this dataset
+
+Hints:
+
+-   Make sure you script is saved in a carefully commented `.R` file
+-   Make sure you understand all warning and error messages.
+
+# External resource
+
+-   External resource: [Basic Basics lesson unit from R-Ladies Sydney](https://rladiessydney.org/courses/ryouwithme/basicbasics)
+
+# Presence and evaluation sheet
+
+Please take 1 min to fill the [presence and evaluation sheet](https://forms.office.com/Pages/ResponsePage.aspx?id=Y_X68W2wNUyHOTTMwoDcr65sY2lIPT9CrlVkSYnYNWZUM1E0MDNCN0Q5TktJRUFFNDdPUThDQVYxUC4u).
