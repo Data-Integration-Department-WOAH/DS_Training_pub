@@ -1,0 +1,185 @@
+---
+title: "Lecture notes"
+subtitle: "Session 2"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: true
+  message: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    toc: true
+    number-sections: true
+---
+
+
+# Motivation
+
+After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc... 
+The R package `dplyr` contains functions and a common set of rules (syntax/grammar) to do that. 
+This package needs to be installed as:
+
+```{r,eval=FALSE}
+install.packages("dplyr")
+install.packages("tidyr")
+```
+
+and loaded 
+
+```{r}
+library(dplyr)
+library(tidyr)
+```
+
+
+In this session, we are going to work with  toy dataset included in R, the `mtcars` dataset 
+
+# Data wrangling
+
+In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset.
+For your convenience, this dataset is stored on the data folder of the current session on Sharepoint.
+
+```{r}
+# loading the mtcars dataset
+library(readr) # needed to call  read_csv()
+library(magrittr) # needed for the pipe operator %>% 
+mtcars_data = read_csv("data/mtcars.csv")
+
+# checking
+mtcars_data %>% dim()
+mtcars_data %>% colnames()
+
+# checking a specific variable
+mtcars_data$gear # return all values in the console
+mtcars_data$gear %>%  unique() # return the set of unique values
+mtcars_data$gear %>%  unique() %>% sort() # return the set of unique values and sort them 
+
+
+```
+
+## Filtering
+
+We can retain rows of a dataset matching a condition with `filter()`
+
+```{r}
+#  creating a subset of the data with only cars having 4  gears
+dat0 = mtcars_data %>% filter(gear == 4) 
+
+dat0
+```
+
+
+
+
+## Re-arranging rows with `arrange()`
+
+We can arrange rows of a data set with `arrange()`, for example by car make or mpg of gears:
+
+```{r}
+# creating a dataset with same variables but rows sorted by mpg
+dat1 = mtcars_data %>% arrange(mpg)
+dat1
+```
+
+## Selecting columns
+
+We can select a subset of columns with `select()` 
+
+```{r}
+# creaintg a subset of the data containing only variables mpg and cyl
+dat2 = mtcars_data %>% select(mpg,cyl)
+dat2
+```
+
+
+
+## Creating a new variable with `mutate()`
+
+We can create a new variable, for example the power to weight ratio, defined as `hp/wt` with `mutate()` as:
+
+```{r}
+# creating a new dataset with new variable  ratio, defined as hp/wt
+dat3 = mtcars_data %>% mutate(ratio = hp/wt)
+dat3
+```
+
+
+## Combining several operations with multiple pipes
+
+Multiple data wrangling operations can be combined into a single, longer R expression as
+
+```{r}
+dat5 =  mtcars_data %>% 
+  filter(gear == 4) %>%  # only 4-gear cars
+  arrange(mpg) %>%  # arranging by mpg
+  mutate(ratio = hp/wt) # new variable
+dat5
+```
+
+
+# A first look at plotting
+
+## Basic `ggplot` syntax
+
+A scatter plot of `mpg` against `hp`:
+
+```{r}
+library(ggplot2)
+
+mtcars_data %>%  # what data?
+  ggplot( aes(x = hp, y = mpg) ) + # what variables on the axes?
+  geom_point() # what type of representation?
+```
+
+## Larger dots, with colours 
+
+A slightly nicer plot with `wt` as colour shades (`colour = wt`) and larger dots (`cex=2`)
+
+```{r}
+mtcars_data %>% 
+  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +
+  geom_point() + 
+  scale_size(guide = "none")
+```
+
+## Adding a title and axes labels
+
+```{r}
+mtcars_data %>% 
+  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +
+  geom_point() +
+  scale_size(guide = "none") + 
+  labs(title = "MPG vs Horsepower",
+       x = "Horsepower (hp)",
+       y = "Miles per Gallon (mpg)") 
+```
+
+# Take-home messages and final remarks
+
+
+
+- There is always a (combination of) `dplyr` function(s) that can transform your data along your needs
+- The `ggplot` (so-called) grammar of graphics is complex but highly consistent.
+   + Learning a few basic rules will allow you to go a long way
+   + Soon we will see how to make our R programmer lives easier with built-in `co-pilot` support and LLM requests
+   + Please refrain using LLMs for the time being
+
+# In-class exercise
+
+1. Load the data contained in the Excel file `iris.xlsx` in your R session. _(Hint: use function `read_excel()` of the R package `readxl` as in Session 1)._
+2. Rename variable `Species` into `Species.name`. _(Hint: use function `rename()`, generic syntax: `data %>% rename(new_name = old_name)`)_
+3. Create a new variable approximating the petal area as the product of petal length by petal width.
+4. Create a simple scatter plot of sepal width against sepal length
+5. Add species name as colors in the previous plot
+6. Add a title and better formatted axis labels
+
+
+# Self-study exercise
+
+# External resource
+
+- [Introduction to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+<!-- - [dplyr overview](https://dplyr.tidyverse.org/) -->
+- [dplyr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
