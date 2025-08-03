@@ -108,16 +108,16 @@ library(magrittr) # load a library for modern R syntax writing
 
 book_data # print the dataset in the console
 
-book_data |> str() # print info on  structure (more efficient in case of large dataset)
+book_data %>% str() # print info on  structure (more efficient in case of large dataset)
 ```
 
 ## Miscellaneous remarks
 
 ### Piping
 
--   In older R code `book_data |> str()` used to be written `str(book_data)`. More generally `data |> function()` used to be written as `function(data)`. The latter is still widely found.
+-   In older R code `book_data %>% str()` used to be written `str(book_data)`. More generally `data %>% function()` used to be written as `function(data)`. The latter is still widely found.
 
--   The three characters `|>` (pronounced 'pipe') can be obtained with the keyboard shortcut `Ctrl + Shift + M`
+-   The three characters `%>%` (pronounced 'pipe') can be obtained with the keyboard shortcut `Ctrl + Shift + M`
 
 -   In this training, we will strive to use the modern syntax `data %>% function()` or more generally `data %>% function(opt_arg = my_option)`
 

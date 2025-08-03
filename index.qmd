@@ -1,5 +1,5 @@
 ---
-title: "Training Program in Data Science - Syllabus"
+title: "Syllabus"
 author: "Data Integration Department, WOAH"
 # date: last-modified
 # format:
@@ -9,36 +9,21 @@ author: "Data Integration Department, WOAH"
 #     number-sections: true
 ---
 
-This syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.
+This is the syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.
 
 The present document will be continuously updated and used as the main entry point to share information and references throughout the program.
 
 ## Poking around Rstudio and loading data
 
--   Objectives
 
-    -   Find your way in the Rstudio environment
+## Common data structures, basic of R and dplyr syntax, first look at plotting figures
 
-    -   Learn how to load an external dataset and summarize it
+## Data manipulation andpltting (cont')
 
--   External resource: [Basic Basics lesson unit from R-Ladies Sydney](https://rladiessydney.org/courses/ryouwithme/basicbasics)
-
-## Common data structures, basic of R and dplyr syntax
-
--   Objective: learn principles underlying the grammar of data manipulation `dplyr`
-
--   External resources
-
-    -   [dplyr overview](https://dplyr.tidyverse.org/)
-    -   [Intro to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
-
-## Data manipulation and transformation
-
-## Professional quality graphics
 
 ## Reporting with Quarto
 
--   Reference: [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
+<!-- -   Reference: [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) -->
 
 ## Descrptive statistics and data exploration
 
@@ -46,11 +31,11 @@ The present document will be continuously updated and used as the main entry poi
 
 ## Leveraging AI
 
--   Co-pilot support to Rstudio IDE
--   Systematic use of a third-party LLMs to automate data analysis and reporting
--   Running locally an LLM
+<!-- -   Co-pilot support to Rstudio IDE -->
+<!-- -   Systematic use of a third-party LLMs to automate data analysis and reporting -->
+<!-- -   Running locally an LLM -->
 
-## Packaging
+<!-- ## Packaging -->
 
 ## Collaborating with git
 

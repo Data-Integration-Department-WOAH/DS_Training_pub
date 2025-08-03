@@ -3,7 +3,7 @@ project:
   output-dir: .
 
 website:
-  title: "Data Science Training Program"
+  title: "WOAH - DATA SCIENCE TRAINING PROGRAM"
   navbar:
     left:
       - text: "Home"

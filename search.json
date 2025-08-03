@@ -2,84 +2,84 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "",
-    "text": "This syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.\nThe present document will be continuously updated and used as the main entry point to share information and references throughout the program."
+    "text": "This is the syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.\nThe present document will be continuously updated and used as the main entry point to share information and references throughout the program."
   },
   {
     "objectID": "index.html#poking-around-rstudio-and-loading-data",
     "href": "index.html#poking-around-rstudio-and-loading-data",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Poking around Rstudio and loading data",
-    "text": "Poking around Rstudio and loading data\n\nObjectives\n\nFind your way in the Rstudio environment\nLearn how to load an external dataset and summarize it\n\nExternal resource: Basic Basics lesson unit from R-Ladies Sydney"
+    "text": "Poking around Rstudio and loading data"
   },
   {
     "objectID": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax",
     "href": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Common data structures, basic of R and dplyr syntax",
     "text": "Common data structures, basic of R and dplyr syntax\n\nObjective: learn principles underlying the grammar of data manipulation dplyr\nExternal resources\n\ndplyr overview\nIntro to dplyr"
   },
   {
     "objectID": "index.html#data-manipulation-and-transformation",
     "href": "index.html#data-manipulation-and-transformation",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Data manipulation and transformation",
     "text": "Data manipulation and transformation"
   },
   {
     "objectID": "index.html#professional-quality-graphics",
     "href": "index.html#professional-quality-graphics",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Professional quality graphics",
     "text": "Professional quality graphics"
   },
   {
     "objectID": "index.html#reporting-with-quarto",
     "href": "index.html#reporting-with-quarto",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Reporting with Quarto",
-    "text": "Reporting with Quarto\n\nReference: Tutorial: Hello, Quarto"
+    "text": "Reporting with Quarto"
   },
   {
     "objectID": "index.html#descrptive-statistics-and-data-exploration",
     "href": "index.html#descrptive-statistics-and-data-exploration",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Descrptive statistics and data exploration",
     "text": "Descrptive statistics and data exploration"
   },
   {
     "objectID": "index.html#from-description-to-prediction-fitting-statistical-models",
     "href": "index.html#from-description-to-prediction-fitting-statistical-models",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "From description to prediction: fitting statistical models",
     "text": "From description to prediction: fitting statistical models"
   },
   {
     "objectID": "index.html#leveraging-ai",
     "href": "index.html#leveraging-ai",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Leveraging AI",
-    "text": "Leveraging AI\n\nCo-pilot support to Rstudio IDE\nSystematic use of a third-party LLMs to automate data analysis and reporting\nRunning locally an LLM"
+    "text": "Leveraging AI"
   },
   {
     "objectID": "index.html#packaging",
     "href": "index.html#packaging",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Packaging",
     "text": "Packaging"
   },
   {
     "objectID": "index.html#collaborating-with-git",
     "href": "index.html#collaborating-with-git",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "Collaborating with git",
     "text": "Collaborating with git"
   },
   {
     "objectID": "index.html#references",
     "href": "index.html#references",
-    "title": "Training Program in Data Science - Syllabus",
+    "title": "Syllabus",
     "section": "References",
     "text": "References\n\nR for Data Science, 2nd edition, H. Wickham 2023"
   },
@@ -340,14 +340,14 @@
     "href": "Notes_session1.html#where-are-my-data",
     "title": "Lecture notes",
     "section": "3.2 Where are my data?",
-    "text": "3.2 Where are my data?\nYou can inspect the content of the dataset you just created by\n\nClicking on the object name in the `Environment` pane\nR commands:\n\n\nlibrary(magrittr) # load a library for modern R syntax writing \n\nbook_data # print the dataset in the console\n\nbook_data |&gt; str() # print info on  structure (more efficient in case of large dataset)"
+    "text": "3.2 Where are my data?\nYou can inspect the content of the dataset you just created by\n\nClicking on the object name in the `Environment` pane\nR commands:\n\n\nlibrary(magrittr) # load a library for modern R syntax writing \n\nbook_data # print the dataset in the console\n\nbook_data %&gt;% str() # print info on  structure (more efficient in case of large dataset)"
   },
   {
     "objectID": "Notes_session1.html#miscellaneous-remarks",
     "href": "Notes_session1.html#miscellaneous-remarks",
     "title": "Lecture notes",
     "section": "3.3 Miscellaneous remarks",
-    "text": "3.3 Miscellaneous remarks\n\n3.3.1 Piping\n\nIn older R code book_data |&gt; str() used to be written str(book_data). More generally data |&gt; function() used to be written as function(data). The latter is still widely found.\nThe three characters |&gt; (pronounced ‘pipe’) can be obtained with the keyboard shortcut Ctrl + Shift + M\nIn this training, we will strive to use the modern syntax data %&gt;% function() or more generally data %&gt;% function(opt_arg = my_option)\n\n\n\n3.3.2 Code formatting\n\nNaming conventions:\n\nObject names should start with a letter (numbers and most special characters are forbidden)\nCompound names are welcome\n\nsnake style (preferred): my_data\ncamel style: MyData\n\nExecuting lines, blocks,full scripts\n\nNo rule on code formatting (space, indentation, line end)"
+    "text": "3.3 Miscellaneous remarks\n\n3.3.1 Piping\n\nIn older R code book_data %&gt;% str() used to be written str(book_data). More generally data %&gt;% function() used to be written as function(data). The latter is still widely found.\nThe three characters %&gt;% (pronounced ‘pipe’) can be obtained with the keyboard shortcut Ctrl + Shift + M\nIn this training, we will strive to use the modern syntax data %&gt;% function() or more generally data %&gt;% function(opt_arg = my_option)\n\n\n\n3.3.2 Code formatting\n\nNaming conventions:\n\nObject names should start with a letter (numbers and most special characters are forbidden)\nCompound names are welcome\n\nsnake style (preferred): my_data\ncamel style: MyData\n\nExecuting lines, blocks,full scripts\n\nNo rule on code formatting (space, indentation, line end)"
   },
   {
     "objectID": "Notes_session1.html#a-larger-dataset-in-excel-format",
@@ -446,5 +446,19 @@
     "title": "Lecture notes",
     "section": "3.3 Adding a title and axes labels",
     "text": "3.3 Adding a title and axes labels\n\nmtcars_data %&gt;% \n  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +\n  geom_point() +\n  scale_size(guide = \"none\") + \n  labs(title = \"MPG vs Horsepower\",\n       x = \"Horsepower (hp)\",\n       y = \"Miles per Gallon (mpg)\")"
+  },
+  {
+    "objectID": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax-first-look-at-plotting-figures",
+    "href": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax-first-look-at-plotting-figures",
+    "title": "Syllabus",
+    "section": "Common data structures, basic of R and dplyr syntax, first look at plotting figures",
+    "text": "Common data structures, basic of R and dplyr syntax, first look at plotting figures"
+  },
+  {
+    "objectID": "index.html#data-manipulation-andpltting-cont",
+    "href": "index.html#data-manipulation-andpltting-cont",
+    "title": "Syllabus",
+    "section": "Data manipulation andpltting (cont’)",
+    "text": "Data manipulation andpltting (cont’)"
   }
 ]

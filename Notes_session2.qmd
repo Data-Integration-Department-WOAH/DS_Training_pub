@@ -14,32 +14,27 @@ format:
     number-sections: true
 ---
 
-
 # Motivation
 
-After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc... 
-The R package `dplyr` contains functions and a common set of rules (syntax/grammar) to do that. 
-This package needs to be installed as:
+After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc... The R package `dplyr` contains functions and a common set of rules (syntax/grammar) to do that. This package needs to be installed as:
 
 ```{r,eval=FALSE}
 install.packages("dplyr")
 install.packages("tidyr")
 ```
 
-and loaded 
+and loaded
 
 ```{r}
 library(dplyr)
 library(tidyr)
 ```
 
-
-In this session, we are going to work with  toy dataset included in R, the `mtcars` dataset 
+In this session, we are going to work with toy dataset included in R, the `mtcars` dataset
 
 # Data wrangling
 
-In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset.
-For your convenience, this dataset is stored on the data folder of the current session on Sharepoint.
+In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset. For your convenience, this dataset is stored on the data folder of the current session on Sharepoint.
 
 ```{r}
 # loading the mtcars dataset
@@ -70,9 +65,6 @@ dat0 = mtcars_data %>% filter(gear == 4)
 dat0
 ```
 
-
-
-
 ## Re-arranging rows with `arrange()`
 
 We can arrange rows of a data set with `arrange()`, for example by car make or mpg of gears:
@@ -85,15 +77,13 @@ dat1
 
 ## Selecting columns
 
-We can select a subset of columns with `select()` 
+We can select a subset of columns with `select()`
 
 ```{r}
 # creaintg a subset of the data containing only variables mpg and cyl
 dat2 = mtcars_data %>% select(mpg,cyl)
 dat2
 ```
-
-
 
 ## Creating a new variable with `mutate()`
 
@@ -104,7 +94,6 @@ We can create a new variable, for example the power to weight ratio, defined as 
 dat3 = mtcars_data %>% mutate(ratio = hp/wt)
 dat3
 ```
-
 
 ## Combining several operations with multiple pipes
 
@@ -117,7 +106,6 @@ dat5 =  mtcars_data %>%
   mutate(ratio = hp/wt) # new variable
 dat5
 ```
-
 
 # A first look at plotting
 
@@ -133,7 +121,7 @@ mtcars_data %>%  # what data?
   geom_point() # what type of representation?
 ```
 
-## Larger dots, with colours 
+## Larger dots, with colours
 
 A slightly nicer plot with `wt` as colour shades (`colour = wt`) and larger dots (`cex=2`)
 
@@ -158,28 +146,24 @@ mtcars_data %>%
 
 # Take-home messages and final remarks
 
-
-
-- There is always a (combination of) `dplyr` function(s) that can transform your data along your needs
-- The `ggplot` (so-called) grammar of graphics is complex but highly consistent.
-   + Learning a few basic rules will allow you to go a long way
-   + Soon we will see how to make our R programmer lives easier with built-in `co-pilot` support and LLM requests
-   + Please refrain using LLMs for the time being
+-   There is always a (combination of) `dplyr` function(s) that can transform your data along your needs
+-   The `ggplot` (so-called) grammar of graphics is complex but highly consistent.
+    -   Learning a few basic rules will allow you to go a long way
+    -   Soon we will see how to make our R programmer lives easier with built-in `co-pilot` support and LLM requests
+    -   Please refrain using LLMs for the time being
 
 # In-class exercise
 
-1. Load the data contained in the Excel file `iris.xlsx` in your R session. _(Hint: use function `read_excel()` of the R package `readxl` as in Session 1)._
-2. Rename variable `Species` into `Species.name`. _(Hint: use function `rename()`, generic syntax: `data %>% rename(new_name = old_name)`)_
-3. Create a new variable approximating the petal area as the product of petal length by petal width.
-4. Create a simple scatter plot of sepal width against sepal length
-5. Add species name as colors in the previous plot
-6. Add a title and better formatted axis labels
-
+1.  Load the data contained in the Excel file `iris.xlsx` in your R session. *(Hint: use function `read_excel()` of the R package `readxl` as in Session 1).*
+2.  Rename variable `Species` into `Species.name`. *(Hint: use function `rename()`, generic syntax: `data %>% rename(new_name = old_name)`)*
+3.  Create a new variable approximating the petal area as the product of petal length by petal width.
+4.  Create a simple scatter plot of sepal width against sepal length
+5.  Add species name as colors in the previous plot
+6.  Add a title and better formatted axis labels
 
 # Self-study exercise
 
 # External resource
 
-- [Introduction to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
-<!-- - [dplyr overview](https://dplyr.tidyverse.org/) -->
-- [dplyr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+-   [Introduction to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html) <!-- - [dplyr overview](https://dplyr.tidyverse.org/) -->
+-   [dplyr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
