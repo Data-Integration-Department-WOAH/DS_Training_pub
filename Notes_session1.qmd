@@ -4,12 +4,12 @@ subtitle: "Session 1"
 author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
 date: last-modified
 execute: 
-  eval: false
+  eval: true
   message: false
   warning: false
 format:
   html:
-    self-contained: true
+    # self-contained: true
     toc: true
     number-sections: true
 ---
@@ -68,7 +68,7 @@ format:
 
     -   Method 2 (command line)
 
-```{r}
+```{r,eval=FALSE}
 # line below to be updated
 setwd("C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data Science - Documents/Data Science Training 2025/Training_Session_1")
 ```
@@ -104,7 +104,7 @@ You can inspect the content of the dataset you just created by
 -   R commands:
 
 ```{r}
-library(magrittr) # load a library for modern R syntax writing 
+library(magrittr) # load a library for modern R syntax writing
 
 book_data # print the dataset in the console
 
@@ -251,9 +251,9 @@ Remark: Note the use of the object `NA` (not available).
 -   The R package `dataReporter` is not seen as a panacea for fixing all formatting and coding issues in an dataset. It is shown merely as an example.
 
 ```{r, eval=FALSE}
-library(dataReporter) 
+library(dataReporter)
 
-# checking the dataset 
+# checking the dataset
 PRRS %>% makeDataReport() # create an external pdf report
 ```
 

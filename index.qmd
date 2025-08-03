@@ -11,14 +11,14 @@ author: "Data Integration Department, WOAH"
 
 This is the syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.
 
-The present document will be continuously updated and used as the main entry point to share information and references throughout the program.
+The present document will be continuously updated and used as the main entry point to share information and references throughout the program. 
 
 ## Poking around Rstudio and loading data
 
 
 ## Common data structures, basic of R and dplyr syntax, first look at plotting figures
 
-## Data manipulation andpltting (cont')
+## Data manipulation and plotting (cont')
 
 
 ## Reporting with Quarto
