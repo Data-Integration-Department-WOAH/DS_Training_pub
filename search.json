@@ -2,14 +2,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "",
-    "text": "This is the syllabus for the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.\nThe present document will be continuously updated and used as the main entry point to share information and references throughout the program."
+    "text": "This document lists some of the topics that will be covered by the training program.\nWe will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.\nThe present document will be continuously updated and used as the main entry point to share information and references throughout the program."
   },
   {
     "objectID": "index.html#poking-around-rstudio-and-loading-data",
     "href": "index.html#poking-around-rstudio-and-loading-data",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Poking around Rstudio and loading data",
     "text": "Poking around Rstudio and loading data"
   },
@@ -37,28 +37,28 @@
   {
     "objectID": "index.html#reporting-with-quarto",
     "href": "index.html#reporting-with-quarto",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Reporting with Quarto",
     "text": "Reporting with Quarto"
   },
   {
     "objectID": "index.html#descrptive-statistics-and-data-exploration",
     "href": "index.html#descrptive-statistics-and-data-exploration",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Descrptive statistics and data exploration",
     "text": "Descrptive statistics and data exploration"
   },
   {
     "objectID": "index.html#from-description-to-prediction-fitting-statistical-models",
     "href": "index.html#from-description-to-prediction-fitting-statistical-models",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "From description to prediction: fitting statistical models",
     "text": "From description to prediction: fitting statistical models"
   },
   {
     "objectID": "index.html#leveraging-ai",
     "href": "index.html#leveraging-ai",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Leveraging AI",
     "text": "Leveraging AI"
   },
@@ -72,14 +72,14 @@
   {
     "objectID": "index.html#collaborating-with-git",
     "href": "index.html#collaborating-with-git",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Collaborating with git",
     "text": "Collaborating with git"
   },
   {
     "objectID": "index.html#references",
     "href": "index.html#references",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "References",
     "text": "References\n\nR for Data Science, 2nd edition, H. Wickham 2023"
   },
@@ -450,7 +450,7 @@
   {
     "objectID": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax-first-look-at-plotting-figures",
     "href": "index.html#common-data-structures-basic-of-r-and-dplyr-syntax-first-look-at-plotting-figures",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Common data structures, basic of R and dplyr syntax, first look at plotting figures",
     "text": "Common data structures, basic of R and dplyr syntax, first look at plotting figures"
   },
@@ -464,7 +464,7 @@
   {
     "objectID": "index.html#data-manipulation-and-plotting-cont",
     "href": "index.html#data-manipulation-and-plotting-cont",
-    "title": "Syllabus",
+    "title": "Introduction",
     "section": "Data manipulation and plotting (cont’)",
     "text": "Data manipulation and plotting (cont’)"
   }
