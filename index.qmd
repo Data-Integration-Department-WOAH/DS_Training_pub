@@ -1,6 +1,6 @@
 ---
-title: "Introduction"
-author: "Data Integration Department, WOAH"
+title: "Welcome the WOAH Data Science training program"
+# author: "Data Integration Department, WOAH"
 # date: last-modified
 # format:
 #   html:
@@ -9,34 +9,34 @@ author: "Data Integration Department, WOAH"
 #     number-sections: true
 ---
 
-* This document lists some of the topics that will be covered by the training program. 
-* We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.
-* The present document will be continuously updated and used as the main entry point to share information and references throughout the program. 
+This page will be used to share material during the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs. The present document will be continuously updated and used as the main entry point to share information and references throughout the program.
 
-## Poking around Rstudio and loading data 
+Here is a list of topic that will be covered by the training program:
 
+-   Poking around Rstudio and loading data
 
-## Common data structures, basic of R and dplyr syntax, first look at plotting figures
+-   Common data structures, basic of R and dplyr syntax, first look at plotting figures
 
-
-## Reporting with Quarto
+-   Reporting with Quarto
 
 <!-- -   Reference: [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) -->
 
-## Descrptive statistics and data exploration
+-   Descrptive statistics and data exploration
 
-## From description to prediction: fitting statistical models
+-   From description to prediction: fitting statistical models
 
-## Leveraging AI
+-   Leveraging AI
 
 <!-- -   Co-pilot support to Rstudio IDE -->
+
 <!-- -   Systematic use of a third-party LLMs to automate data analysis and reporting -->
+
 <!-- -   Running locally an LLM -->
 
-<!-- ## Packaging -->
+<!-- *  Packaging -->
 
-## Collaborating with git
+-   Collaborating with git
 
-## References
+**References:** [R for Data Science](https://r4ds.hadley.nz/), 2nd edition, H. Wickham 2023
 
--   [R for Data Science](https://r4ds.hadley.nz/), 2nd edition, H. Wickham 2023
+**Contact:** dataintegration.dept \@ woah.org or g.guillot @ woah.rog

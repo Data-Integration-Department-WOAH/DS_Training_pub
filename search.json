@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introduction",
+    "title": "Welcome the WOAH Data Science training program",
     "section": "",
-    "text": "This document lists some of the topics that will be covered by the training program.\nWe will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs.\nThe present document will be continuously updated and used as the main entry point to share information and references throughout the program."
+    "text": "This page will be used to share material during the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs. The present document will be continuously updated and used as the main entry point to share information and references throughout the program.\nHere is a list of topic that will be covered by the training program:\n\nPoking around Rstudio and loading data\nCommon data structures, basic of R and dplyr syntax, first look at plotting figures\nReporting with Quarto\n\n\n\nDescrptive statistics and data exploration\nFrom description to prediction: fitting statistical models\nLeveraging AI\n\n\n\n\n\n\nCollaborating with git\n\nReferences: R for Data Science, 2nd edition, H. Wickham 2023\nContact: dataintegration.dept @ woah.org or g.guillot @ woah.rog"
   },
   {
     "objectID": "index.html#poking-around-rstudio-and-loading-data",
