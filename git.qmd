@@ -11,15 +11,16 @@ format:
   html:
     # self-contained: true
     toc: true
-    number-sections: false
+    number-sections: true 
+    toc-depth: 3
 ---
 
 
 Most material in this document is borrowed from the freely accesible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by  Jennifer Bryan.
 
-# What are git and github
+# What are git and github?
 
-## Git 
+## Git   
 
 
 Git is a version control system.
@@ -74,8 +75,9 @@ You should be able to work with GitHub now.
 
 
 
-# Creating your first repository from  Rstudio
+# Creating your first repository
 
+## Creating a repository on github
 
 Go to [https://github.com](https://github.com) and make sure you are logged in.
 
@@ -118,7 +120,7 @@ Personally, I store this in a folder named `Clones_repos` at the root of my MS36
 
 You should find yourself in a new local RStudio Project that represents your test repo on GitHub. This should download the README.md file from GitHub. Look in RStudio’s file browser pane for the README.md file.
 
-## Alternative way with R commands
+## Alternative way to clone  to your local computer with R commands
 
 ```{r,eval=FALSE}
 install.packages("usethis") # unless it is already installed
