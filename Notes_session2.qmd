@@ -1,6 +1,6 @@
 ---
-title: "Lecture notes"
-subtitle: "Session 2"
+title: "Basic syntax and vocabulary for data wrangling and graphics"
+subtitle:  "Lecture notes"
 author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
 date: last-modified
 execute: 

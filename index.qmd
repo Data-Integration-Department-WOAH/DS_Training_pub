@@ -11,7 +11,7 @@ title: "Welcome the WOAH Data Science training program"
 
 This page will be used to share material during the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs. The present document will be continuously updated and used as the main entry point to share information and references throughout the program.
 
-Here is a list of topic that will be covered by the training program:
+Here is a list of topics that will be covered by the training program:
 
 -   Poking around Rstudio and loading data
 
@@ -21,7 +21,7 @@ Here is a list of topic that will be covered by the training program:
 
 <!-- -   Reference: [Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) -->
 
--   Descrptive statistics and data exploration
+-   Descriptive statistics and data exploration
 
 -   From description to prediction: fitting statistical models
 
@@ -39,4 +39,5 @@ Here is a list of topic that will be covered by the training program:
 
 **References:** [R for Data Science](https://r4ds.hadley.nz/), 2nd edition, H. Wickham 2023
 
-**Contact:** dataintegration.dept \@ woah.org or g.guillot @ woah.rog
+**Contact:** dataintegration.dept \@ woah.org or g.guillot \@ woah.rog
+

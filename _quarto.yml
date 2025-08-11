@@ -8,12 +8,12 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Session 1"
+      - text: "Rstudio"
         href: Notes_session1.qmd
-      - text: "Session 2"
+      - text: "Basic syntax"
         href: Notes_session2.qmd
-      # - text: "Assignments"
-      #   href: assignments.qmd
+      - text: "Git"
+        href: git.qmd
 
 format:
   html:
