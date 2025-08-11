@@ -1,5 +1,5 @@
 ---
-title: "Welcome the WOAH Data Science training program"
+title: "Welcome to the WOAH Data Science training program"
 # author: "Data Integration Department, WOAH"
 # date: last-modified
 # format:
