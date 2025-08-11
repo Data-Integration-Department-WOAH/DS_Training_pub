@@ -124,7 +124,7 @@ You should find yourself in a new local RStudio Project that represents your tes
 
 ```{r,eval=FALSE}
 install.packages("usethis") # unless it is already installed
-usethis::create_from_github(reop_spec="https://github.com/mynqme/myrepo.git",
+usethis::create_from_github(repo_spec="https://github.com/mynqme/myrepo.git",
                             destdir = "C:\Users\myname\OneDrive - World Organisation For Animal Health\Clones_repos")
 ```
 
