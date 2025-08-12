@@ -12,6 +12,8 @@ website:
         href: Notes_session1.qmd
       - text: "Basic syntax"
         href: Notes_session2.qmd
+      - text: "Quarto"
+        href: quarto.qmd
       - text: "Git"
         href: git.qmd
 

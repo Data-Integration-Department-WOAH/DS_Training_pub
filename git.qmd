@@ -40,6 +40,9 @@ Github is an internet hosting service for git. They provide a home for your Git-
 
 Go to [https://github.com](https://github.com) and create a personnal free account.
 
+## Installing the Github desktop
+
+Install [Github desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
 
 # Connecting Rstudio and github
 

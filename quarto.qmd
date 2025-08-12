@@ -1,0 +1,92 @@
+---
+title: "Communicating with Quarto" 
+#subtitle: "Lecture notes"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: true
+  message: false
+  warning: false
+format:
+  html:
+    # self-contained: true
+    toc: true
+    number-sections: true 
+    toc-depth: 3
+---
+
+
+
+# What is Quarto?
+
+## A data scientist's life before Quarto 
+
+Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:
+
+A. Data wrangling, data analysis, data modeling with **specialized DS tools** (e.g. SAS, Stata, matlab, python, R).
+
+**THEN...**
+
+B. Presentation and communication of the results (conference abstract, research article, website, blog) with **specialized  document authoring tools**.
+
+
+This workflow had several adverse consequences:
+
+- Copy–paste nightmares
+- Out-of-sync results
+- “Where did this number come from?”
+- Formatting whack-a-mole
+- Version chaos
+- Repetitive, manual updates for each audience
+- No automation
+
+## Quarto in a nutshell
+
+
+Quarto is a scientific and technical publishing system that lets you create documents, reports, presentations, and websites **from a single source file** that combines text, code, and outputs. 
+It supports multiple Data Science programming languages (R, Python, Julia, SQL) and can render to formats like html, pdf, Word, and slides.
+
+Quarto also  incidentally solves all the problems listed in the previous section.
+
+## Ten reasons to use Quarto
+
+
+- **Reproducible**, code-linked outputs
+
+- **Automated** & parameterized reporting
+
+
+- **Oecumenic**  (multi-language support including R, Python, Julia, SQL)
+
+- **Git-friendly** (versioning) plain text workflow
+
+- **Interactive** visualizations embedded directly
+
+- One source → many formats (html, pdf, Word, slides, websites)
+
+- Professional formatting with citations & math
+
+- Fully open source and extensible
+
+
+# First steps in Quarto
+
+## Installation
+
+
+- Quarto is  distributed as a standalone program
+
+- Quarto is also part of Rstudio and **does not require any extra installation step for WOAH staff who have Rstuio installed**
+
+## Your first Quarto documents
+
+### A first report
+
+Under Rstudio, in the scrolling menu
+
+`File  → New File  → Quarto Document  → Word `
+
+
+
+
+
