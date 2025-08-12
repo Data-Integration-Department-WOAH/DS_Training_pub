@@ -1,6 +1,6 @@
 ---
 title: "Collaborating with git" 
-subtitle: "Lecture notes"
+#subtitle: "Lecture notes"
 # author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
 date: last-modified
 execute: 
@@ -14,6 +14,8 @@ format:
     number-sections: true 
     toc-depth: 3
 ---
+
+The present page is a guide for working with git and github from Rstudio.
 
 
 Most material in this document is borrowed from the freely accesible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by  Jennifer Bryan.

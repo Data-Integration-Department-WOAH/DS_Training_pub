@@ -1,0 +1,20 @@
+---
+title: "Data Files"
+format: html
+---
+
+# Data Files
+
+Below is a list of available datasets in this folder:
+
+| File Name | Format |
+|-----------|--------|
+| [PRRS.xlsx](PRRS.xlsx) | Excel (.xlsx) |
+| [books.csv](books.csv) | CSV |
+| [cars_dataset.csv](cars_dataset.csv) | CSV |
+| [diamonds_data.csv](diamonds_data.csv) | CSV |
+| [iris.xlsx](iris.xlsx) | Excel (.xlsx) |
+| [mtcars.csv](mtcars.csv) | CSV |
+
+
+
