@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="motivation" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
-<p>After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc… The R package <code>dplyr</code> contains functions and a common set of rules (syntax/grammar) to do that. This package needs to be installed as:</p>
+<p>After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc… The R package <code>dplyr</code> contains functions and a common set of rules (syntax/grammar) to do that. These package needs to be installed as:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -226,11 +226,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this session, we are going to work with toy dataset included in R, the <code>mtcars</code> dataset</p>
+<p>In this session, we are going to work with a toy dataset included in R, the <code>mtcars</code> dataset</p>
 </section>
 <section id="data-wrangling" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Data wrangling</h1>
-<p>In this session, we are going to work with a toy dataset included in R, the <code>mtcars</code> dataset. For your convenience, this dataset is stored on the data folder of the current session on Sharepoint.</p>
+<p>In this session, we are going to work with a toy dataset included in R, the <code>mtcars</code> dataset. For your convenience, this dataset is stored on the data folder:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loading the mtcars dataset</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) <span class="co"># needed to call  read_csv()</span></span>
@@ -474,6 +474,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="self-study-exercise" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Self-study exercise</h1>
+<ul>
+<li>Select a simple dataset belonging to one of your current or past project (simple enough to consist of a single rectangular table).</li>
+<li>Load this dataset in R.</li>
+<li>Write instructions based on <code>filter, arrange, select, mutate</code> respectively.</li>
+<li>Create a simple and nice looking scatter plot.</li>
+</ul>
 </section>
 <section id="external-resource" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> External resource</h1>

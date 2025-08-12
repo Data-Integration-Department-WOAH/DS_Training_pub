@@ -16,7 +16,7 @@ format:
 
 # Motivation
 
-After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc... The R package `dplyr` contains functions and a common set of rules (syntax/grammar) to do that. This package needs to be installed as:
+After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc... The R package `dplyr` contains functions and a common set of rules (syntax/grammar) to do that. These package needs to be installed as:
 
 ```{r,eval=FALSE}
 install.packages("dplyr")
@@ -30,11 +30,11 @@ library(dplyr)
 library(tidyr)
 ```
 
-In this session, we are going to work with toy dataset included in R, the `mtcars` dataset
+In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset
 
 # Data wrangling
 
-In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset. For your convenience, this dataset is stored on the data folder of the current session on Sharepoint.
+In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset. For your convenience, this dataset is stored on the data folder:
 
 ```{r}
 # loading the mtcars dataset
@@ -162,6 +162,11 @@ mtcars_data %>%
 6.  Add a title and better formatted axis labels
 
 # Self-study exercise
+
+- Select a simple dataset belonging to one of your current or past project (simple enough to consist of a single rectangular table).
+- Load this dataset in R.
+- Write instructions based on `filter, arrange, select, mutate` respectively.
+- Create a simple and nice looking scatter plot.
 
 # External resource
 
