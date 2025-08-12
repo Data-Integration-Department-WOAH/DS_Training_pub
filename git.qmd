@@ -124,6 +124,8 @@ You should find yourself in a new local RStudio Project that represents your tes
 
 ## Alternative way to clone  to your local computer with R commands
 
+The sequence of clicking steps above can be implemented alternatively in a two lines of R code:
+
 ```{r,eval=FALSE}
 install.packages("usethis") # unless it is already installed
 usethis::create_from_github(repo_spec="https://github.com/mynqme/myrepo.git",
