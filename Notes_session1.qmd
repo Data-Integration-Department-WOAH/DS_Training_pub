@@ -92,7 +92,7 @@ NB: any character found after a \# is treated as a comment (disregarded by R). I
 
 # loading the package
 library(readr) # has to be done at start of each R session
-book_data <- read_csv("data/books.csv")
+book_data <- read_csv("https://data-integration-department-woah.github.io/DS_Training_pub/data/books.csv")
 ```
 
 ## Where are my data?
@@ -144,7 +144,17 @@ Try now to load the `PRRS.xlsx` dataset.
 library(tidyverse) # loading several useful packages
 library(readxl) # to load excel data into R
 
-PRRS = read_excel("./data/PRRS.xlsx")
+
+url <- "https://data-integration-department-woah.github.io/DS_Training_pub/data/PRRS.xlsx"
+
+# Create a temporary file
+tmp <- tempfile(fileext = ".xlsx")
+
+# Download from the URL
+download.file(url, destfile = tmp, mode = "wb")
+
+# Read from the temp file
+PRRS <- read_excel(tmp)
 ```
 
 -   Proprietary formats like .xlsx not preferred in Open Source world. Excel *de facto* standard in corporate world and well supported by Rstudio. Many other formats supported, e.g. .csv, .tsv, .rds, .rda, .json etc.

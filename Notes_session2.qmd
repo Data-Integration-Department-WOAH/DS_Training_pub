@@ -40,7 +40,7 @@ In this session, we are going to work with a toy dataset included in R, the `mtc
 # loading the mtcars dataset
 library(readr) # needed to call  read_csv()
 library(magrittr) # needed for the pipe operator %>% 
-mtcars_data = read_csv("data/mtcars.csv")
+mtcars_data = read_csv("https://data-integration-department-woah.github.io/DS_Training_pub/data/mtcars.csv")
 
 # checking
 mtcars_data %>% dim()
