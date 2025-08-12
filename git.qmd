@@ -18,7 +18,7 @@ format:
 The present page is a guide for working with git and github from Rstudio.
 
 
-Most material in this document is borrowed from the freely accesible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by  Jennifer Bryan.
+The material in this document is either adapted of simply borrowed from the freely accessible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by  Jennifer Bryan.
 
 # What are git and github?
 
@@ -50,7 +50,7 @@ This proves we are a specific GitHub user, who’s allowed to do whatever we’r
 
 * Go to [https://github.com/settings/tokens](https://github.com/settings/tokens) and click “Generate token”.
 
-* Select “repo”, “user”, and “workflow”.
+<!-- * Select “repo”, “user”, and “workflow”. -->
 
 * Copy the generated PAT to your clipboard. Or leave that browser window open and available for a little while, so you can come back to copy the PAT.
 
