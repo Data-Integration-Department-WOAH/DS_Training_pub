@@ -110,7 +110,9 @@ You should be able to work with GitHub now.
 
 # Creating your first repository
 
-## Creating a repository on github
+## Creating a repository on github (optional)
+
+This step is skipped if you start working on a project with an existing repo on github.
 
 Go to <https://github.com> and make sure you are logged in.
 
@@ -165,7 +167,7 @@ usethis::create_from_github(repo_spec="https://github.com/mynqme/myrepo.git",
                             destdir = "C:\Users\myname\OneDrive - World Organisation For Animal Health\Clones_repos")
 ```
 
-# References
+# References {.unnumbered}
 
 
-- [Happy Git and GitHub for the useR](https://happygitwithr.com),  Jennifer Bryan.   {.unnumbered}
+- [Happy Git and GitHub for the useR](https://happygitwithr.com),  Jennifer Bryan.   
