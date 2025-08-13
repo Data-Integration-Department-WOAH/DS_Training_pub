@@ -13,54 +13,57 @@ format:
     toc: true
     number-sections: true 
     toc-depth: 3
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
-The present page is a guide for working with git and github from Rstudio.
+The present page is a guide for working with git and github from Rstudio[^1]
 
+[^1]: Most of the material in this page is borrowed from the freely accessible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by Jennifer Bryan.
 
-The material in this document is either adapted of simply borrowed from the freely accessible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by  Jennifer Bryan.
+To work collaboratively with git under Rstudio, you will need to go through account set up, software installation and credential setting.
 
 # What are git and github?
 
-## Git   
+## Git
 
-
-Git is a version control system.
-Its original purpose was to help groups of developers work collaboratively on big software projects. 
+Git is a **version control system**.
+Its original purpose was to help groups of developers work **collaboratively** on big software projects.
 Git manages the evolution of a set of files – called a repository – in a sane, highly structured way.
 
-Git has been re-purposed by the data science community. In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code.
+**Git has been re-purposed by the data science community**.
+In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code.
 
 ## Github
 
-Github is an internet hosting service for git. They provide a home for your Git-based projects on the internet. 
-
+Github is an internet hosting service for git.
+They provide a home for your Git-based projects on the internet.
 
 ## Registering a github account
 
-Go to [https://github.com](https://github.com) and create a personnal free account.
+Go to <https://github.com> and create a personnal free account.
 
 ## Installing the Github desktop
 
-Install [Github desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
+Install [Github desktop](https://desktop.github.com/download/)
 
 # Connecting Rstudio and github
 
 ## Generating a Personal Acces Token (PAT)
 
-When we interact with  GitHub, we have to include credentials in the request. 
+When we interact with GitHub, we have to include credentials in the request.
 This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to do.
 
-* Go to [https://github.com/settings/tokens](https://github.com/settings/tokens) and click “Generate token”.
+-   Go to <https://github.com/settings/tokens> and click “Generate token”.
 
 <!-- * Select “repo”, “user”, and “workflow”. -->
 
-* Copy the generated PAT to your clipboard. Or leave that browser window open and available for a little while, so you can come back to copy the PAT.
+-   Copy the generated PAT to your clipboard. Or leave that browser window open and available for a little while, so you can come back to copy the PAT.
 
 ## Store the PAT in R
 
 In R, call gitcreds::gitcreds_set() to get a prompt where you can paste your PAT:
-
 
 ```{r,eval=FALSE}
 # install.packages(gitcreds)
@@ -78,56 +81,56 @@ Paste your PAT in response to the dialogue in the console:
 
 You should be able to work with GitHub now.
 
-
-
 # Creating your first repository
 
 ## Creating a repository on github
 
-Go to [https://github.com](https://github.com) and make sure you are logged in.
+Go to <https://github.com> and make sure you are logged in.
 
-Near “Repositories”, click the big green “New” button. 
+Near “Repositories”, click the big green “New” button.
 Or, if you are on your own profile page, click on “Repositories”, then click the big green “New” button.
 
 How to fill this in:
 
-- Repository template: **No template**
-- Repository name: **myrepo** or whatever you wish (we’ll delete this soon).
-- Description: “Repository for testing my Git/GitHub setup” or similar. It’s nice to have something here, so you’ll see it appear in the README.
-- **Private**
-- Initialize this repository with: **Add a README file**
+-   Repository template: **No template**
+-   Repository name: **myrepo** or whatever you wish (we’ll delete this soon).
+-   Description: “Repository for testing my Git/GitHub setup” or similar. It’s nice to have something here, so you’ll see it appear in the README.
+-   **Private**
+-   Initialize this repository with: **Add a README file**
 
 Click the big green button that says `Create repository`.
 
-Now click the big green button that says “<> Code”.
+Now click the big green button that says “\<\> Code”.
 
-Copy the https URL to your clipboard. 
-
+Copy the https URL to your clipboard.
 
 ## Clone the repo to your local computer
 
-- In Rstudio,  start a new Project, click on `File > New Project > Version Control > Git` 
+-   In Rstudio, start a new Project, click on `File > New Project > Version Control > Git`
 
-- In the `repository URL` paste the URL of your new GitHub repository. 
-It will be something like this https://github.com/myname/myrepo.git.
+-   In the `repository URL` paste the URL of your new GitHub repository.
+    It will be something like this https://github.com/myname/myrepo.git.
 
-- Accept the default project directory name, e.g. myrepo, which coincides with the GitHub repo name.
+-   Accept the default project directory name, e.g. myrepo, which coincides with the GitHub repo name.
 
-- Take charge of – or at least notice! – where the Project will be saved locally. 
-A common rookie mistake is to have no idea where you are saving files or what your working directory is. 
-Pay attention. Be intentional. 
-Personally, I store this in a folder named `Clones_repos` at the root of my MS365 Cloud folder, so generically: `C:\Users\myname\OneDrive - World Organisation For Animal Health\Clones_repos>`
+-   Take charge of – or at least notice!
+    – where the Project will be saved locally.
+    A common rookie mistake is to have no idea where you are saving files or what your working directory is.
+    Pay attention.
+    Be intentional.
+    Personally, I store this in a folder named `Clones_repos` at the root of my MS365 Cloud folder, so generically: `C:\Users\myname\OneDrive - World Organisation For Animal Health\Clones_repos>`
 
-- I suggest you check “Open in new session”, as that’s what you’ll usually do in real life.
+-   I suggest you check “Open in new session”, as that’s what you’ll usually do in real life.
 
+-   Click “Create Project”.
 
-- Click “Create Project”.
+You should find yourself in a new local RStudio Project that represents your test repo on GitHub.
+This should download the README.md file from GitHub.
+Look in RStudio’s file browser pane for the README.md file.
 
-You should find yourself in a new local RStudio Project that represents your test repo on GitHub. This should download the README.md file from GitHub. Look in RStudio’s file browser pane for the README.md file.
+## Alternative way to clone to your local computer with R commands
 
-## Alternative way to clone  to your local computer with R commands
-
-The sequence of clicking steps above can be implemented alternatively in a two lines of R code:
+The sequence of clicking steps described in the section above can be implemented alternatively in two lines of R code:
 
 ```{r,eval=FALSE}
 install.packages("usethis") # unless it is already installed
@@ -135,6 +138,7 @@ usethis::create_from_github(repo_spec="https://github.com/mynqme/myrepo.git",
                             destdir = "C:\Users\myname\OneDrive - World Organisation For Animal Health\Clones_repos")
 ```
 
+# References
 
 
-
+- [Happy Git and GitHub for the useR](https://happygitwithr.com),  Jennifer Bryan.

@@ -16,7 +16,7 @@ format:
 ---
 
 
-
+ 
 # What is Quarto?
 
 ## A data scientist's life before Quarto 
