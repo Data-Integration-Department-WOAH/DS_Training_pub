@@ -166,22 +166,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-github" id="toc-what-is-github" class="nav-link" data-scroll-target="#what-is-github">What is Github?</a></li>
   <li><a href="#basic-concepts-and-use-cases" id="toc-basic-concepts-and-use-cases" class="nav-link" data-scroll-target="#basic-concepts-and-use-cases">Basic concepts and use cases</a></li>
   </ul></li>
-  <li><a href="#registering-a-github-account" id="toc-registering-a-github-account" class="nav-link" data-scroll-target="#registering-a-github-account"><span class="header-section-number">1</span> Registering a github account</a>
+  <li><a href="#registering-a-github-account" id="toc-registering-a-github-account" class="nav-link" data-scroll-target="#registering-a-github-account"><span class="header-section-number">1</span> Registering a github account</a></li>
+  <li><a href="#installing-the-github-desktop" id="toc-installing-the-github-desktop" class="nav-link" data-scroll-target="#installing-the-github-desktop"><span class="header-section-number">2</span> Installing the Github desktop</a></li>
+  <li><a href="#connecting-rstudio-and-github" id="toc-connecting-rstudio-and-github" class="nav-link" data-scroll-target="#connecting-rstudio-and-github"><span class="header-section-number">3</span> Connecting Rstudio and github</a>
   <ul class="collapse">
-  <li><a href="#installing-the-github-desktop" id="toc-installing-the-github-desktop" class="nav-link" data-scroll-target="#installing-the-github-desktop"><span class="header-section-number">1.1</span> Installing the Github desktop</a></li>
+  <li><a href="#generating-a-personal-acces-token-pat" id="toc-generating-a-personal-acces-token-pat" class="nav-link" data-scroll-target="#generating-a-personal-acces-token-pat"><span class="header-section-number">3.1</span> Generating a Personal Acces Token (PAT)</a></li>
+  <li><a href="#store-the-pat-in-r" id="toc-store-the-pat-in-r" class="nav-link" data-scroll-target="#store-the-pat-in-r"><span class="header-section-number">3.2</span> Store the PAT in R</a></li>
   </ul></li>
-  <li><a href="#connecting-rstudio-and-github" id="toc-connecting-rstudio-and-github" class="nav-link" data-scroll-target="#connecting-rstudio-and-github"><span class="header-section-number">2</span> Connecting Rstudio and github</a>
+  <li><a href="#creating-your-first-repository" id="toc-creating-your-first-repository" class="nav-link" data-scroll-target="#creating-your-first-repository"><span class="header-section-number">4</span> Creating your first repository</a>
   <ul class="collapse">
-  <li><a href="#generating-a-personal-acces-token-pat" id="toc-generating-a-personal-acces-token-pat" class="nav-link" data-scroll-target="#generating-a-personal-acces-token-pat"><span class="header-section-number">2.1</span> Generating a Personal Acces Token (PAT)</a></li>
-  <li><a href="#store-the-pat-in-r" id="toc-store-the-pat-in-r" class="nav-link" data-scroll-target="#store-the-pat-in-r"><span class="header-section-number">2.2</span> Store the PAT in R</a></li>
+  <li><a href="#creating-a-repository-on-github" id="toc-creating-a-repository-on-github" class="nav-link" data-scroll-target="#creating-a-repository-on-github"><span class="header-section-number">4.1</span> Creating a repository on github</a></li>
+  <li><a href="#clone-the-repo-to-your-local-computer" id="toc-clone-the-repo-to-your-local-computer" class="nav-link" data-scroll-target="#clone-the-repo-to-your-local-computer"><span class="header-section-number">4.2</span> Clone the repo to your local computer</a></li>
+  <li><a href="#alternative-way-to-clone-to-your-local-computer-with-r-commands" id="toc-alternative-way-to-clone-to-your-local-computer-with-r-commands" class="nav-link" data-scroll-target="#alternative-way-to-clone-to-your-local-computer-with-r-commands"><span class="header-section-number">4.3</span> Alternative way to clone to your local computer with R commands</a></li>
   </ul></li>
-  <li><a href="#creating-your-first-repository" id="toc-creating-your-first-repository" class="nav-link" data-scroll-target="#creating-your-first-repository"><span class="header-section-number">3</span> Creating your first repository</a>
-  <ul class="collapse">
-  <li><a href="#creating-a-repository-on-github" id="toc-creating-a-repository-on-github" class="nav-link" data-scroll-target="#creating-a-repository-on-github"><span class="header-section-number">3.1</span> Creating a repository on github</a></li>
-  <li><a href="#clone-the-repo-to-your-local-computer" id="toc-clone-the-repo-to-your-local-computer" class="nav-link" data-scroll-target="#clone-the-repo-to-your-local-computer"><span class="header-section-number">3.2</span> Clone the repo to your local computer</a></li>
-  <li><a href="#alternative-way-to-clone-to-your-local-computer-with-r-commands" id="toc-alternative-way-to-clone-to-your-local-computer-with-r-commands" class="nav-link" data-scroll-target="#alternative-way-to-clone-to-your-local-computer-with-r-commands"><span class="header-section-number">3.3</span> Alternative way to clone to your local computer with R commands</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -242,15 +240,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="registering-a-github-account" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Registering a github account</h1>
 <p>Go to <a href="https://github.com" class="uri">https://github.com</a> and create a personnal free account.</p>
-<section id="installing-the-github-desktop" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="installing-the-github-desktop"><span class="header-section-number">1.1</span> Installing the Github desktop</h2>
+</section>
+<section id="installing-the-github-desktop" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Installing the Github desktop</h1>
 <p>Install <a href="https://desktop.github.com/download/">Github desktop</a></p>
 </section>
-</section>
-<section id="connecting-rstudio-and-github" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Connecting Rstudio and github</h1>
-<section id="generating-a-personal-acces-token-pat" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="generating-a-personal-acces-token-pat"><span class="header-section-number">2.1</span> Generating a Personal Acces Token (PAT)</h2>
+<section id="connecting-rstudio-and-github" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Connecting Rstudio and github</h1>
+<section id="generating-a-personal-acces-token-pat" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="generating-a-personal-acces-token-pat"><span class="header-section-number">3.1</span> Generating a Personal Acces Token (PAT)</h2>
 <p>When we interact with GitHub, we have to include credentials in the request. This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to do.</p>
 <ul>
 <li>Go to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click “Generate token”.</li>
@@ -260,8 +258,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Copy the generated PAT to your clipboard. Or leave that browser window open and available for a little while, so you can come back to copy the PAT.</li>
 </ul>
 </section>
-<section id="store-the-pat-in-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="store-the-pat-in-r"><span class="header-section-number">2.2</span> Store the PAT in R</h2>
+<section id="store-the-pat-in-r" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="store-the-pat-in-r"><span class="header-section-number">3.2</span> Store the PAT in R</h2>
 <p>In R, call gitcreds::gitcreds_set() to get a prompt where you can paste your PAT:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(gitcreds)</span></span>
@@ -277,10 +275,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You should be able to work with GitHub now.</p>
 </section>
 </section>
-<section id="creating-your-first-repository" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Creating your first repository</h1>
-<section id="creating-a-repository-on-github" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="creating-a-repository-on-github"><span class="header-section-number">3.1</span> Creating a repository on github</h2>
+<section id="creating-your-first-repository" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Creating your first repository</h1>
+<section id="creating-a-repository-on-github" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="creating-a-repository-on-github"><span class="header-section-number">4.1</span> Creating a repository on github</h2>
 <p>Go to <a href="https://github.com" class="uri">https://github.com</a> and make sure you are logged in.</p>
 <p>Near “Repositories”, click the big green “New” button. Or, if you are on your own profile page, click on “Repositories”, then click the big green “New” button.</p>
 <p>How to fill this in:</p>
@@ -295,8 +293,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now click the big green button that says “&lt;&gt; Code”.</p>
 <p>Copy the https URL to your clipboard.</p>
 </section>
-<section id="clone-the-repo-to-your-local-computer" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="clone-the-repo-to-your-local-computer"><span class="header-section-number">3.2</span> Clone the repo to your local computer</h2>
+<section id="clone-the-repo-to-your-local-computer" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="clone-the-repo-to-your-local-computer"><span class="header-section-number">4.2</span> Clone the repo to your local computer</h2>
 <ul>
 <li><p>In Rstudio, start a new Project, click on <code>File &gt; New Project &gt; Version Control &gt; Git</code></p></li>
 <li><p>In the <code>repository URL</code> paste the URL of your new GitHub repository. It will be something like this https://github.com/myname/myrepo.git.</p></li>
@@ -307,8 +305,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>You should find yourself in a new local RStudio Project that represents your test repo on GitHub. This should download the README.md file from GitHub. Look in RStudio’s file browser pane for the README.md file.</p>
 </section>
-<section id="alternative-way-to-clone-to-your-local-computer-with-r-commands" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="alternative-way-to-clone-to-your-local-computer-with-r-commands"><span class="header-section-number">3.3</span> Alternative way to clone to your local computer with R commands</h2>
+<section id="alternative-way-to-clone-to-your-local-computer-with-r-commands" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="alternative-way-to-clone-to-your-local-computer-with-r-commands"><span class="header-section-number">4.3</span> Alternative way to clone to your local computer with R commands</h2>
 <p>The sequence of clicking steps described in the section above can be implemented alternatively in two lines of R code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>) <span class="co"># unless it is already installed</span></span>
@@ -317,10 +315,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
 <ul>
-<li><a href="https://happygitwithr.com">Happy Git and GitHub for the useR</a>, Jennifer Bryan.</li>
+<li><a href="https://happygitwithr.com">Happy Git and GitHub for the useR</a>, Jennifer Bryan. {.unnumbered}</li>
 </ul>
 
 

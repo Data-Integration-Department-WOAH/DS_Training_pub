@@ -71,7 +71,7 @@ To work collaboratively with git under Rstudio, you will need to go through acco
 
 Go to <https://github.com> and create a personnal free account.
 
-## Installing the Github desktop
+# Installing the Github desktop
 
 Install [Github desktop](https://desktop.github.com/download/)
 
@@ -168,4 +168,4 @@ usethis::create_from_github(repo_spec="https://github.com/mynqme/myrepo.git",
 # References
 
 
-- [Happy Git and GitHub for the useR](https://happygitwithr.com),  Jennifer Bryan.
+- [Happy Git and GitHub for the useR](https://happygitwithr.com),  Jennifer Bryan.   {.unnumbered}
