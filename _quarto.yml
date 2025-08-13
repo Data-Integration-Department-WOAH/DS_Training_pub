@@ -16,6 +16,8 @@ website:
         href: quarto.qmd
       - text: "Git"
         href: git.qmd
+      - text: "AI"
+        href: AI.qmd
 
 format:
   html:

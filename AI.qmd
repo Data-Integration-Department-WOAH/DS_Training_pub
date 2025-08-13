@@ -1,0 +1,24 @@
+---
+title: "Leveraging AI" 
+#subtitle: "Lecture notes"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: true
+  message: false
+  warning: false
+format:
+  html:
+    # self-contained: true
+    toc: true
+    number-sections: true 
+    toc-depth: 3
+---
+
+
+
+# In-line code completion with copilot
+
+# Chatgpt support for R coding
+
+# Interogating LLMs through APIs
