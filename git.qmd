@@ -18,29 +18,56 @@ editor:
     wrap: sentence
 ---
 
-The present page is a guide for working with git and github from Rstudio[^1]
 
-[^1]: Most of the material in this page is borrowed from the freely accessible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by Jennifer Bryan.
+# Introduction  {.unnumbered}
 
-To work collaboratively with git under Rstudio, you will need to go through account set up, software installation and credential setting.
+The present page is a guide for working with git and github from Rstudio. 
+Most of the material in this page is borrowed from the freely accessible book [Happy Git and GitHub for the useR](https://happygitwithr.com) by Jennifer Bryan.
 
-# What are git and github?
 
-## Git
+## What is git? {.unnumbered}
+
+
 
 Git is a **version control system**.
 Its original purpose was to help groups of developers work **collaboratively** on big software projects.
-Git manages the evolution of a set of files – called a repository – in a sane, highly structured way.
+Git manages the evolution of a set of files,  called a repository,  in a sane, highly structured way.
 
 **Git has been re-purposed by the data science community**.
 In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code.
 
-## Github
+## What is Github? {.unnumbered}
 
 Github is an internet hosting service for git.
 They provide a home for your Git-based projects on the internet.
 
-## Registering a github account
+Git is the generic technology, github is a specific web service based on this technology (think of the pair  email/gmail).
+
+
+
+
+## Basic concepts and use cases  {.unnumbered}
+
+Git/github allow data scientsts to do things known as **clone**,  **commit**, **pull**, **push** or **branch**.
+In the context of the **collaborative production of a recurent data analytics report**, this means:
+
+
+
+* Clone: This is like making your own copy of the team’s report folder so you can work on it.
+
+* Commit: Think of it as saving your latest edits to the report on your own computer, with a note about what you changed.
+
+
+* Push: After finishing your edits, you send them back to the team so everyone else sees your updates.
+
+
+* Pull: Before you start working, you get the latest version of the report from the team to make sure you’re not missing anyone’s updates.
+
+* Branch: A branch is like working on a separate draft of the report so you can try changes without affecting the main version until it’s ready.
+
+To work collaboratively with git under Rstudio, you will need to go through account set up, software installation and credential setting. This is described in the next sections. 
+
+# Registering a github account
 
 Go to <https://github.com> and create a personnal free account.
 
