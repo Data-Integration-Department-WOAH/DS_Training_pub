@@ -17,8 +17,10 @@ format:
 
 
 
-# In-line code completion with copilot
+# Productivity tips for Rstudio 
 
-# Chatgpt support for R coding
+## In-line code completion with copilot
 
-# Interogating LLMs through APIs
+##  Chatgpt support for R coding
+
+# Programtic interactions with LLMs through APIs
