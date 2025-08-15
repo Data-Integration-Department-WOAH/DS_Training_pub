@@ -1,0 +1,175 @@
+---
+title: "Exploring the ChickWeight Dataset with dplyr and ggplot2"
+date: last-modified
+execute: 
+  eval: true
+  echo: false
+  message: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    toc: true
+    number-sections: false
+---
+
+## Introduction 
+
+ The `ChickWeight` dataset is a built-in R dataset containing data on the weight of chicks over time while on different diets.
+
+ This exercise demonstrates data manipulation using `dplyr` and visualization using `ggplot2`.
+ 
+ Each question of the assignment is described by a title and the ouptu of 'str()' or 'head()' for dataset that corresponds to a correct answer.
+
+
+
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```   
+
+
+
+
+## Load the ChickWeight dataset 
+
+The `ChickWeight` dataset is included in R by default, so you can load it directly without needing to install any additional packages or reading it from an external file.
+Simply type `data(ChickWeight)` to load the dataset into your R environment.
+
+
+```{r}
+data(ChickWeight)
+```   
+
+### Inspect the first few rows
+
+```{r}
+head(ChickWeight)
+```   
+
+### Check the data structure
+
+```{r}
+str(ChickWeight)
+```   
+
+### Get summary statistics
+
+```{r}
+summary(ChickWeight)
+```   
+
+
+## Data Manipulation with dplyr 
+
+### Filtering: Select only chicks on Diet 1
+```{r}
+diet1_data <- filter(ChickWeight, Diet == 1)
+head(diet1_data)
+```   
+
+
+### Selecting: Select specific columns
+```{r}
+selected_data <- select(ChickWeight, weight, Time, Diet)
+head(selected_data)
+```   
+
+
+### Arranging: Arrange by weight in descending order
+```{r}
+arranged_data <- arrange(ChickWeight, desc(weight))
+head(arranged_data)
+```   
+
+
+### Mutating: Create a new column weight_kg
+```{r}
+mutated_data <- mutate(ChickWeight, weight_kg = weight / 1000)
+head(mutated_data)
+```   
+
+
+### Summarizing & Grouping: Calculate mean weight for each Diet
+
+
+Here we will group the data by Diet and calculate the mean weight for each group.
+To group data by weight we use the `group_by()` function, and to summarize it we use the `summarize()` function.
+
+```{r}
+grouped_data <- ChickWeight %>%
+  group_by(Diet) %>%
+  summarize(mean_weight = mean(weight))
+print(grouped_data)
+```   
+
+
+### Piping: Combine multiple operations
+```{r}
+processed_data <- ChickWeight %>%
+  filter(Time > 10) %>%
+  mutate(weight_kg = weight / 1000) %>%
+  group_by(Diet) %>%
+  summarize(mean_weight_kg = mean(weight_kg))
+print(processed_data)
+```   
+
+
+## Data Visualization with ggplot2
+
+### Line Plot: weight vs. Time, colored by Diet
+```{r}
+ggplot(ChickWeight, aes(x = Time, y = weight, color = factor(Diet), group = Chick)) +
+  geom_line() +
+  labs(title = "Chick Weight Over Time by Diet",
+       x = "Time (days)",
+       y = "Weight (g)",
+       color = "Diet")
+```   
+
+
+### Box Plot: weight for each Diet at Time = 21
+```{r}
+ggplot(ChickWeight %>% filter(Time == 21), aes(x = factor(Diet), y = weight)) +
+  geom_boxplot() +
+  labs(title = "Chick Weight by Diet at Day 21",
+       x = "Diet",
+       y = "Weight (g)")
+```   
+
+
+### Scatter Plot: weight vs. Time, colored by Diet
+```{r}
+ggplot(ChickWeight, aes(x = Time, y = weight, color = factor(Diet))) +
+  geom_point() +
+  labs(title = "Scatter Plot of Chick Weight vs. Time by Diet",
+       x = "Time (days)",
+       y = "Weight (g)",
+       color = "Diet")
+```   
+
+
+## Combining dplyr and ggplot2
+
+### Calculate the average weight for each diet at each time point and then create a line plot.
+```{r}
+average_weight_over_time <- ChickWeight %>%
+  group_by(Diet, Time) %>%
+  summarize(mean_weight = mean(weight))
+
+ggplot(average_weight_over_time, aes(x = Time, y = mean_weight, color = factor(Diet))) +
+  geom_line() +
+  labs(title = "Average Chick Weight Over Time by Diet",
+       x = "Time (days)",
+       y = "Average Weight (g)",
+       color = "Diet") +
+  theme_minimal()
+```   
+
+
+### VI. Conclusion
+
+This notebook demonstrated the key functions of `dplyr` for data manipulation and `ggplot2` for data visualization
+using the ChickWeight dataset. These libraries provide powerful and flexible tools for data analysis in R.
+By combining these, you can efficiently process and explore your data.

@@ -9,7 +9,7 @@ execute:
   warning: false
 format:
   html:
-    # self-contained: true
+    self-contained: true
     toc: true
     number-sections: true 
     toc-depth: 3
@@ -21,6 +21,16 @@ format:
 
 ## In-line code completion with copilot
 
-##  Chatgpt support for R coding
+##  ChatGPT and other LLMs support for R coding
 
-# Programtic interactions with LLMs through APIs
+# Positron
+
+# Programatic \& structured interactions with LLMs 
+
+## APIs
+
+## Basic on interactions with LLMs
+
+## Prompts
+
+## Structured data

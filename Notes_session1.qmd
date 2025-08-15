@@ -332,6 +332,11 @@ Hints:
 
 -   External resource: [Basic Basics lesson unit from R-Ladies Sydney](https://rladiessydney.org/courses/ryouwithme/basicbasics)
 
+-   [Introduction to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html) <!-- - [dplyr overview](https://dplyr.tidyverse.org/) -->
+-   [dplyr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+
+
+
 # Presence and evaluation sheet
 
 Please take 1 min to fill the [presence and evaluation sheet](https://forms.office.com/Pages/ResponsePage.aspx?id=Y_X68W2wNUyHOTTMwoDcr65sY2lIPT9CrlVkSYnYNWZUM1E0MDNCN0Q5TktJRUFFNDdPUThDQVYxUC4u).

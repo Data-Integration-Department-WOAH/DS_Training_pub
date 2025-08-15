@@ -10,8 +10,10 @@ website:
         href: index.qmd
       - text: "Rstudio"
         href: Notes_session1.qmd
-      - text: "Basic syntax"
+      - text: "Syntax & Vocabulary I"
         href: Notes_session2.qmd
+      - text: "Syntax & Vocabulary II"
+        href: Notes_session3.qmd
       - text: "Quarto"
         href: quarto.qmd
       - text: "Git"

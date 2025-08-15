@@ -9,7 +9,7 @@ execute:
   warning: false
 format:
   html:
-    # self-contained: true
+    self-contained: true
     toc: true
     number-sections: true
 ---

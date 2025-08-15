@@ -9,7 +9,7 @@ execute:
   warning: false
 format:
   html:
-    # self-contained: true
+    self-contained: true
     toc: true
     number-sections: true 
     toc-depth: 3
@@ -23,11 +23,11 @@ format:
 
 Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:
 
-A. Data wrangling, data analysis, data modeling with **specialized DS tools** (e.g. SAS, Stata, matlab, python, R).
+**A.** Data wrangling, data analysis, data modeling with **specialized DS tools** (e.g. SAS, Stata, matlab, python, R).
 
 **THEN...**
 
-B. Presentation and communication of the results (conference abstract, research article, website, blog) with **specialized  document authoring tools**.
+**B.** Presentation and communication of the results (technical report, conference abstract, research article, website, blog) with **specialized  document authoring tools**.
 
 
 This workflow had several adverse consequences:

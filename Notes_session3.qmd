@@ -1,0 +1,217 @@
+---
+title: "Digging deeper into data wrangling and plotting"
+subtitle: "Lecture notes"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: true
+  message: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 3
+    number-sections: true
+---
+
+
+
+
+
+# Combining datasets into a single table
+
+* It’s rare that a data analysis involves only a single data frame. Typically you have many data frames, and you must join them together to answer the questions that you’re interested in.
+
+* To understand joins, you need to first understand how two tables can be connected through a pair of keys, within each table. 
+
+* Every join involves a pair of keys: a primary key and a foreign key. A primary key is a variable or set of variables that uniquely identifies each observation.
+
+* The functions `inner_join()`, `full_join()`, `left_join()`, and `right_join()` are used to combine two data frames based on a common key or set of keys.
+
+* Those functions are able to figue out alone which variable(s) to use as keys, but you can also specify the keys explicitly using the `by` argument.
+
+We'll illustrate this the `band_numbers` and `band_instruments` datasets, which contain information about band members and the instruments they play. 
+
+```{r}
+library(dplyr)
+
+band_members
+```
+
+```{r}
+band_instruments
+```
+
+Here it would be convenient to have a single table that contains all the information about each band member, including their name, instrument, and band. However, the information is currently split across two tables: one with the names and bands of the members, and another with the names and instruments of the members.
+
+
+## Inner join
+
+`inner_join()` returns all rows from both tables where there is a match between the keys.
+
+```{r}
+inner_join(band_members, band_instruments, by = join_by(name))
+```
+## Full join
+
+`full_join()` returns all rows from both tables, with `NA` in places where there is no match.
+
+```{r}
+full_join(band_members, band_instruments, by = join_by(name))
+```
+
+## Left join
+
+`left_join()` returns all rows from the first table, and the matching rows from the second table. If there is no match, `NA` is returned.
+
+```{r}
+left_join(band_members, band_instruments, by = join_by(name))
+```
+
+
+## Right join
+
+`right_join()` returns all rows from the second table, and the matching rows from the first table. If there is no match, `NA` is returned.
+
+```{r}
+right_join(band_members, band_instruments, by = join_by(name))
+```
+
+## Alternative syntax
+
+
+### Omitting `by`
+With `band_members` and `band_instruments`, there is a variable that uniquely identifies observations in each table: `name`.
+
+The arguemt `by` could have been omitted:
+
+```{r}
+inner_join(band_members, band_instruments)
+```
+
+### Piping 
+
+You can also use the pipe operator `%>%` to chain together multiple operations. This is particularly useful when you want to perform a series of transformations on a dataset before joining it with another dataset.
+
+```{r}
+band_members %>% mutate(band= toupper(band)) %>%
+  inner_join(band_instruments, by = join_by(name))
+```
+
+
+# Grouping and summarising data
+
+## Grouping
+
+* Grouping is a powerful feature of `dplyr` that allows you to perform operations on various sub-groups of your data. 
+
+* Summarising data is a common task in data analysis, and `dplyr` provides a simple and efficient way to do this.
+
+* In `dplyr`, the `group_by()` function allows you to group your data by one or more variables, and the `summarise()` function allows you to calculate summary statistics for each group.
+
+For example, if you have a dataset of flights operated by he various airlines, and you want to calculate the average delay for each airline, you can use the `group_by()` function to group the data by airline, and then use the `summarise()` function to calculate the average departure delay for each group.
+
+
+```{r}
+# A summary applied to ungrouped tbl returns a single row
+mtcars %>%
+  summarise(mean = mean(disp), n = n())
+```
+
+
+```{r}
+# Usually, you'll want to group first
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(mean = mean(disp), n = n())
+```
+
+
+```{r}
+library(nycflights13)
+flights %>% str  
+
+flights$carrier %>% unique %>% sort
+  
+flights %>%
+  group_by(carrier) %>%
+  summarise(avg_delay = mean(dep_delay, na.rm = TRUE))
+```
+
+# Plotting sub-groups in a dataset
+
+## Various boxplots
+
+
+
+```{r,message=FALSE, warning=FALSE}
+# a boxplot of dep_delay by carrier with jitter points
+library(ggplot2)
+flights %>% ggplot(aes(x = carrier, y = dep_delay , color= carrier)) +
+  geom_boxplot(outliers = FALSE) +
+  labs(title = "Departure Delay by Carrier",
+       x = "Carrier",
+       y = "Departure Delay (minutes)")
+```
+
+
+## Overlapping colors
+
+
+
+```{r}
+# scatter plot of departure delay against month of the year
+flights %>% ggplot(aes(x = month, y = dep_delay, color = carrier)) +
+  geom_jitter() +
+  labs(title = "Departure Delay by Month and Carrier",
+       x = "Month",
+       y = "Departure Delay (minutes)")
+```
+
+The plot above is unreadable because the points overlap too much. To make it more readable, we can summarise the information by computing the mean departure delay for each carrier and month, and then plot the average delays as a line plot.
+
+```{r}
+# first group_by() carier and month then compute mean with summarise
+flights %>%
+  group_by(carrier, month) %>%
+  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) %>%
+  ggplot(aes(x = month, y = avg_delay, color = carrier)) +
+  geom_line() +
+  labs(title = "Average Departure Delay by Month and Carrier",
+       x = "Month",
+       y = "Average Departure Delay (minutes)")
+```
+
+
+## Facetting
+
+Faceting is a powerful feature of `ggplot2` that allows you to create multiple plots based on the values of one or more variables in your dataset. This is particularly useful when you want to compare the variation of a variable across different sub-groups of your data.
+
+
+```{r}
+# first group_by() carier and month 
+# then compute mean with summarise
+# then plot the average delays as a line plot with facets by carrier
+flights %>%
+  group_by(carrier, month) %>%
+  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) %>%
+  ggplot(aes(x = month, y = avg_delay, color = carrier)) +
+  geom_line() + 
+  facet_wrap(~ carrier) +
+  labs(title = "Average Departure Delay by Month and Carrier",
+       x = "Month",
+       y = "Average Departure Delay (minutes)")
+```
+
+
+
+# Assignment
+
+[Analysis of chick weight data](ChickWeight.html)
+
+
+
+<!-- # Presence and feeback sheet -->
+
+<!-- Please take 1 min to fill the [presence and feedback sheet](https://forms.office.com/Pages/ResponsePage.aspx?id=Y_X68W2wNUyHOTTMwoDcr65sY2lIPT9CrlVkSYnYNWZUM1E0MDNCN0Q5TktJRUFFNDdPUThDQVYxUC4u). -->
