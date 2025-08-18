@@ -27,9 +27,11 @@ format:
 
 # Programatic \& structured interactions with LLMs 
 
-## APIs
+
 
 ## Basic on interactions with LLMs
+
+## APIs
 
 ## Prompts
 

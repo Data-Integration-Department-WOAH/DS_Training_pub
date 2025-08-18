@@ -167,6 +167,16 @@ usethis::create_from_github(repo_spec="https://github.com/mynqme/myrepo.git",
                             destdir = "C:\Users\myname\OneDrive - World Organisation For Animal Health\Clones_repos")
 ```
 
+# Final remarks regarding data storage and data privacy
+
+- If in doubt, always set the privacy option of your new repository to **private**.
+
+- If you are working with non-public data, **do not push** the data in the git repository.
+  Instead, keep the data in a secure location and use a script to load the data into R.
+ 
+- Even when working with public data, avoid creating a copy of the data  on your local computer or github.
+  Instead, create (and push to github) a copy of the script used to load the data into R.
+
 # References {.unnumbered}
 
 

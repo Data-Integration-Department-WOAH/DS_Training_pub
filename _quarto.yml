@@ -10,9 +10,9 @@ website:
         href: index.qmd
       - text: "Rstudio"
         href: Notes_session1.qmd
-      - text: "Syntax & Vocabulary I"
+      - text: "Data wrangling & plotting I"
         href: Notes_session2.qmd
-      - text: "Syntax & Vocabulary II"
+      - text: "Data wrangling & plotting II"
         href: Notes_session3.qmd
       - text: "Quarto"
         href: quarto.qmd
@@ -20,7 +20,6 @@ website:
         href: git.qmd
       - text: "AI"
         href: AI.qmd
-
 format:
   html:
     theme:

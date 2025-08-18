@@ -45,6 +45,16 @@ band_instruments
 
 Here it would be convenient to have a single table that contains all the information about each band member, including their name, instrument, and band. However, the information is currently split across two tables: one with the names and bands of the members, and another with the names and instruments of the members.
 
+## Full join
+
+`full_join()` returns all rows from both tables, with `NA` in places where there is no match.
+
+```{r}
+full_join(band_members, band_instruments, by = join_by(name))
+```
+
+Note the presence of `NA` for missing entries. `NA` stands for non available and is a special R object. 
+Conveniently 
 
 ## Inner join
 
@@ -52,13 +62,6 @@ Here it would be convenient to have a single table that contains all the informa
 
 ```{r}
 inner_join(band_members, band_instruments, by = join_by(name))
-```
-## Full join
-
-`full_join()` returns all rows from both tables, with `NA` in places where there is no match.
-
-```{r}
-full_join(band_members, band_instruments, by = join_by(name))
 ```
 
 ## Left join
@@ -95,28 +98,38 @@ inner_join(band_members, band_instruments)
 You can also use the pipe operator `%>%` to chain together multiple operations. This is particularly useful when you want to perform a series of transformations on a dataset before joining it with another dataset.
 
 ```{r}
-band_members %>% mutate(band= toupper(band)) %>%
+band_members %>% 
+  mutate(band= toupper(band)) %>%
   inner_join(band_instruments, by = join_by(name))
 ```
 
 
-# Grouping and summarising data
+# Grouping and summarising grouped data
 
-## Grouping
+Often, datasets consist of several sub-groups. In this case, it is informative to mirror the existence of those sub-groups in the various analyses and plots done. 
 
 * Grouping is a powerful feature of `dplyr` that allows you to perform operations on various sub-groups of your data. 
 
-* Summarising data is a common task in data analysis, and `dplyr` provides a simple and efficient way to do this.
+* Summarising data is a common task in data analysis, and `dplyr` provides a simple and efficient way to do this: `summarise()`.
 
 * In `dplyr`, the `group_by()` function allows you to group your data by one or more variables, and the `summarise()` function allows you to calculate summary statistics for each group.
 
 For example, if you have a dataset of flights operated by he various airlines, and you want to calculate the average delay for each airline, you can use the `group_by()` function to group the data by airline, and then use the `summarise()` function to calculate the average departure delay for each group.
 
 
+## Example on the mtcars dataset
+
+Remember that the `mtcars` data has the following structure:
+
 ```{r}
-# A summary applied to ungrouped tbl returns a single row
+mtcars
+```
+
+
+```{r}
+#  summarise() applied to ungrouped tbl returns a single row:
 mtcars %>%
-  summarise(mean = mean(disp), n = n())
+  summarise(mean = mean(disp), n = n()) # compute mean and sample size
 ```
 
 
@@ -127,6 +140,8 @@ mtcars %>%
   summarise(mean = mean(disp), n = n())
 ```
 
+
+## Example on the nycflights13 dataset
 
 ```{r}
 library(nycflights13)
@@ -140,6 +155,20 @@ flights %>%
 ```
 
 # Plotting sub-groups in a dataset
+
+
+Making a plot mirroring the presence of various sub-groups can be done by using group-specific colors and/or by splitting the plot in various sub-plots.
+These techniques are illustreated in  various examples below.
+
+We remind the generic syntax for plotting with `ggplot2`:
+
+```{r, eval=FALSE}
+my_data %>% ggplot( aes(...) ) + 
+  geom_xxx(...) + 
+  additional_option1(...) + 
+   additional_option2(...) 
+```
+
 
 ## Various boxplots
 
