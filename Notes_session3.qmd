@@ -240,10 +240,7 @@ flights %>%
 [Analysis of chick weight data](ChickWeight.html)
 
 
-
-<!-- # Presence and feeback sheet -->
-
-<!-- Please take 1 min to fill the [presence and feedback sheet](https://forms.office.com/Pages/ResponsePage.aspx?id=Y_X68W2wNUyHOTTMwoDcr65sY2lIPT9CrlVkSYnYNWZUM1E0MDNCN0Q5TktJRUFFNDdPUThDQVYxUC4u). -->
+[Solution to the assignment](ChickWeight_solutions.html)
 
 
 

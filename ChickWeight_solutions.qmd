@@ -3,7 +3,7 @@ title: "Exploring the ChickWeight Dataset with dplyr and ggplot2"
 date: last-modified
 execute: 
   eval: true
-  echo: false
+  echo: true
   message: false
   warning: false
 format:
@@ -12,14 +12,6 @@ format:
     toc: true
     number-sections: false
 ---
-
-## Introduction 
-
- The `ChickWeight` dataset is a built-in R dataset containing data on the weight of chicks over time while on different diets.
-
- This exercise demonstrates data manipulation using `dplyr` and visualization using `ggplot2`.
- 
- Each question of the assignment is described by a title and the output that corresponds to a correct answer.
 
 
 
@@ -168,9 +160,8 @@ ggplot(average_weight_over_time, aes(x = Time, y = mean_weight, color = factor(D
 ```   
 
 
+### VI. Conclusion
 
-## Solution
-
-
-[Solution to the assignment](ChickWeight_solutions.html)
-
+This notebook demonstrated the key functions of `dplyr` for data manipulation and `ggplot2` for data visualization
+using the ChickWeight dataset. These libraries provide powerful and flexible tools for data analysis in R.
+By combining these, you can efficiently process and explore your data.
