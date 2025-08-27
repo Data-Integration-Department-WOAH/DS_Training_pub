@@ -16,6 +16,8 @@ website:
         href: Notes_session3.qmd
       - text: "Quarto"
         href: quarto.qmd
+      - text: "Georeferenced data"
+        href: geo.qmd
       - text: "Git"
         href: git.qmd
       - text: "AI"

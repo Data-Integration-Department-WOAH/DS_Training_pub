@@ -1,0 +1,23 @@
+---
+title: "Geo-referenced data" 
+#subtitle: "Lecture notes"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: true
+  message: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    toc: true
+    number-sections: true 
+    toc-depth: 3
+---
+
+
+# The various types of spatial (geo-referenced) data
+
+# The IT side
+
+# Loading data

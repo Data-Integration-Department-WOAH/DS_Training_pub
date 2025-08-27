@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gilles Guillot, Data Integration Department, World Organisation for Animal Health">
-<meta name="dcterms.date" content="2025-08-18">
+<meta name="dcterms.date" content="2025-08-26">
 
-<title>Leveraging AI – WOAH - DATA SCIENCE TRAINING PROGRAM</title>
+<title>Georeferenced data – WOAH - DATA SCIENCE TRAINING PROGRAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -1771,7 +1771,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
 <span class="menu-text">Quarto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./geo.html"> 
+    <a class="nav-link active" href="./geo.html" aria-current="page"> 
 <span class="menu-text">Georeferenced data</span></a>
   </li>  
   <li class="nav-item">
@@ -1779,7 +1779,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
 <span class="menu-text">Git</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./AI.html" aria-current="page"> 
+    <a class="nav-link" href="./AI.html"> 
 <span class="menu-text">AI</span></a>
   </li>  
 </ul>
@@ -1798,19 +1798,9 @@ async function fuseSearch(query, fuse, fuseOptions) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#productivity-tips-for-rstudio" id="toc-productivity-tips-for-rstudio" class="nav-link active" data-scroll-target="#productivity-tips-for-rstudio"><span class="header-section-number">1</span> Productivity tips for Rstudio</a>
-  <ul class="collapse">
-  <li><a href="#in-line-code-completion-with-copilot" id="toc-in-line-code-completion-with-copilot" class="nav-link" data-scroll-target="#in-line-code-completion-with-copilot"><span class="header-section-number">1.1</span> In-line code completion with copilot</a></li>
-  <li><a href="#chatgpt-and-other-llms-support-for-r-coding" id="toc-chatgpt-and-other-llms-support-for-r-coding" class="nav-link" data-scroll-target="#chatgpt-and-other-llms-support-for-r-coding"><span class="header-section-number">1.2</span> ChatGPT and other LLMs support for R coding</a></li>
-  </ul></li>
-  <li><a href="#positron" id="toc-positron" class="nav-link" data-scroll-target="#positron"><span class="header-section-number">2</span> Positron</a></li>
-  <li><a href="#programatic-structured-interactions-with-llms" id="toc-programatic-structured-interactions-with-llms" class="nav-link" data-scroll-target="#programatic-structured-interactions-with-llms"><span class="header-section-number">3</span> Programatic &amp; structured interactions with LLMs</a>
-  <ul class="collapse">
-  <li><a href="#basic-on-interactions-with-llms" id="toc-basic-on-interactions-with-llms" class="nav-link" data-scroll-target="#basic-on-interactions-with-llms"><span class="header-section-number">3.1</span> Basic on interactions with LLMs</a></li>
-  <li><a href="#apis" id="toc-apis" class="nav-link" data-scroll-target="#apis"><span class="header-section-number">3.2</span> APIs</a></li>
-  <li><a href="#prompts" id="toc-prompts" class="nav-link" data-scroll-target="#prompts"><span class="header-section-number">3.3</span> Prompts</a></li>
-  <li><a href="#structured-data" id="toc-structured-data" class="nav-link" data-scroll-target="#structured-data"><span class="header-section-number">3.4</span> Structured data</a></li>
-  </ul></li>
+  <li><a href="#the-various-types-of-spatial-geo-referenced-data" id="toc-the-various-types-of-spatial-geo-referenced-data" class="nav-link active" data-scroll-target="#the-various-types-of-spatial-geo-referenced-data"><span class="header-section-number">1</span> The various types of spatial (geo-referenced) data</a></li>
+  <li><a href="#the-it-side" id="toc-the-it-side" class="nav-link" data-scroll-target="#the-it-side"><span class="header-section-number">2</span> The IT side</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">3</span> Loading data</a></li>
   </ul>
 </nav>
     </div>
@@ -1819,7 +1809,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Leveraging AI</h1>
+<h1 class="title">Georeferenced data</h1>
 </div>
 
 
@@ -1836,7 +1826,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 18, 2025</p>
+      <p class="date">August 26, 2025</p>
     </div>
   </div>
   
@@ -1848,34 +1838,16 @@ async function fuseSearch(query, fuse, fuseOptions) {
 </header>
 
 
-<section id="productivity-tips-for-rstudio" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Productivity tips for Rstudio</h1>
-<section id="in-line-code-completion-with-copilot" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="in-line-code-completion-with-copilot"><span class="header-section-number">1.1</span> In-line code completion with copilot</h2>
+<section id="the-various-types-of-spatial-geo-referenced-data" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> The various types of spatial (geo-referenced) data</h1>
 </section>
-<section id="chatgpt-and-other-llms-support-for-r-coding" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="chatgpt-and-other-llms-support-for-r-coding"><span class="header-section-number">1.2</span> ChatGPT and other LLMs support for R coding</h2>
+<section id="the-it-side" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The IT side</h1>
 </section>
-</section>
-<section id="positron" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Positron</h1>
-</section>
-<section id="programatic-structured-interactions-with-llms" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Programatic &amp; structured interactions with LLMs</h1>
-<section id="basic-on-interactions-with-llms" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="basic-on-interactions-with-llms"><span class="header-section-number">3.1</span> Basic on interactions with LLMs</h2>
-</section>
-<section id="apis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="apis"><span class="header-section-number">3.2</span> APIs</h2>
-</section>
-<section id="prompts" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="prompts"><span class="header-section-number">3.3</span> Prompts</h2>
-</section>
-<section id="structured-data" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="structured-data"><span class="header-section-number">3.4</span> Structured data</h2>
+<section id="loading-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Loading data</h1>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
