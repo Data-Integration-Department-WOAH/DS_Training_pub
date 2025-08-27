@@ -21,3 +21,5 @@ format:
 # The IT side
 
 # Loading data
+
+# Visualizing georeferenced data 
