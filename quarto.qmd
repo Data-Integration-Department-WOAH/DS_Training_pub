@@ -1,5 +1,5 @@
 ---
-title: "Communicating with Quarto" 
+title: "Communicating data-centric content with Quarto" 
 #subtitle: "Lecture notes"
 author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
 date: last-modified
@@ -15,11 +15,9 @@ format:
     toc-depth: 3
 ---
 
-
- 
 # What is Quarto?
 
-## A data scientist's life before Quarto 
+## A data scientist's life before Quarto
 
 Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:
 
@@ -27,66 +25,128 @@ Until relatively recently (circa 2012), a typical data science (DS) project was 
 
 **THEN...**
 
-**B.** Presentation and communication of the results (technical report, conference abstract, research article, website, blog) with **specialized  document authoring tools**.
-
+**B.** Presentation and communication of the results (technical report, conference abstract, research article, website, blog) with **specialized document authoring tools**.
 
 This workflow had several adverse consequences:
 
-- Copy–paste nightmares
-- Out-of-sync results
-- “Where did this number come from?”
-- Formatting whack-a-mole
-- Version chaos
-- Repetitive, manual updates for each audience
-- No automation
+-   Copy–paste nightmares
+-   Out-of-sync results
+-   “Where did this number come from?”
+-   Formatting whack-a-mole
+-   Version chaos
+-   Repetitive, manual updates for each audience
+-   No automation
 
 ## Quarto in a nutshell
 
+Quarto is a scientific and technical publishing system that lets you create documents, reports, presentations, and websites **from a single source file** that combines text, code, and outputs. It supports multiple Data Science programming languages (R, Python, Julia, SQL) and can render to formats like html, pdf, Word, and slides.
 
-Quarto is a scientific and technical publishing system that lets you create documents, reports, presentations, and websites **from a single source file** that combines text, code, and outputs. 
-It supports multiple Data Science programming languages (R, Python, Julia, SQL) and can render to formats like html, pdf, Word, and slides.
-
-Quarto also  incidentally solves all the problems listed in the previous section.
+Quarto also incidentally solves all the problems listed in the previous section.
 
 ## Ten reasons to use Quarto
 
+-   **Reproducible**, code-linked outputs
 
-- **Reproducible**, code-linked outputs
+-   **Automated** & parameterized reporting
 
-- **Automated** & parameterized reporting
+-   **Oecumenical** (multi-language support including R, Python, Julia, SQL)
 
+-   **Git-friendly** (versioning) plain text workflow
 
-- **Oecumenic**  (multi-language support including R, Python, Julia, SQL)
+-   **Interactive** visualizations embedded directly
 
-- **Git-friendly** (versioning) plain text workflow
+-   One source → many formats (html, pdf, Word, slides, websites)
 
-- **Interactive** visualizations embedded directly
+-   Professional formatting with citations & math
 
-- One source → many formats (html, pdf, Word, slides, websites)
-
-- Professional formatting with citations & math
-
-- Fully open source and extensible
-
+-   Fully open source and extensible
 
 # First steps in Quarto
 
 ## Installation
 
+-   Quarto is distributed as a standalone program
 
-- Quarto is  distributed as a standalone program
+-   A version of Quarto is also part of Rstudio and **does not require any extra installation step for WOAH staff who have Rstudio installed**
 
-- Quarto is also part of Rstudio and **does not require any extra installation step for WOAH staff who have Rstuio installed**
-
-## Your first Quarto documents
+## Your first Quarto report
 
 ### A first report
 
 Under Rstudio, in the scrolling menu
 
-`File  → New File  → Quarto Document  → Word `
+`File  → New File  → Quarto Document  → Word`
+
+This opens a file in the editor. This file can be viewed in its raw format `Source`, or in a more user-friendly format `Visual`. 
+We will switch back and forth between those two modes in the rest of this document.
+
+## Rendering
+
+Rendering a Quarto document means producing the final output (html, pdf, Word, slides, website) from the source file.
+Use the  Render button in the RStudio IDE to render the file and preview the output with a single click or keyboard shortcut (Ctrl+Shift+K).
+
+When rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file. The new file can be an HTML, PDF, MS Word document, presentation, website, book, interactive document, or other format.
+
+## YAML header
+
+An (optional) YAML header demarcated by three dashes (---) on either end.
+
+When rendered, the title, "Hello, Quarto", will appear at the top of the rendered document with a larger font size than the rest of the document. The other two YAML fields denote that the output should be in html format and the document should open in the visual editor by default.
+
+The basic syntax of YAML uses key-value pairs in the format key: value. Other YAML fields commonly found in headers of documents include metadata like author, subtitle, date as well as customization options like theme, fontcolor, fig-width, etc. 
+
+You can find out about all available YAML fields for HTML documents[here](https://quarto.org/docs/reference/formats/html.html). The available YAML fields vary based on document format, e.g., see [here](https://quarto.org/docs/reference/formats/pdf.html) for YAML fields for PDF documents and [here](https://quarto.org/docs/reference/formats/docx.html) for MS Word.
+
+
+## Code chunks
+
+
+Quarto documents can contain text and code. 
+Computer code is included in code chunks, which are blocks of code that are delimited by triple backticks (```) and a language identifier (e.g., {r} for R code, {python} for Python code), cf example below:
+
+
+```{r}
+#| eval: true
+library(ggplot2)
+library(dplyr)
+x = rnorm(1000)
+x = tibble(x=x)
+x %>% ggplot(aes(x=x)) + geom_histogram()
+```
+
+
+When the document is rendered, the code in the chunks is executed, and the output (if any) is included in the rendered document.
+
+
+##  Markdown text
+
+Text is formatted (including section headings, hyperlinks, etc) using markdown syntax.
 
 
 
+If using the source editor, you can achieve these with markdown expressions like ##, **bold**, etc.
+
+If using the visual editor, you won’t need to learn much markdown syntax for authoring your document, as you can use the menus and shortcuts to add a heading, bold text, insert a table, etc. 
+
+## Customization to WOAH style 
+
+WOAH has a custom Quarto theme that can be used to produce documents that comply with WOAH style.
+To use the WOAH theme, add the following file to the folder containing your .qmd file: [_brand.yml](./_brand.yml)
+
+# Presentations
+
+Quarto can also be used to create presentations.
+To create a presentation, in Rstudio, use the scrolling menu
+`File  → New File  → Quarto Presentation  → Reveal.js`
+This opens a file in the editor. This file can be viewed in its raw format `Source`, or in `Visual` as for reports.
 
 
+The presentation is structured in slides, which are separated by three dashes (---).
+The presentation can be navigated using the arrow keys or by clicking on the arrows at the bottom of the screen.
+The presentation can be customized using YAML fields in the header, e.g., to change the theme, add a logo, etc.
+
+
+
+# References {.unnumbered}
+
+[Tutorial: Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
