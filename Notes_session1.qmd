@@ -16,7 +16,7 @@ format:
 
 # Where to ask questions?
 
--   `Teams -> Data Science ->  Data Science Training 2025`
+-   `Teams -> Data Science Training ->  Chat Training Summer-Autumn 2025` 
 
 -   PM to `@g.guillot` via teams or email
 
