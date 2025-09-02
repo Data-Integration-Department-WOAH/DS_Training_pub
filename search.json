@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome the WOAH Data Science training program",
+    "title": "Welcome to the WOAH Data Science training program",
     "section": "",
-    "text": "This page will be used to share material during the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs. The present document will be continuously updated and used as the main entry point to share information and references throughout the program.\nHere is a list of topic that will be covered by the training program:\n\nPoking around Rstudio and loading data\nCommon data structures, basic of R and dplyr syntax, first look at plotting figures\nReporting with Quarto\n\n\n\nDescrptive statistics and data exploration\nFrom description to prediction: fitting statistical models\nLeveraging AI\n\n\n\n\n\n\nCollaborating with git\n\nReferences: R for Data Science, 2nd edition, H. Wickham 2023\nContact: dataintegration.dept @ woah.org or g.guillot @ woah.rog"
+    "text": "This page will be used to share material during the training program. We will work in agile mode and adjust continuously the pace and content of the training sessions based on your feedback and needs. The present document will be continuously updated and used as the main entry point to share information and references throughout the program.\nHere is a list of topics that will be covered by the training program:\n\nThe Rstudio and Positron environments\nLoading data\nCommon data structures, basic of R and dplyr syntax, first look at plotting figures\nReporting with Quarto\n\n\n\nDescriptive statistics and data exploration\nFrom description to prediction: fitting statistical models\nGeoreferenced data\nLeveraging AI\n\n\n\nCollaborating with git\n\nReferences: R for Data Science, 2nd edition, H. Wickham 2023\nContact: dataintegration.dept @ woah.org or g.guillot @ woah.rog"
   },
   {
     "objectID": "index.html#poking-around-rstudio-and-loading-data",
@@ -303,147 +303,147 @@
   {
     "objectID": "Notes_session1.html",
     "href": "Notes_session1.html",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "",
     "text": "Teams -&gt; Data Science -&gt;  Data Science Training 2025\nPM to @g.guillot via teams or email"
   },
   {
     "objectID": "Notes_session1.html#the-various-panes",
     "href": "Notes_session1.html#the-various-panes",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "2.1 The various panes",
     "text": "2.1 The various panes\n-   `Source`\n\n-   `Console`\n\n-   `Environment` etc...\n\n-   `Files`, `plots` etc..."
   },
   {
     "objectID": "Notes_session1.html#clicking-vs-scripting",
     "href": "Notes_session1.html#clicking-vs-scripting",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "2.2 Clicking vs Scripting",
     "text": "2.2 Clicking vs Scripting\n\nClicking is user-friendly but error prone, not scalable, not traceable, not reproducible\nScripting is reliable (less error prone), scalable, traceable, reproducible"
   },
   {
     "objectID": "Notes_session1.html#rstudio-as-a-pocket-calculator",
     "href": "Notes_session1.html#rstudio-as-a-pocket-calculator",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "2.3 Rstudio as a pocket calculator",
     "text": "2.3 Rstudio as a pocket calculator\n\n    2+2\n\n[1] 4\n\n    x=3\n    x\n\n[1] 3\n\n    y=4\n    y\n\n[1] 4\n\n    x+y\n\n[1] 7\n\n    x=1:10\n    x\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n    y=10:1\n    y\n\n [1] 10  9  8  7  6  5  4  3  2  1\n\n    x+y\n\n [1] 11 11 11 11 11 11 11 11 11 11\n\n    # checking my R objects\n    ls()  # even more information found in the 'Environment' pane\n\n[1] \"x\" \"y\"\n\n\n\nSetting the working directory\n\nMethod 1 (GUI): Session -&gt; Set Working Directory\nMethod 2 (command line)\n\n\n\n# line below to be updated\nsetwd(\"C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data Science - Documents/Data Science Training 2025/Training_Session_1\")\n\nNB: any character found after a # is treated as a comment (disregarded by R). It is strongly recommended to add brief informative comments to your code to help your next-door colleague or you future self ."
   },
   {
     "objectID": "Notes_session1.html#a-tiny-dataset-in-txt-format",
     "href": "Notes_session1.html#a-tiny-dataset-in-txt-format",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "3.1 A tiny dataset in txt format",
-    "text": "3.1 A tiny dataset in txt format\n\nTry to load the books.csv data using the GUI\nDo the same using R commands as below:\n\n\n# installing  a special library to read external data\n# install.packages('readr') # has to be done only once\n\n# loading the package\nlibrary(readr) # has to be done at start of each R session\nbook_data &lt;- read_csv(\"data/books.csv\")"
+    "text": "3.1 A tiny dataset in txt format\n\nTry to load the books.csv data using the GUI\nDo the same using R commands as below:\n\n\n# installing  a special library to read external data\n# install.packages('readr') # has to be done only once\n\n# loading the package\nlibrary(readr) # has to be done at start of each R session\nbook_data &lt;- read_csv(\"https://data-integration-department-woah.github.io/DS_Training_pub/data/books.csv\")"
   },
   {
     "objectID": "Notes_session1.html#where-are-my-data",
     "href": "Notes_session1.html#where-are-my-data",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "3.2 Where are my data?",
     "text": "3.2 Where are my data?\nYou can inspect the content of the dataset you just created by\n\nClicking on the object name in the `Environment` pane\nR commands:\n\n\nlibrary(magrittr) # load a library for modern R syntax writing\n\nbook_data # print the dataset in the console\n\n# A tibble: 5 × 3\n  Title                  Author         `Year of Publication`\n  &lt;chr&gt;                  &lt;chr&gt;                          &lt;dbl&gt;\n1 The Hobbit             J.R.R. Tolkien                  1937\n2 To Kill a Mockingbird  Harper Lee                      1960\n3 1984                   George Orwell                   1949\n4 Pride and Prejudice    Jane Austen                     1813\n5 The Catcher in the Rye J.D. Salinger                   1951\n\nbook_data %&gt;% str() # print info on  structure (more efficient in case of large dataset)\n\nspc_tbl_ [5 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ Title              : chr [1:5] \"The Hobbit\" \"To Kill a Mockingbird\" \"1984\" \"Pride and Prejudice\" ...\n $ Author             : chr [1:5] \"J.R.R. Tolkien\" \"Harper Lee\" \"George Orwell\" \"Jane Austen\" ...\n $ Year of Publication: num [1:5] 1937 1960 1949 1813 1951\n - attr(*, \"spec\")=\n  .. cols(\n  ..   Title = col_character(),\n  ..   Author = col_character(),\n  ..   `Year of Publication` = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt;"
   },
   {
     "objectID": "Notes_session1.html#miscellaneous-remarks",
     "href": "Notes_session1.html#miscellaneous-remarks",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "3.3 Miscellaneous remarks",
     "text": "3.3 Miscellaneous remarks\n\n3.3.1 Piping\n\nIn older R code book_data %&gt;% str() used to be written str(book_data). More generally data %&gt;% function() used to be written as function(data). The latter is still widely found.\nThe three characters %&gt;% (pronounced ‘pipe’) can be obtained with the keyboard shortcut Ctrl + Shift + M\nIn this training, we will strive to use the modern syntax data %&gt;% function() or more generally data %&gt;% function(opt_arg = my_option)\n\n\n\n3.3.2 Code formatting\n\nNaming conventions:\n\nObject names should start with a letter (numbers and most special characters are forbidden)\nCompound names are welcome\n\nsnake style (preferred): my_data\ncamel style: MyData\n\nExecuting lines, blocks,full scripts\n\nNo rule on code formatting (space, indentation, line end)"
   },
   {
     "objectID": "Notes_session1.html#a-larger-dataset-in-excel-format",
     "href": "Notes_session1.html#a-larger-dataset-in-excel-format",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "3.4 A larger dataset, in excel format",
-    "text": "3.4 A larger dataset, in excel format\nTry now to load the PRRS.xlsx dataset.\n\nlibrary(tidyverse) # loading several useful packages\nlibrary(readxl) # to load excel data into R\n\nPRRS = read_excel(\"./data/PRRS.xlsx\")\n\n\nProprietary formats like .xlsx not preferred in Open Source world. Excel de facto standard in corporate world and well supported by Rstudio. Many other formats supported, e.g. .csv, .tsv, .rds, .rda, .json etc.\nWhere are my data ?!?\n\nIn Excel: a lot of screen space for data values, not much for scripting\nIn Rstudio:\n\nRecognition that editing a data file is error prone, not scalable, not traceable, not reproducible\nFocus on scripting, not on data values\nType `ls()` in the console to get a list of your data\n\n\nThe environment pane"
+    "text": "3.4 A larger dataset, in excel format\nTry now to load the PRRS.xlsx dataset.\n\nlibrary(tidyverse) # loading several useful packages\nlibrary(readxl) # to load excel data into R\n\n\nurl &lt;- \"https://data-integration-department-woah.github.io/DS_Training_pub/data/PRRS.xlsx\"\n\n# Create a temporary file\ntmp &lt;- tempfile(fileext = \".xlsx\")\n\n# Download from the URL\ndownload.file(url, destfile = tmp, mode = \"wb\")\n\n# Read from the temp file\nPRRS &lt;- read_excel(tmp)\n\n\nProprietary formats like .xlsx not preferred in Open Source world. Excel de facto standard in corporate world and well supported by Rstudio. Many other formats supported, e.g. .csv, .tsv, .rds, .rda, .json etc.\nWhere are my data ?!?\n\nIn Excel: a lot of screen space for data values, not much for scripting\nIn Rstudio:\n\nRecognition that editing a data file is error prone, not scalable, not traceable, not reproducible\nFocus on scripting, not on data values\nType `ls()` in the console to get a list of your data\n\n\nThe environment pane"
   },
   {
     "objectID": "Notes_session1.html#exploring-the-structure-of-the-prrs-dataset",
     "href": "Notes_session1.html#exploring-the-structure-of-the-prrs-dataset",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "3.5 Exploring the structure of the PRRS dataset",
     "text": "3.5 Exploring the structure of the PRRS dataset\n\nMethod 1 GUI: inspect information in the Environment pane (limited)\nMethod 2: asking questions about the dataset via a script\n\n\n# How many rows and columns?\nPRRS %&gt;% dim()\n\n[1] 1353    8\n\n# number of columns\nPRRS %&gt;% ncol()\n\n[1] 8\n\n# number of rows (note the naming consistency!)\nPRRS %&gt;% nrow()\n\n[1] 1353\n\n# variable names\nPRRS %&gt;% colnames()\n\n[1] \"Result\"       \"Sex\"          \"Age\"          \"OtherSpecies\" \"id\"          \n[6] \"name\"         \"farm_type\"    \"County\"      \n\n# name and class (character, numeric) of variables?\nPRRS %&gt;% str()\n\ntibble [1,353 × 8] (S3: tbl_df/tbl/data.frame)\n $ Result      : chr [1:1353] \"No\" \"No\" \"No\" \"Yes\" ...\n $ Sex         : chr [1:1353] \"H\" \"H\" \"H\" \"H\" ...\n $ Age         : num [1:1353] 18 60 60 36 50 16 15 22 30 14 ...\n $ OtherSpecies: num [1:1353] 0 0 0 0 0 0 0 0 0 0 ...\n $ id          : num [1:1353] 23 23 23 23 23 23 23 23 23 23 ...\n $ name        : chr [1:1353] \"Armstrong Research Farm\" \"Armstrong Research Farm\" \"Armstrong Research Farm\" \"Armstrong Research Farm\" ...\n $ farm_type   : chr [1:1353] \"sow farm\" \"sow farm\" \"sow farm\" \"sow farm\" ...\n $ County      : chr [1:1353] \"Pottawattamie\" \"Pottawattamie\" \"Pottawattamie\" \"Pottawattamie\" ...\n\n# quick statistical summary of all variables\nPRRS %&gt;% summary()\n\n    Result              Sex                 Age          OtherSpecies  \n Length:1353        Length:1353        Min.   :  6.00   Min.   :0.000  \n Class :character   Class :character   1st Qu.: 14.00   1st Qu.:0.000  \n Mode  :character   Mode  :character   Median : 24.00   Median :0.000  \n                                       Mean   : 31.27   Mean   :0.187  \n                                       3rd Qu.: 46.00   3rd Qu.:0.000  \n                                       Max.   :180.00   Max.   :1.000  \n       id            name            farm_type            County         \n Min.   : 1.00   Length:1353        Length:1353        Length:1353       \n 1st Qu.: 6.00   Class :character   Class :character   Class :character  \n Median :13.00   Mode  :character   Mode  :character   Mode  :character  \n Mean   :15.31                                                           \n 3rd Qu.:24.00                                                           \n Max.   :40.00"
   },
   {
     "objectID": "Notes_session1.html#rectangular-tables",
     "href": "Notes_session1.html#rectangular-tables",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "4.1 Rectangular tables",
     "text": "4.1 Rectangular tables\n\nIn Excel, data are organised in sheets and there is also almost no constraint on what a sheet can contain and how material is organised in a sheet\nIn R, there are constraints\nA rectangular table in R is most commonly stored as a data.frame (old style) or a tibble (preferred)\n\ncan mix numeric and character variables (columns)"
   },
   {
     "objectID": "Notes_session1.html#handling-loosely-structured-data",
     "href": "Notes_session1.html#handling-loosely-structured-data",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "4.2 Handling loosely structured data",
     "text": "4.2 Handling loosely structured data\nWhen a dataset can not fit in a rectangular table, a good option is often to store it as a list (or list of lists).\nLet’s consider the simple dataset below. This could be stored as rectangular table with 4 rows and 3 columns.\n\n# NB: this mock dataset was generated by chatGPT (#genderstereotypes)\npeople &lt;- list(\n  name = c(\"Fred\", \"John\", \"Paul\", \"Henry\"),\n  wife = c(\"Mary\", \"Linda\", \"Susan\", \"Kate\"),\n  no.children = c(3, 2, 4, 1)\n)\n#\npeople\n\n$name\n[1] \"Fred\"  \"John\"  \"Paul\"  \"Henry\"\n\n$wife\n[1] \"Mary\"  \"Linda\" \"Susan\" \"Kate\" \n\n$no.children\n[1] 3 2 4 1\n\n\nNow consider a slightly more complex example with new variables child.age, phone and address. The number of entries of child.age varies depending on the number of children.\nWith a list, this is not an issue:\n\npeople &lt;- list(\n  name = c(\"Fred\", \"John\", \"Paul\", \"Henry\"),\n  wife = c(\"Mary\", \"Linda\", \"Susan\", \"Kate\"),\n  no.children = c(3, 2, 4, 0),\n  child.age = list(\n    c(4, 7, 9),      # Fred's kids\n    c(5, 6),         # John's kids\n    c(2, 4, 6, 8),   # Paul's kids\n    c(NA)             # Not Available\n  ),\n  phone = list(\n    mobile = c(\"555-1111\", \"555-2222\", \"555-3333\", \"555-4444\"),\n    landline = c(\"555-1010\", \"555-2020\", \"555-3030\", \"555-4040\")\n  ),\n  address = list(\n    street = c(\"123 Main St\", \"456 Elm St\", \"789 Oak St\", \"101 Maple St\"),\n    city = c(\"Springfield\", \"Rivertown\", \"Lakeside\", \"Hillside\"),\n    state = c(\"IL\", \"TX\", \"CA\", \"NY\"),\n    zip = c(\"62704\", \"73301\", \"90210\", \"10001\")\n  )\n)\n#\npeople$child.age\n\n[[1]]\n[1] 4 7 9\n\n[[2]]\n[1] 5 6\n\n[[3]]\n[1] 2 4 6 8\n\n[[4]]\n[1] NA\n\n#\npeople$phone\n\n$mobile\n[1] \"555-1111\" \"555-2222\" \"555-3333\" \"555-4444\"\n\n$landline\n[1] \"555-1010\" \"555-2020\" \"555-3030\" \"555-4040\"\n\n\nRemark: Note the use of the object NA (not available).\n\nused whenever a single value is missing\nunderstand algebra: try typing NA+3, 2/NA, 5*NA"
   },
   {
     "objectID": "Notes_session1.html#take-home-messages",
     "href": "Notes_session1.html#take-home-messages",
-    "title": "Lecture notes",
+    "title": "Intro to Rstudio",
     "section": "6.1 Take-home messages",
     "text": "6.1 Take-home messages\n\nR users write scripts\nCommon packages to load external data include readr and readxl\n\nhave to be installed (one off) with install.packages(\"\") before use,\nloaded with library(\"\"), within each R session\n\nCommon package functions to load external data include readr::read_csv and readxl::read_excel\nInfo on R objects in current session:\n\nin Environment pane\nls(), data %&gt;% ncol, data %&gt;% dim(), data %&gt;% str()\n\nAI\n\nBefore you know it, LLMs such as co-pilot, chatGPT and Gemini will become your best friend to help you scripting in R.\nFeel free to ask LLMs general questions on any R related topic, a good place to start is chatGPT R and Rstudio tutor\nIn the first weeks of this training , please refrain asking an LLM to write R scripts for you, or you will never learn anything."
   },
   {
     "objectID": "Notes_session2.html",
     "href": "Notes_session2.html",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "",
-    "text": "After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc… The R package dplyr contains functions and a common set of rules (syntax/grammar) to do that. This package needs to be installed as:\n\ninstall.packages(\"dplyr\")\ninstall.packages(\"tidyr\")\n\nand loaded\n\nlibrary(dplyr)\nlibrary(tidyr)\n\nIn this session, we are going to work with toy dataset included in R, the mtcars dataset"
+    "text": "After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc… The R package dplyr contains functions and a common set of rules (syntax/grammar) to do that. These package needs to be installed as:\n\ninstall.packages(\"dplyr\")\ninstall.packages(\"tidyr\")\n\nand loaded\n\nlibrary(dplyr)\nlibrary(tidyr)\n\nIn this session, we are going to work with a toy dataset included in R, the mtcars dataset"
   },
   {
     "objectID": "Notes_session2.html#filtering",
     "href": "Notes_session2.html#filtering",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "2.1 Filtering",
     "text": "2.1 Filtering\nWe can retain rows of a dataset matching a condition with filter()\n\n#  creating a subset of the data with only cars having 4  gears\ndat0 = mtcars_data %&gt;% filter(gear == 4) \n\ndat0\n\n# A tibble: 12 × 12\n   make          mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Mazda RX4    21       6 160     110  3.9   2.62  16.5     0     1     4     4\n 2 Mazda RX4 …  21       6 160     110  3.9   2.88  17.0     0     1     4     4\n 3 Datsun 710   22.8     4 108      93  3.85  2.32  18.6     1     1     4     1\n 4 Merc 240D    24.4     4 147.     62  3.69  3.19  20       1     0     4     2\n 5 Merc 230     22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2\n 6 Merc 280     19.2     6 168.    123  3.92  3.44  18.3     1     0     4     4\n 7 Merc 280C    17.8     6 168.    123  3.92  3.44  18.9     1     0     4     4\n 8 Fiat 128     32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1\n 9 Honda Civic  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2\n10 Toyota Cor…  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1\n11 Fiat X1-9    27.3     4  79      66  4.08  1.94  18.9     1     1     4     1\n12 Volvo 142E   21.4     4 121     109  4.11  2.78  18.6     1     1     4     2"
   },
   {
     "objectID": "Notes_session2.html#re-arranging-rows-with-arrange",
     "href": "Notes_session2.html#re-arranging-rows-with-arrange",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "2.2 Re-arranging rows with arrange()",
     "text": "2.2 Re-arranging rows with arrange()\nWe can arrange rows of a data set with arrange(), for example by car make or mpg of gears:\n\n# creating a dataset with same variables but rows sorted by mpg\ndat1 = mtcars_data %&gt;% arrange(mpg)\ndat1\n\n# A tibble: 32 × 12\n   make          mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Cadillac F…  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4\n 2 Lincoln Co…  10.4     8  460    215  3     5.42  17.8     0     0     3     4\n 3 Camaro Z28   13.3     8  350    245  3.73  3.84  15.4     0     0     3     4\n 4 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4\n 5 Chrysler I…  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4\n 6 Maserati B…  15       8  301    335  3.54  3.57  14.6     0     1     5     8\n 7 Merc 450SLC  15.2     8  276.   180  3.07  3.78  18       0     0     3     3\n 8 AMC Javelin  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2\n 9 Dodge Chal…  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2\n10 Ford Pante…  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4\n# ℹ 22 more rows"
   },
   {
     "objectID": "Notes_session2.html#selecting-columns",
     "href": "Notes_session2.html#selecting-columns",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "2.3 Selecting columns",
     "text": "2.3 Selecting columns\nWe can select a subset of columns with select()\n\n# creaintg a subset of the data containing only variables mpg and cyl\ndat2 = mtcars_data %&gt;% select(mpg,cyl)\ndat2\n\n# A tibble: 32 × 2\n     mpg   cyl\n   &lt;dbl&gt; &lt;dbl&gt;\n 1  21       6\n 2  21       6\n 3  22.8     4\n 4  21.4     6\n 5  18.7     8\n 6  18.1     6\n 7  14.3     8\n 8  24.4     4\n 9  22.8     4\n10  19.2     6\n# ℹ 22 more rows"
   },
   {
     "objectID": "Notes_session2.html#creating-a-new-variable-with-mutate",
     "href": "Notes_session2.html#creating-a-new-variable-with-mutate",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "2.4 Creating a new variable with mutate()",
     "text": "2.4 Creating a new variable with mutate()\nWe can create a new variable, for example the power to weight ratio, defined as hp/wt with mutate() as:\n\n# creating a new dataset with new variable  ratio, defined as hp/wt\ndat3 = mtcars_data %&gt;% mutate(ratio = hp/wt)\ndat3\n\n# A tibble: 32 × 13\n   make    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb ratio\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Mazd…  21       6  160    110  3.9   2.62  16.5     0     1     4     4  42.0\n 2 Mazd…  21       6  160    110  3.9   2.88  17.0     0     1     4     4  38.3\n 3 Dats…  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1  40.1\n 4 Horn…  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1  34.2\n 5 Horn…  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2  50.9\n 6 Vali…  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1  30.3\n 7 Dust…  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4  68.6\n 8 Merc…  24.4     4  147.    62  3.69  3.19  20       1     0     4     2  19.4\n 9 Merc…  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2  30.2\n10 Merc…  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4  35.8\n# ℹ 22 more rows"
   },
   {
     "objectID": "Notes_session2.html#combining-several-operations-with-multiple-pipes",
     "href": "Notes_session2.html#combining-several-operations-with-multiple-pipes",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "2.5 Combining several operations with multiple pipes",
     "text": "2.5 Combining several operations with multiple pipes\nMultiple data wrangling operations can be combined into a single, longer R expression as\n\ndat5 =  mtcars_data %&gt;% \n  filter(gear == 4) %&gt;%  # only 4-gear cars\n  arrange(mpg) %&gt;%  # arranging by mpg\n  mutate(ratio = hp/wt) # new variable\ndat5\n\n# A tibble: 12 × 13\n   make    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb ratio\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Merc…  17.8     6 168.    123  3.92  3.44  18.9     1     0     4     4  35.8\n 2 Merc…  19.2     6 168.    123  3.92  3.44  18.3     1     0     4     4  35.8\n 3 Mazd…  21       6 160     110  3.9   2.62  16.5     0     1     4     4  42.0\n 4 Mazd…  21       6 160     110  3.9   2.88  17.0     0     1     4     4  38.3\n 5 Volv…  21.4     4 121     109  4.11  2.78  18.6     1     1     4     2  39.2\n 6 Dats…  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1  40.1\n 7 Merc…  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2  30.2\n 8 Merc…  24.4     4 147.     62  3.69  3.19  20       1     0     4     2  19.4\n 9 Fiat…  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1  34.1\n10 Hond…  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2  32.2\n11 Fiat…  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1  30  \n12 Toyo…  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1  35.4"
   },
   {
     "objectID": "Notes_session2.html#basic-ggplot-syntax",
     "href": "Notes_session2.html#basic-ggplot-syntax",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "3.1 Basic ggplot syntax",
     "text": "3.1 Basic ggplot syntax\nA scatter plot of mpg against hp:\n\nlibrary(ggplot2)\n\nmtcars_data %&gt;%  # what data?\n  ggplot( aes(x = hp, y = mpg) ) + # what variables on the axes?\n  geom_point() # what type of representation?"
   },
   {
     "objectID": "Notes_session2.html#larger-dots-with-colours",
     "href": "Notes_session2.html#larger-dots-with-colours",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "3.2 Larger dots, with colours",
     "text": "3.2 Larger dots, with colours\nA slightly nicer plot with wt as colour shades (colour = wt) and larger dots (cex=2)\n\nmtcars_data %&gt;% \n  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +\n  geom_point() + \n  scale_size(guide = \"none\")"
   },
   {
     "objectID": "Notes_session2.html#adding-a-title-and-axes-labels",
     "href": "Notes_session2.html#adding-a-title-and-axes-labels",
-    "title": "Lecture notes",
+    "title": "Basic syntax and vocabulary for data wrangling and graphics",
     "section": "3.3 Adding a title and axes labels",
     "text": "3.3 Adding a title and axes labels\n\nmtcars_data %&gt;% \n  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +\n  geom_point() +\n  scale_size(guide = \"none\") + \n  labs(title = \"MPG vs Horsepower\",\n       x = \"Horsepower (hp)\",\n       y = \"Miles per Gallon (mpg)\")"
   },
@@ -467,5 +467,502 @@
     "title": "Introduction",
     "section": "Data manipulation and plotting (cont’)",
     "text": "Data manipulation and plotting (cont’)"
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "Collaborating with git",
+    "section": "",
+    "text": "The present page is a guide for working with git and github from Rstudio. Most of the material in this page is borrowed from the freely accessible book Happy Git and GitHub for the useR by Jennifer Bryan.\n\n\nGit is a version control system. Its original purpose was to help groups of developers work collaboratively on big software projects. Git manages the evolution of a set of files, called a repository, in a sane, highly structured way.\nGit has been re-purposed by the data science community. In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code.\n\n\n\nGithub is an internet hosting service for git. They provide a home for your Git-based projects on the internet.\nGit is the generic technology, github is a specific web service based on this technology (think of the pair email/gmail).\n\n\n\nGit/github allow data scientsts to do things known as clone, commit, pull, push or branch. In the context of the collaborative production of a recurent data analytics report, this means:\n\nClone: This is like making your own copy of the team’s report folder so you can work on it.\nCommit: Think of it as saving your latest edits to the report on your own computer, with a note about what you changed.\nPush: After finishing your edits, you send them back to the team so everyone else sees your updates.\nPull: Before you start working, you get the latest version of the report from the team to make sure you’re not missing anyone’s updates.\nBranch: A branch is like working on a separate draft of the report so you can try changes without affecting the main version until it’s ready.\n\nTo work collaboratively with git under Rstudio, you will need to go through account set up, software installation and credential setting. This is described in the next sections."
+  },
+  {
+    "objectID": "git.html#git",
+    "href": "git.html#git",
+    "title": "Collaborating with git",
+    "section": "1.1 Git",
+    "text": "1.1 Git\nGit is a version control system. Its original purpose was to help groups of developers work collaboratively on big software projects. Git manages the evolution of a set of files – called a repository – in a sane, highly structured way.\nGit has been re-purposed by the data science community. In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code."
+  },
+  {
+    "objectID": "git.html#github",
+    "href": "git.html#github",
+    "title": "Collaborating with git",
+    "section": "1.2 Github",
+    "text": "1.2 Github\nGithub is an internet hosting service for git. They provide a home for your Git-based projects on the internet."
+  },
+  {
+    "objectID": "git.html#generating-a-personal-acces-token-pat",
+    "href": "git.html#generating-a-personal-acces-token-pat",
+    "title": "Collaborating with git",
+    "section": "3.1 Generating a Personal Acces Token (PAT)",
+    "text": "3.1 Generating a Personal Acces Token (PAT)\nWhen we interact with GitHub, we have to include credentials in the request. This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to do.\n\nGo to https://github.com/settings/tokens and click “Generate token”.\n\n\n\nCopy the generated PAT to your clipboard. Or leave that browser window open and available for a little while, so you can come back to copy the PAT."
+  },
+  {
+    "objectID": "git.html#store-the-pat-in-r",
+    "href": "git.html#store-the-pat-in-r",
+    "title": "Collaborating with git",
+    "section": "3.2 Store the PAT in R",
+    "text": "3.2 Store the PAT in R\nIn R, call gitcreds::gitcreds_set() to get a prompt where you can paste your PAT:\n\n# install.packages(gitcreds)\ngitcreds::gitcreds_set()\n\nPaste your PAT in response to the dialogue in the console:\n\n? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n-&gt; Adding new credentials...\n-&gt; Removing credentials from cache...\n-&gt; Done.\n\nYou should be able to work with GitHub now."
+  },
+  {
+    "objectID": "git.html#registering-a-github-account",
+    "href": "git.html#registering-a-github-account",
+    "title": "Collaborating with git",
+    "section": "",
+    "text": "Go to https://github.com and create a personnal free account."
+  },
+  {
+    "objectID": "git.html#clone-the-repo-to-your-local-computer",
+    "href": "git.html#clone-the-repo-to-your-local-computer",
+    "title": "Collaborating with git",
+    "section": "4.2 Clone the repo to your local computer",
+    "text": "4.2 Clone the repo to your local computer\n\nIn Rstudio, start a new Project, click on File &gt; New Project &gt; Version Control &gt; Git\nIn the repository URL paste the URL of your new GitHub repository. It will be something like this https://github.com/myname/myrepo.git.\nAccept the default project directory name, e.g. myrepo, which coincides with the GitHub repo name.\nTake charge of – or at least notice! – where the Project will be saved locally. A common rookie mistake is to have no idea where you are saving files or what your working directory is. Pay attention. Be intentional. Personally, I store this in a folder named Clones_repos at the root of my MS365 Cloud folder, so generically: C:\\Users\\myname\\OneDrive - World Organisation For Animal Health\\Clones_repos&gt;\nI suggest you check “Open in new session”, as that’s what you’ll usually do in real life.\nClick “Create Project”.\n\nYou should find yourself in a new local RStudio Project that represents your test repo on GitHub. This should download the README.md file from GitHub. Look in RStudio’s file browser pane for the README.md file."
+  },
+  {
+    "objectID": "git.html#alternative-way-with-r-commands",
+    "href": "git.html#alternative-way-with-r-commands",
+    "title": "Collaborxcbnsgxbating with git",
+    "section": "3.3 Alternative way with R commands",
+    "text": "3.3 Alternative way with R commands\n\ninstall.packages(\"usethis\") # unless it is already installed\nusethis::create_from_github(reop_spec=\"https://github.com/mynqme/myrepo.git\",\n                            destdir = \"C:\\Users\\myname\\OneDrive - World Organisation For Animal Health\\Clones_repos\")"
+  },
+  {
+    "objectID": "git.html#creating-a-repository-on-github",
+    "href": "git.html#creating-a-repository-on-github",
+    "title": "Collaborating with git",
+    "section": "4.1 Creating a repository on github",
+    "text": "4.1 Creating a repository on github\nGo to https://github.com and make sure you are logged in.\nNear “Repositories”, click the big green “New” button. Or, if you are on your own profile page, click on “Repositories”, then click the big green “New” button.\nHow to fill this in:\n\nRepository template: No template\nRepository name: myrepo or whatever you wish (we’ll delete this soon).\nDescription: “Repository for testing my Git/GitHub setup” or similar. It’s nice to have something here, so you’ll see it appear in the README.\nPrivate\nInitialize this repository with: Add a README file\n\nClick the big green button that says Create repository.\nNow click the big green button that says “&lt;&gt; Code”.\nCopy the https URL to your clipboard."
+  },
+  {
+    "objectID": "git.html#alternative-way-to-clone-to-your-local-computer-with-r-commands",
+    "href": "git.html#alternative-way-to-clone-to-your-local-computer-with-r-commands",
+    "title": "Collaborating with git",
+    "section": "4.3 Alternative way to clone to your local computer with R commands",
+    "text": "4.3 Alternative way to clone to your local computer with R commands\nThe sequence of clicking steps described in the section above can be implemented alternatively in two lines of R code:\n\ninstall.packages(\"usethis\") # unless it is already installed\nusethis::create_from_github(repo_spec=\"https://github.com/mynqme/myrepo.git\",\n                            destdir = \"C:\\Users\\myname\\OneDrive - World Organisation For Animal Health\\Clones_repos\")"
+  },
+  {
+    "objectID": "data/index.html",
+    "href": "data/index.html",
+    "title": "Data Files",
+    "section": "",
+    "text": "Below is a list of available datasets in this folder:\n\n\n\nFile Name\nFormat\n\n\n\n\nPRRS.xlsx\nExcel (.xlsx)\n\n\nbooks.csv\nCSV\n\n\ncars_dataset.csv\nCSV\n\n\ndiamonds_data.csv\nCSV\n\n\niris.xlsx\nExcel (.xlsx)\n\n\nmtcars.csv\nCSV"
+  },
+  {
+    "objectID": "quarto.html",
+    "href": "quarto.html",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "",
+    "text": "Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:\nA. Data wrangling, data analysis, data modeling with specialized DS tools (e.g. SAS, Stata, matlab, python, R).\nTHEN…\nB. Presentation and communication of the results (technical report, conference abstract, research article, website, blog) with specialized document authoring tools.\nThis workflow had several adverse consequences:\n\nCopy–paste nightmares\nOut-of-sync results\n“Where did this number come from?”\nFormatting whack-a-mole\nVersion chaos\nRepetitive, manual updates for each audience\nNo automation\n\n\n\n\nQuarto is a scientific and technical publishing system that lets you create documents, reports, presentations, and websites from a single source file that combines text, code, and outputs. It supports multiple Data Science programming languages (R, Python, Julia, SQL) and can render to formats like html, pdf, Word, and slides.\nQuarto also incidentally solves all the problems listed in the previous section.\n\n\n\n\nReproducible, code-linked outputs\nAutomated & parameterized reporting\nOecumenical (multi-language support including R, Python, Julia, SQL)\nGit-friendly (versioning) plain text workflow\nInteractive visualizations embedded directly\nOne source → many formats (html, pdf, Word, slides, websites)\nProfessional formatting with citations & math\nFully open source and extensible"
+  },
+  {
+    "objectID": "quarto.html#before-quarto-and-r-markdown",
+    "href": "quarto.html#before-quarto-and-r-markdown",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Until relatively recently (circa 2010), a typical data science (DS) project was organised as follows:\nA. Data wrangling, data analysis, data modeling with specialized DS tools (matlab, python, R).\nTHEN\nB. Presentation and communication of the results (conference abstract, research article, website, blog) with specialized document authoring tools.\nThis workflow had several adverse consequences:\n\nCopy–paste nightmares\nOut-of-sync results\n“Where did this number come from?”\nFormatting whack-a-mole\nVersion chaos\nRepetitive, manual updates for each audience\nNo automation"
+  },
+  {
+    "objectID": "quarto.html#after-quarto",
+    "href": "quarto.html#after-quarto",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Quarto is an open-source scientific and technical publishing system that lets you create reproducible documents, reports, presentations, and websites from a single source file that combines text, code, and outputs. It supports multiple programming languages (R, Python, Julia, SQL) and can render to formats like HTML, PDF, Word, and slides.\nQuarto solves all the problems listed above."
+  },
+  {
+    "objectID": "quarto.html#the-data-scientist-life-before-quarto-and-r-markdown",
+    "href": "quarto.html#the-data-scientist-life-before-quarto-and-r-markdown",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:\nA. Data wrangling, data analysis, data modeling with specialized DS tools (e.g. SAS, Stata, matlab, python, R).\nTHEN…\nB. Presentation and communication of the results (conference abstract, research article, website, blog) with specialized document authoring tools.\nThis workflow had several adverse consequences:\n\nCopy–paste nightmares\nOut-of-sync results\n“Where did this number come from?”\nFormatting whack-a-mole\nVersion chaos\nRepetitive, manual updates for each audience\nNo automation"
+  },
+  {
+    "objectID": "quarto.html#the-data-scientist-life-before-quarto-and-its-predecessor-r-markdown",
+    "href": "quarto.html#the-data-scientist-life-before-quarto-and-its-predecessor-r-markdown",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:\nA. Data wrangling, data analysis, data modeling with specialized DS tools (e.g. SAS, Stata, matlab, python, R).\nTHEN…\nB. Presentation and communication of the results (conference abstract, research article, website, blog) with specialized document authoring tools.\nThis workflow had several adverse consequences:\n\nCopy–paste nightmares\nOut-of-sync results\n“Where did this number come from?”\nFormatting whack-a-mole\nVersion chaos\nRepetitive, manual updates for each audience\nNo automation"
+  },
+  {
+    "objectID": "quarto.html#since-quarto",
+    "href": "quarto.html#since-quarto",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Quarto is an open-source scientific and technical publishing system that lets you create reproducible documents, reports, presentations, and websites from a single source file that combines text, code, and outputs. It supports multiple Data Science programming languages (R, Python, Julia, SQL) and can render to formats like html, pdf, Word, and slides.\nQuarto incidently solves all the problems listed in the previous section."
+  },
+  {
+    "objectID": "quarto.html#quarto-in-a-nutshell",
+    "href": "quarto.html#quarto-in-a-nutshell",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "",
+    "text": "Quarto is a scientific and technical publishing system that lets you create documents, reports, presentations, and websites from a single source file that combines text, code, and outputs. It supports multiple Data Science programming languages (R, Python, Julia, SQL) and can render to formats like html, pdf, Word, and slides.\nQuarto also incidentally solves all the problems listed in the previous section."
+  },
+  {
+    "objectID": "quarto.html#reason-to-use-quarto",
+    "href": "quarto.html#reason-to-use-quarto",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Reproducible, code-linked outputs\nAutomated & parameterized reporting\nProfessional formatting with citations & math\nMulti-language support (R, Python, Julia, SQL)\nOne source → many formats (HTML, PDF, Word, slides, websites)\nGit-friendly plain text workflow\nInteractive visualizations embedded directly\nFully open source and extensible"
+  },
+  {
+    "objectID": "quarto.html#ten-reason-to-use-quarto",
+    "href": "quarto.html#ten-reason-to-use-quarto",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Reproducible, code-linked outputs\nAutomated & parameterized reporting\nMulti-language support (R, Python, Julia, SQL)\nGit-friendly (versioning) plain text workflow\nInteractive visualizations embedded directly\nOne source → many formats (html, pdf, Word, slides, websites)\nProfessional formatting with citations & math\nFully open source and extensible"
+  },
+  {
+    "objectID": "quarto.html#installation",
+    "href": "quarto.html#installation",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.1 Installation",
+    "text": "2.1 Installation\n\nQuarto is distributed as a standalone program\nA version of Quarto is also part of Rstudio and does not require any extra installation step for WOAH staff who have Rstudio installed"
+  },
+  {
+    "objectID": "quarto.html#ten-reasons-to-use-quarto",
+    "href": "quarto.html#ten-reasons-to-use-quarto",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "",
+    "text": "Reproducible, code-linked outputs\nAutomated & parameterized reporting\nOecumenical (multi-language support including R, Python, Julia, SQL)\nGit-friendly (versioning) plain text workflow\nInteractive visualizations embedded directly\nOne source → many formats (html, pdf, Word, slides, websites)\nProfessional formatting with citations & math\nFully open source and extensible"
+  },
+  {
+    "objectID": "quarto.html#your-first-quarto-documents",
+    "href": "quarto.html#your-first-quarto-documents",
+    "title": "Communicating with Quarto",
+    "section": "2.2 Your first Quarto documents",
+    "text": "2.2 Your first Quarto documents\n\n2.2.1 A first report\nUnder Rstudio, in the scrolling menu\nFile  → New File  → Quarto Document  → Word\nThis opens a file in the editor. This file can be viewed in its raw format Source, or in a more user-friendly format Visual. We will switch back and forth between those two modes in the rest of this document."
+  },
+  {
+    "objectID": "quarto.html#a-data-scientists-life-before-quarto-and-r-markdown",
+    "href": "quarto.html#a-data-scientists-life-before-quarto-and-r-markdown",
+    "title": "Communicating with Quarto",
+    "section": "",
+    "text": "Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:\nA. Data wrangling, data analysis, data modeling with specialized DS tools (e.g. SAS, Stata, matlab, python, R).\nTHEN…\nB. Presentation and communication of the results (conference abstract, research article, website, blog) with specialized document authoring tools.\nThis workflow had several adverse consequences:\n\nCopy–paste nightmares\nOut-of-sync results\n“Where did this number come from?”\nFormatting whack-a-mole\nVersion chaos\nRepetitive, manual updates for each audience\nNo automation"
+  },
+  {
+    "objectID": "quarto.html#a-data-scientists-life-before-quarto",
+    "href": "quarto.html#a-data-scientists-life-before-quarto",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "",
+    "text": "Until relatively recently (circa 2012), a typical data science (DS) project was organised as follows:\nA. Data wrangling, data analysis, data modeling with specialized DS tools (e.g. SAS, Stata, matlab, python, R).\nTHEN…\nB. Presentation and communication of the results (technical report, conference abstract, research article, website, blog) with specialized document authoring tools.\nThis workflow had several adverse consequences:\n\nCopy–paste nightmares\nOut-of-sync results\n“Where did this number come from?”\nFormatting whack-a-mole\nVersion chaos\nRepetitive, manual updates for each audience\nNo automation"
+  },
+  {
+    "objectID": "git.html#install-the-github-desktop",
+    "href": "git.html#install-the-github-desktop",
+    "title": "Collaborating with git",
+    "section": "1.4 Install the Github desktop",
+    "text": "1.4 Install the Github desktop\nInstall Github desktop"
+  },
+  {
+    "objectID": "git.html#installing-the-github-desktop",
+    "href": "git.html#installing-the-github-desktop",
+    "title": "Collaborating with git",
+    "section": "1.1 Installing the Github desktop",
+    "text": "1.1 Installing the Github desktop\nInstall Github desktop"
+  },
+  {
+    "objectID": "git.html#footnotes",
+    "href": "git.html#footnotes",
+    "title": "Collaborating with git",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nMost of the material in this page is borrowed from the freely accessible book Happy Git and GitHub for the useR by Jennifer Bryan.↩︎"
+  },
+  {
+    "objectID": "git.html#what-is-github",
+    "href": "git.html#what-is-github",
+    "title": "Collaborating with git",
+    "section": "",
+    "text": "Github is an internet hosting service for git. They provide a home for your Git-based projects on the internet.\nGit is the generic technology, github is a specific web service based on this technology (think of the pair email/gmail)."
+  },
+  {
+    "objectID": "git.html#what-is-git",
+    "href": "git.html#what-is-git",
+    "title": "Collaborating with git",
+    "section": "",
+    "text": "Git is a version control system. Its original purpose was to help groups of developers work collaboratively on big software projects. Git manages the evolution of a set of files, called a repository, in a sane, highly structured way.\nGit has been re-purposed by the data science community. In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code."
+  },
+  {
+    "objectID": "git.html#basic-concepts-and-use-cases",
+    "href": "git.html#basic-concepts-and-use-cases",
+    "title": "Collaborating with git",
+    "section": "",
+    "text": "Git/github allow data scientsts to do things known as clone, commit, pull, push or branch. In the context of the collaborative production of a recurent data analytics report, this means:\n\nClone: This is like making your own copy of the team’s report folder so you can work on it.\nCommit: Think of it as saving your latest edits to the report on your own computer, with a note about what you changed.\nPush: After finishing your edits, you send them back to the team so everyone else sees your updates.\nPull: Before you start working, you get the latest version of the report from the team to make sure you’re not missing anyone’s updates.\nBranch: A branch is like working on a separate draft of the report so you can try changes without affecting the main version until it’s ready.\n\nTo work collaboratively with git under Rstudio, you will need to go through account set up, software installation and credential setting. This is described in the next sections."
+  },
+  {
+    "objectID": "git.html#creating-a-repository-on-github-optional",
+    "href": "git.html#creating-a-repository-on-github-optional",
+    "title": "Collaborating with git",
+    "section": "4.1 Creating a repository on github (optional)",
+    "text": "4.1 Creating a repository on github (optional)\nThis step is skipped if you start working on a project with an existing repo on github.\nGo to https://github.com and make sure you are logged in.\nNear “Repositories”, click the big green “New” button. Or, if you are on your own profile page, click on “Repositories”, then click the big green “New” button.\nHow to fill this in:\n\nRepository template: No template\nRepository name: myrepo or whatever you wish (we’ll delete this soon).\nDescription: “Repository for testing my Git/GitHub setup” or similar. It’s nice to have something here, so you’ll see it appear in the README.\nPrivate\nInitialize this repository with: Add a README file\n\nClick the big green button that says Create repository.\nNow click the big green button that says “&lt;&gt; Code”.\nCopy the https URL to your clipboard."
+  },
+  {
+    "objectID": "AI.html",
+    "href": "AI.html",
+    "title": "Leveraging AI",
+    "section": "",
+    "text": "1 In-line code completion with copilot\n\n\n2 Chatgpt support for R coding\n\n\n3 Interogating LLMs through APIs"
+  },
+  {
+    "objectID": "Notes_session3.html",
+    "href": "Notes_session3.html",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "",
+    "text": "It’s rare that a data analysis involves only a single data frame. Typically you have many data frames, and you must join them together to answer the questions that you’re interested in.\nTo understand joins, you need to first understand how two tables can be connected through a pair of keys, within each table.\nEvery join involves a pair of keys: a primary key and a foreign key. A primary key is a variable or set of variables that uniquely identifies each observation.\nThe functions inner_join(), full_join(), left_join(), and right_join() are used to combine two data frames based on a common key or set of keys.\nThose functions are able to figure out alone which variable(s) to use as keys, but you can also specify the keys explicitly using the by argument.\n\nWe’ll illustrate this with the band_numbers and band_instruments datasets, which contain information about band members and the instruments they play.\n\nlibrary(dplyr)\n\nband_members\n\n# A tibble: 3 × 2\n  name  band   \n  &lt;chr&gt; &lt;chr&gt;  \n1 Mick  Stones \n2 John  Beatles\n3 Paul  Beatles\n\n\n\nband_instruments\n\n# A tibble: 3 × 2\n  name  plays \n  &lt;chr&gt; &lt;chr&gt; \n1 John  guitar\n2 Paul  bass  \n3 Keith guitar\n\n\nHere it would be convenient to have a single table that contains all the information about each band member, including their name, instrument, and band. However, the information is currently split across two tables: one with the names and bands of the members, and another with the names and instruments of the members.\n\n\nfull_join() returns all rows from both tables, with NA in places where there is no match.\n\nfull_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 4 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 Mick  Stones  &lt;NA&gt;  \n2 John  Beatles guitar\n3 Paul  Beatles bass  \n4 Keith &lt;NA&gt;    guitar\n\n\nNote the presence of NA for missing entries. NA stands for non available and is a special R object. Conveniently\n\n\n\ninner_join() returns all rows from both tables where there is a match between the keys.\n\ninner_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 2 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  Beatles guitar\n2 Paul  Beatles bass  \n\n\n\n\n\nleft_join() returns all rows from the first table, and the matching rows from the second table. If there is no match, NA is returned.\n\nleft_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 3 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 Mick  Stones  &lt;NA&gt;  \n2 John  Beatles guitar\n3 Paul  Beatles bass  \n\n\n\n\n\nright_join() returns all rows from the second table, and the matching rows from the first table. If there is no match, NA is returned.\n\nright_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 3 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  Beatles guitar\n2 Paul  Beatles bass  \n3 Keith &lt;NA&gt;    guitar\n\n\n\n\n\n\n\nWith band_members and band_instruments, there is a variable that uniquely identifies observations in each table: name.\nThe arguemt by could have been omitted:\n\ninner_join(band_members, band_instruments)\n\n# A tibble: 2 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  Beatles guitar\n2 Paul  Beatles bass  \n\n\n\n\n\nYou can also use the pipe operator %&gt;% to chain together multiple operations. This is particularly useful when you want to perform a series of transformations on a dataset before joining it with another dataset.\n\nband_members %&gt;% \n  mutate(band= toupper(band)) %&gt;%\n  inner_join(band_instruments, by = join_by(name))\n\n# A tibble: 2 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  BEATLES guitar\n2 Paul  BEATLES bass"
+  },
+  {
+    "objectID": "Notes_session3.html#inner-join",
+    "href": "Notes_session3.html#inner-join",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "",
+    "text": "inner_join() returns all rows from both tables where there is a match between the keys.\n\ninner_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 2 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  Beatles guitar\n2 Paul  Beatles bass"
+  },
+  {
+    "objectID": "Notes_session3.html#full-join",
+    "href": "Notes_session3.html#full-join",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "",
+    "text": "full_join() returns all rows from both tables, with NA in places where there is no match.\n\nfull_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 4 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 Mick  Stones  &lt;NA&gt;  \n2 John  Beatles guitar\n3 Paul  Beatles bass  \n4 Keith &lt;NA&gt;    guitar\n\n\nNote the presence of NA for missing entries. NA stands for non available and is a special R object. Conveniently"
+  },
+  {
+    "objectID": "Notes_session3.html#left-join",
+    "href": "Notes_session3.html#left-join",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "",
+    "text": "left_join() returns all rows from the first table, and the matching rows from the second table. If there is no match, NA is returned.\n\nleft_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 3 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 Mick  Stones  &lt;NA&gt;  \n2 John  Beatles guitar\n3 Paul  Beatles bass"
+  },
+  {
+    "objectID": "Notes_session3.html#right-join",
+    "href": "Notes_session3.html#right-join",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "",
+    "text": "right_join() returns all rows from the second table, and the matching rows from the first table. If there is no match, NA is returned.\n\nright_join(band_members, band_instruments, by = join_by(name))\n\n# A tibble: 3 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  Beatles guitar\n2 Paul  Beatles bass  \n3 Keith &lt;NA&gt;    guitar"
+  },
+  {
+    "objectID": "Notes_session3.html#alternative-syntax",
+    "href": "Notes_session3.html#alternative-syntax",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "",
+    "text": "With band_members and band_instruments, there is a variable that uniquely identifies observations in each table: name.\nThe arguemt by could have been omitted:\n\ninner_join(band_members, band_instruments)\n\n# A tibble: 2 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  Beatles guitar\n2 Paul  Beatles bass  \n\n\n\n\n\nYou can also use the pipe operator %&gt;% to chain together multiple operations. This is particularly useful when you want to perform a series of transformations on a dataset before joining it with another dataset.\n\nband_members %&gt;% \n  mutate(band= toupper(band)) %&gt;%\n  inner_join(band_instruments, by = join_by(name))\n\n# A tibble: 2 × 3\n  name  band    plays \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; \n1 John  BEATLES guitar\n2 Paul  BEATLES bass"
+  },
+  {
+    "objectID": "Notes_session3.html#grouping",
+    "href": "Notes_session3.html#grouping",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "2.1 Grouping",
+    "text": "2.1 Grouping\n\nGrouping is a powerful feature of dplyr that allows you to perform operations on various sub-groups of your data.\nSummarising data is a common task in data analysis, and dplyr provides a simple and efficient way to do this.\nIn dplyr, the group_by() function allows you to group your data by one or more variables, and the summarise() function allows you to calculate summary statistics for each group.\n\nFor example, if you have a dataset of flights operated by he various airlines, and you want to calculate the average delay for each airline, you can use the group_by() function to group the data by airline, and then use the summarise() function to calculate the average departure delay for each group.\n\n# A summary applied to ungrouped tbl returns a single row\nmtcars %&gt;%\n  summarise(mean = mean(disp), n = n())\n\n      mean  n\n1 230.7219 32\n\n\n\n# Usually, you'll want to group first\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(mean = mean(disp), n = n())\n\n# A tibble: 3 × 3\n    cyl  mean     n\n  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1     4  105.    11\n2     6  183.     7\n3     8  353.    14\n\n\n\nlibrary(nycflights13)\nflights %&gt;% str  \n\ntibble [336,776 × 19] (S3: tbl_df/tbl/data.frame)\n $ year          : int [1:336776] 2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...\n $ month         : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...\n $ day           : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...\n $ dep_time      : int [1:336776] 517 533 542 544 554 554 555 557 557 558 ...\n $ sched_dep_time: int [1:336776] 515 529 540 545 600 558 600 600 600 600 ...\n $ dep_delay     : num [1:336776] 2 4 2 -1 -6 -4 -5 -3 -3 -2 ...\n $ arr_time      : int [1:336776] 830 850 923 1004 812 740 913 709 838 753 ...\n $ sched_arr_time: int [1:336776] 819 830 850 1022 837 728 854 723 846 745 ...\n $ arr_delay     : num [1:336776] 11 20 33 -18 -25 12 19 -14 -8 8 ...\n $ carrier       : chr [1:336776] \"UA\" \"UA\" \"AA\" \"B6\" ...\n $ flight        : int [1:336776] 1545 1714 1141 725 461 1696 507 5708 79 301 ...\n $ tailnum       : chr [1:336776] \"N14228\" \"N24211\" \"N619AA\" \"N804JB\" ...\n $ origin        : chr [1:336776] \"EWR\" \"LGA\" \"JFK\" \"JFK\" ...\n $ dest          : chr [1:336776] \"IAH\" \"IAH\" \"MIA\" \"BQN\" ...\n $ air_time      : num [1:336776] 227 227 160 183 116 150 158 53 140 138 ...\n $ distance      : num [1:336776] 1400 1416 1089 1576 762 ...\n $ hour          : num [1:336776] 5 5 5 5 6 5 6 6 6 6 ...\n $ minute        : num [1:336776] 15 29 40 45 0 58 0 0 0 0 ...\n $ time_hour     : POSIXct[1:336776], format: \"2013-01-01 05:00:00\" \"2013-01-01 05:00:00\" ...\n\nflights$carrier %&gt;% unique %&gt;% sort\n\n [1] \"9E\" \"AA\" \"AS\" \"B6\" \"DL\" \"EV\" \"F9\" \"FL\" \"HA\" \"MQ\" \"OO\" \"UA\" \"US\" \"VX\" \"WN\"\n[16] \"YV\"\n\nflights %&gt;%\n  group_by(carrier) %&gt;%\n  summarise(avg_delay = mean(dep_delay, na.rm = TRUE))\n\n# A tibble: 16 × 2\n   carrier avg_delay\n   &lt;chr&gt;       &lt;dbl&gt;\n 1 9E          16.7 \n 2 AA           8.59\n 3 AS           5.80\n 4 B6          13.0 \n 5 DL           9.26\n 6 EV          20.0 \n 7 F9          20.2 \n 8 FL          18.7 \n 9 HA           4.90\n10 MQ          10.6 \n11 OO          12.6 \n12 UA          12.1 \n13 US           3.78\n14 VX          12.9 \n15 WN          17.7 \n16 YV          19.0"
+  },
+  {
+    "objectID": "Notes_session3.html#various-boxplots",
+    "href": "Notes_session3.html#various-boxplots",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "3.1 Various boxplots",
+    "text": "3.1 Various boxplots\n\n# a boxplot of dep_delay by carrier with jitter points\nlibrary(ggplot2)\nflights %&gt;% ggplot(aes(x = carrier, y = dep_delay , color= carrier)) +\n  geom_boxplot(outliers = FALSE) +\n  labs(title = \"Departure Delay by Carrier\",\n       x = \"Carrier\",\n       y = \"Departure Delay (minutes)\")"
+  },
+  {
+    "objectID": "Notes_session3.html#overlapping-colors",
+    "href": "Notes_session3.html#overlapping-colors",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "3.2 Overlapping colors",
+    "text": "3.2 Overlapping colors\n\n# scatter plot of departure delay against month of the year\nflights %&gt;% ggplot(aes(x = month, y = dep_delay, color = carrier)) +\n  geom_jitter() +\n  labs(title = \"Departure Delay by Month and Carrier\",\n       x = \"Month\",\n       y = \"Departure Delay (minutes)\")\n\n\n\n\n\n\n\n\nThe plot above is unreadable because the points overlap too much. To make it more readable, we can summarise the information by computing the mean departure delay for each carrier and month, and then plot the average delays as a line plot.\n\n# first group_by() carier and month then compute mean with summarise\nflights %&gt;%\n  group_by(carrier, month) %&gt;%\n  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = month, y = avg_delay, color = carrier)) +\n  geom_line() +\n  labs(title = \"Average Departure Delay by Month and Carrier\",\n       x = \"Month\",\n       y = \"Average Departure Delay (minutes)\")"
+  },
+  {
+    "objectID": "Notes_session3.html#facetting",
+    "href": "Notes_session3.html#facetting",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "3.3 Facetting",
+    "text": "3.3 Facetting\nFaceting is a powerful feature of ggplot2 that allows you to create multiple plots based on the values of one or more variables in your dataset. This is particularly useful when you want to compare the variation of a variable across different sub-groups of your data.\n\n# first group_by() carier and month \n# then compute mean with summarise\n# then plot the average delays as a line plot with facets by carrier\nflights %&gt;%\n  group_by(carrier, month) %&gt;%\n  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = month, y = avg_delay, color = carrier)) +\n  geom_line() + \n  facet_wrap(~ carrier) +\n  labs(title = \"Average Departure Delay by Month and Carrier\",\n       x = \"Month\",\n       y = \"Average Departure Delay (minutes)\")"
+  },
+  {
+    "objectID": "ChickWeight.html",
+    "href": "ChickWeight.html",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "",
+    "text": "The ChickWeight dataset is a built-in R dataset containing data on the weight of chicks over time while on different diets.\nThis exercise demonstrates data manipulation using dplyr and visualization using ggplot2.\nEach question of the assignment is described by a title and the output that corresponds to a correct answer."
+  },
+  {
+    "objectID": "ChickWeight.html#introduction",
+    "href": "ChickWeight.html#introduction",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "",
+    "text": "The ChickWeight dataset is a built-in R dataset containing data on the weight of chicks over time while on different diets.\nThis exercise demonstrates data manipulation using dplyr and visualization using ggplot2.\nEach question of the assignment is described by a title and the output that corresponds to a correct answer."
+  },
+  {
+    "objectID": "ChickWeight.html#load-the-chickweight-dataset",
+    "href": "ChickWeight.html#load-the-chickweight-dataset",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Load the ChickWeight dataset",
+    "text": "Load the ChickWeight dataset\nThe ChickWeight dataset is included in R by default, so you can load it directly without needing to install any additional packages or reading it from an external file. Simply type data(ChickWeight) to load the dataset into your R environment.\n\nInspect the first few rows\n\n\n  weight Time Chick Diet\n1     42    0     1    1\n2     51    2     1    1\n3     59    4     1    1\n4     64    6     1    1\n5     76    8     1    1\n6     93   10     1    1\n\n\n\n\nCheck the data structure\n\n\nClasses 'nfnGroupedData', 'nfGroupedData', 'groupedData' and 'data.frame':  578 obs. of  4 variables:\n $ weight: num  42 51 59 64 76 93 106 125 149 171 ...\n $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...\n $ Chick : Ord.factor w/ 50 levels \"18\"&lt;\"16\"&lt;\"15\"&lt;..: 15 15 15 15 15 15 15 15 15 15 ...\n $ Diet  : Factor w/ 4 levels \"1\",\"2\",\"3\",\"4\": 1 1 1 1 1 1 1 1 1 1 ...\n - attr(*, \"formula\")=Class 'formula'  language weight ~ Time | Chick\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_EmptyEnv&gt; \n - attr(*, \"outer\")=Class 'formula'  language ~Diet\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_EmptyEnv&gt; \n - attr(*, \"labels\")=List of 2\n  ..$ x: chr \"Time\"\n  ..$ y: chr \"Body weight\"\n - attr(*, \"units\")=List of 2\n  ..$ x: chr \"(days)\"\n  ..$ y: chr \"(gm)\"\n\n\n\n\nGet summary statistics\n\n\n     weight           Time           Chick     Diet   \n Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  \n 1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  \n Median :103.0   Median :10.00   20     : 12   3:120  \n Mean   :121.8   Mean   :10.72   10     : 12   4:118  \n 3rd Qu.:163.8   3rd Qu.:16.00   17     : 12          \n Max.   :373.0   Max.   :21.00   19     : 12          \n                                 (Other):506"
+  },
+  {
+    "objectID": "ChickWeight.html#data-manipulation-with-dplyr",
+    "href": "ChickWeight.html#data-manipulation-with-dplyr",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Data Manipulation with dplyr",
+    "text": "Data Manipulation with dplyr\n\nFiltering: Select only chicks on Diet 1\n\n\n  weight Time Chick Diet\n1     42    0     1    1\n2     51    2     1    1\n3     59    4     1    1\n4     64    6     1    1\n5     76    8     1    1\n6     93   10     1    1\n\n\n\n\nSelecting: Select specific columns\n\n\n  weight Time Diet\n1     42    0    1\n2     51    2    1\n3     59    4    1\n4     64    6    1\n5     76    8    1\n6     93   10    1\n\n\n\n\nArranging: Arrange by weight in descending order\n\n\n  weight Time Chick Diet\n1    373   21    35    3\n2    361   20    35    3\n3    341   21    34    3\n4    332   18    35    3\n5    331   21    21    2\n6    327   20    34    3\n\n\n\n\nMutating: Create a new column weight_kg\n\n\n  weight Time Chick Diet weight_kg\n1     42    0     1    1     0.042\n2     51    2     1    1     0.051\n3     59    4     1    1     0.059\n4     64    6     1    1     0.064\n5     76    8     1    1     0.076\n6     93   10     1    1     0.093\n\n\n\n\nSummarizing & Grouping: Calculate mean weight for each Diet\nHere we will group the data by Diet and calculate the mean weight for each group. To group data by weight we use the group_by() function, and to summarize it we use the summarize() function.\n\n\n# A tibble: 4 × 2\n  Diet  mean_weight\n  &lt;fct&gt;       &lt;dbl&gt;\n1 1            103.\n2 2            123.\n3 3            143.\n4 4            135.\n\n\n\n\nPiping: Combine multiple operations\n\n\n# A tibble: 4 × 2\n  Diet  mean_weight_kg\n  &lt;fct&gt;          &lt;dbl&gt;\n1 1              0.146\n2 2              0.174\n3 3              0.211\n4 4              0.194"
+  },
+  {
+    "objectID": "ChickWeight.html#data-visualization-with-ggplot2",
+    "href": "ChickWeight.html#data-visualization-with-ggplot2",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Data Visualization with ggplot2",
+    "text": "Data Visualization with ggplot2\n\nLine Plot: weight vs. Time, colored by Diet\n\n\n\n\n\n\n\n\n\n\n\nBox Plot: weight for each Diet at Time = 21\n\n\n\n\n\n\n\n\n\n\n\nScatter Plot: weight vs. Time, colored by Diet"
+  },
+  {
+    "objectID": "ChickWeight.html#combining-dplyr-and-ggplot2",
+    "href": "ChickWeight.html#combining-dplyr-and-ggplot2",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Combining dplyr and ggplot2",
+    "text": "Combining dplyr and ggplot2\n\nCalculate the average weight for each diet at each time point and then create a line plot."
+  },
+  {
+    "objectID": "AI.html#apis",
+    "href": "AI.html#apis",
+    "title": "Leveraging AI",
+    "section": "3.2 APIs",
+    "text": "3.2 APIs"
+  },
+  {
+    "objectID": "AI.html#basic-on-interactions-with-llms",
+    "href": "AI.html#basic-on-interactions-with-llms",
+    "title": "Leveraging AI",
+    "section": "3.1 Basic on interactions with LLMs",
+    "text": "3.1 Basic on interactions with LLMs"
+  },
+  {
+    "objectID": "AI.html#prompts",
+    "href": "AI.html#prompts",
+    "title": "Leveraging AI",
+    "section": "3.3 Prompts",
+    "text": "3.3 Prompts"
+  },
+  {
+    "objectID": "AI.html#structured-data",
+    "href": "AI.html#structured-data",
+    "title": "Leveraging AI",
+    "section": "3.4 Structured data",
+    "text": "3.4 Structured data"
+  },
+  {
+    "objectID": "Notes_session3.html#example-on-the-mtcars-dataset",
+    "href": "Notes_session3.html#example-on-the-mtcars-dataset",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "2.1 Example on the mtcars dataset",
+    "text": "2.1 Example on the mtcars dataset\nRemember that the mtcars data has the following structure:\n\nmtcars\n\n                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\nMerc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4\nMerc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3\nMerc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3\nMerc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3\nCadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4\nLincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4\nChrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4\nFiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nDodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2\nAMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2\nCamaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4\nPontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2\nFiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nFord Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4\nFerrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6\nMaserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8\nVolvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n\n\n#  summarise() applied to ungrouped tbl returns a single row:\nmtcars %&gt;%\n  summarise(mean = mean(disp), n = n()) # compute mean and sample size\n\n      mean  n\n1 230.7219 32\n\n\n\n# Usually, you'll want to group first\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(mean = mean(disp), n = n())\n\n# A tibble: 3 × 3\n    cyl  mean     n\n  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1     4  105.    11\n2     6  183.     7\n3     8  353.    14"
+  },
+  {
+    "objectID": "Notes_session3.html#example-on-the-nycflights13-dataset",
+    "href": "Notes_session3.html#example-on-the-nycflights13-dataset",
+    "title": "Digging deeper into data wrangling and plotting",
+    "section": "2.2 Example on the nycflights13 dataset",
+    "text": "2.2 Example on the nycflights13 dataset\n\n# install.packages(\"nycflights13\")\nlibrary(nycflights13)\nflights %&gt;% str  \n\ntibble [336,776 × 19] (S3: tbl_df/tbl/data.frame)\n $ year          : int [1:336776] 2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...\n $ month         : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...\n $ day           : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...\n $ dep_time      : int [1:336776] 517 533 542 544 554 554 555 557 557 558 ...\n $ sched_dep_time: int [1:336776] 515 529 540 545 600 558 600 600 600 600 ...\n $ dep_delay     : num [1:336776] 2 4 2 -1 -6 -4 -5 -3 -3 -2 ...\n $ arr_time      : int [1:336776] 830 850 923 1004 812 740 913 709 838 753 ...\n $ sched_arr_time: int [1:336776] 819 830 850 1022 837 728 854 723 846 745 ...\n $ arr_delay     : num [1:336776] 11 20 33 -18 -25 12 19 -14 -8 8 ...\n $ carrier       : chr [1:336776] \"UA\" \"UA\" \"AA\" \"B6\" ...\n $ flight        : int [1:336776] 1545 1714 1141 725 461 1696 507 5708 79 301 ...\n $ tailnum       : chr [1:336776] \"N14228\" \"N24211\" \"N619AA\" \"N804JB\" ...\n $ origin        : chr [1:336776] \"EWR\" \"LGA\" \"JFK\" \"JFK\" ...\n $ dest          : chr [1:336776] \"IAH\" \"IAH\" \"MIA\" \"BQN\" ...\n $ air_time      : num [1:336776] 227 227 160 183 116 150 158 53 140 138 ...\n $ distance      : num [1:336776] 1400 1416 1089 1576 762 ...\n $ hour          : num [1:336776] 5 5 5 5 6 5 6 6 6 6 ...\n $ minute        : num [1:336776] 15 29 40 45 0 58 0 0 0 0 ...\n $ time_hour     : POSIXct[1:336776], format: \"2013-01-01 05:00:00\" \"2013-01-01 05:00:00\" ...\n\nflights$carrier %&gt;% unique %&gt;% sort\n\n [1] \"9E\" \"AA\" \"AS\" \"B6\" \"DL\" \"EV\" \"F9\" \"FL\" \"HA\" \"MQ\" \"OO\" \"UA\" \"US\" \"VX\" \"WN\"\n[16] \"YV\"\n\nflights %&gt;%\n  group_by(carrier) %&gt;%\n  summarise(avg_delay = mean(dep_delay, na.rm = TRUE))\n\n# A tibble: 16 × 2\n   carrier avg_delay\n   &lt;chr&gt;       &lt;dbl&gt;\n 1 9E          16.7 \n 2 AA           8.59\n 3 AS           5.80\n 4 B6          13.0 \n 5 DL           9.26\n 6 EV          20.0 \n 7 F9          20.2 \n 8 FL          18.7 \n 9 HA           4.90\n10 MQ          10.6 \n11 OO          12.6 \n12 UA          12.1 \n13 US           3.78\n14 VX          12.9 \n15 WN          17.7 \n16 YV          19.0"
+  },
+  {
+    "objectID": "ChickWeight_solutions.html",
+    "href": "ChickWeight_solutions.html",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "ChickWeight_solutions.html#introduction",
+    "href": "ChickWeight_solutions.html#introduction",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "",
+    "text": "The ChickWeight dataset is a built-in R dataset containing data on the weight of chicks over time while on different diets.\nThis exercise demonstrates data manipulation using dplyr and visualization using ggplot2.\nEach question of the assignment is described by a title and the ouptu of ‘str()’ or ‘head()’ for dataset that corresponds to a correct answer.\n\nlibrary(dplyr)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "ChickWeight_solutions.html#load-the-chickweight-dataset",
+    "href": "ChickWeight_solutions.html#load-the-chickweight-dataset",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Load the ChickWeight dataset",
+    "text": "Load the ChickWeight dataset\nThe ChickWeight dataset is included in R by default, so you can load it directly without needing to install any additional packages or reading it from an external file. Simply type data(ChickWeight) to load the dataset into your R environment.\n\ndata(ChickWeight)\n\n\nInspect the first few rows\n\nhead(ChickWeight)\n\n  weight Time Chick Diet\n1     42    0     1    1\n2     51    2     1    1\n3     59    4     1    1\n4     64    6     1    1\n5     76    8     1    1\n6     93   10     1    1\n\n\n\n\nCheck the data structure\n\nstr(ChickWeight)\n\nClasses 'nfnGroupedData', 'nfGroupedData', 'groupedData' and 'data.frame':  578 obs. of  4 variables:\n $ weight: num  42 51 59 64 76 93 106 125 149 171 ...\n $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...\n $ Chick : Ord.factor w/ 50 levels \"18\"&lt;\"16\"&lt;\"15\"&lt;..: 15 15 15 15 15 15 15 15 15 15 ...\n $ Diet  : Factor w/ 4 levels \"1\",\"2\",\"3\",\"4\": 1 1 1 1 1 1 1 1 1 1 ...\n - attr(*, \"formula\")=Class 'formula'  language weight ~ Time | Chick\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_EmptyEnv&gt; \n - attr(*, \"outer\")=Class 'formula'  language ~Diet\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_EmptyEnv&gt; \n - attr(*, \"labels\")=List of 2\n  ..$ x: chr \"Time\"\n  ..$ y: chr \"Body weight\"\n - attr(*, \"units\")=List of 2\n  ..$ x: chr \"(days)\"\n  ..$ y: chr \"(gm)\"\n\n\n\n\nGet summary statistics\n\nsummary(ChickWeight)\n\n     weight           Time           Chick     Diet   \n Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  \n 1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  \n Median :103.0   Median :10.00   20     : 12   3:120  \n Mean   :121.8   Mean   :10.72   10     : 12   4:118  \n 3rd Qu.:163.8   3rd Qu.:16.00   17     : 12          \n Max.   :373.0   Max.   :21.00   19     : 12          \n                                 (Other):506"
+  },
+  {
+    "objectID": "ChickWeight_solutions.html#data-manipulation-with-dplyr",
+    "href": "ChickWeight_solutions.html#data-manipulation-with-dplyr",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Data Manipulation with dplyr",
+    "text": "Data Manipulation with dplyr\n\nFiltering: Select only chicks on Diet 1\n\ndiet1_data &lt;- filter(ChickWeight, Diet == 1)\nhead(diet1_data)\n\n  weight Time Chick Diet\n1     42    0     1    1\n2     51    2     1    1\n3     59    4     1    1\n4     64    6     1    1\n5     76    8     1    1\n6     93   10     1    1\n\n\n\n\nSelecting: Select specific columns\n\nselected_data &lt;- select(ChickWeight, weight, Time, Diet)\nhead(selected_data)\n\n  weight Time Diet\n1     42    0    1\n2     51    2    1\n3     59    4    1\n4     64    6    1\n5     76    8    1\n6     93   10    1\n\n\n\n\nArranging: Arrange by weight in descending order\n\narranged_data &lt;- arrange(ChickWeight, desc(weight))\nhead(arranged_data)\n\n  weight Time Chick Diet\n1    373   21    35    3\n2    361   20    35    3\n3    341   21    34    3\n4    332   18    35    3\n5    331   21    21    2\n6    327   20    34    3\n\n\n\n\nMutating: Create a new column weight_kg\n\nmutated_data &lt;- mutate(ChickWeight, weight_kg = weight / 1000)\nhead(mutated_data)\n\n  weight Time Chick Diet weight_kg\n1     42    0     1    1     0.042\n2     51    2     1    1     0.051\n3     59    4     1    1     0.059\n4     64    6     1    1     0.064\n5     76    8     1    1     0.076\n6     93   10     1    1     0.093\n\n\n\n\nSummarizing & Grouping: Calculate mean weight for each Diet\nHere we will group the data by Diet and calculate the mean weight for each group. To group data by weight we use the group_by() function, and to summarize it we use the summarize() function.\n\ngrouped_data &lt;- ChickWeight %&gt;%\n  group_by(Diet) %&gt;%\n  summarize(mean_weight = mean(weight))\nprint(grouped_data)\n\n# A tibble: 4 × 2\n  Diet  mean_weight\n  &lt;fct&gt;       &lt;dbl&gt;\n1 1            103.\n2 2            123.\n3 3            143.\n4 4            135.\n\n\n\n\nPiping: Combine multiple operations\n\nprocessed_data &lt;- ChickWeight %&gt;%\n  filter(Time &gt; 10) %&gt;%\n  mutate(weight_kg = weight / 1000) %&gt;%\n  group_by(Diet) %&gt;%\n  summarize(mean_weight_kg = mean(weight_kg))\nprint(processed_data)\n\n# A tibble: 4 × 2\n  Diet  mean_weight_kg\n  &lt;fct&gt;          &lt;dbl&gt;\n1 1              0.146\n2 2              0.174\n3 3              0.211\n4 4              0.194"
+  },
+  {
+    "objectID": "ChickWeight_solutions.html#data-visualization-with-ggplot2",
+    "href": "ChickWeight_solutions.html#data-visualization-with-ggplot2",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Data Visualization with ggplot2",
+    "text": "Data Visualization with ggplot2\n\nLine Plot: weight vs. Time, colored by Diet\n\nggplot(ChickWeight, aes(x = Time, y = weight, color = factor(Diet), group = Chick)) +\n  geom_line() +\n  labs(title = \"Chick Weight Over Time by Diet\",\n       x = \"Time (days)\",\n       y = \"Weight (g)\",\n       color = \"Diet\")\n\n\n\n\n\n\n\n\n\n\nBox Plot: weight for each Diet at Time = 21\n\nggplot(ChickWeight %&gt;% filter(Time == 21), aes(x = factor(Diet), y = weight)) +\n  geom_boxplot() +\n  labs(title = \"Chick Weight by Diet at Day 21\",\n       x = \"Diet\",\n       y = \"Weight (g)\")\n\n\n\n\n\n\n\n\n\n\nScatter Plot: weight vs. Time, colored by Diet\n\nggplot(ChickWeight, aes(x = Time, y = weight, color = factor(Diet))) +\n  geom_point() +\n  labs(title = \"Scatter Plot of Chick Weight vs. Time by Diet\",\n       x = \"Time (days)\",\n       y = \"Weight (g)\",\n       color = \"Diet\")"
+  },
+  {
+    "objectID": "ChickWeight_solutions.html#combining-dplyr-and-ggplot2",
+    "href": "ChickWeight_solutions.html#combining-dplyr-and-ggplot2",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Combining dplyr and ggplot2",
+    "text": "Combining dplyr and ggplot2\n\nCalculate the average weight for each diet at each time point and then create a line plot.\n\naverage_weight_over_time &lt;- ChickWeight %&gt;%\n  group_by(Diet, Time) %&gt;%\n  summarize(mean_weight = mean(weight))\n\nggplot(average_weight_over_time, aes(x = Time, y = mean_weight, color = factor(Diet))) +\n  geom_line() +\n  labs(title = \"Average Chick Weight Over Time by Diet\",\n       x = \"Time (days)\",\n       y = \"Average Weight (g)\",\n       color = \"Diet\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\nVI. Conclusion\nThis notebook demonstrated the key functions of dplyr for data manipulation and ggplot2 for data visualization using the ChickWeight dataset. These libraries provide powerful and flexible tools for data analysis in R. By combining these, you can efficiently process and explore your data."
+  },
+  {
+    "objectID": "ChickWeight.html#solution",
+    "href": "ChickWeight.html#solution",
+    "title": "Exploring the ChickWeight Dataset with dplyr and ggplot2",
+    "section": "Solution",
+    "text": "Solution\nSolution to the assignment"
+  },
+  {
+    "objectID": "geo.html",
+    "href": "geo.html",
+    "title": "Geo-referenced data",
+    "section": "",
+    "text": "1 The various types of spatial (geo-referenced) data\n\n\n2 The IT side\n\n\n3 Loading data\n\n\n4 Visualizing georeferenced data"
+  },
+  {
+    "objectID": "quarto.html#references",
+    "href": "quarto.html#references",
+    "title": "Communicating with Quarto",
+    "section": "References",
+    "text": "References\nTutorial: Hello, Quarto"
+  },
+  {
+    "objectID": "quarto.html#your-first-quarto-report",
+    "href": "quarto.html#your-first-quarto-report",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.2 Your first Quarto report",
+    "text": "2.2 Your first Quarto report\n\n2.2.1 A first report\nUnder Rstudio, in the scrolling menu\nFile  → New File  → Quarto Document  → Word\nThis opens a file in the editor. This file can be viewed in its raw format Source, or in a more user-friendly format Visual. We will switch back and forth between those two modes in the rest of this document."
+  },
+  {
+    "objectID": "quarto.html#rendering",
+    "href": "quarto.html#rendering",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.3 Rendering",
+    "text": "2.3 Rendering\nRendering a Quarto document means producing the final output (html, pdf, Word, slides, website) from the source file. Use the Render button in the RStudio IDE to render the file and preview the output with a single click or keyboard shortcut (Ctrl+Shift+K).\nWhen rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file. The new file can be an HTML, PDF, MS Word document, presentation, website, book, interactive document, or other format."
+  },
+  {
+    "objectID": "quarto.html#yaml-header",
+    "href": "quarto.html#yaml-header",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.4 YAML header",
+    "text": "2.4 YAML header\nAn (optional) YAML header demarcated by three dashes (—) on either end.\nWhen rendered, the title, “Hello, Quarto”, will appear at the top of the rendered document with a larger font size than the rest of the document. The other two YAML fields denote that the output should be in html format and the document should open in the visual editor by default.\nThe basic syntax of YAML uses key-value pairs in the format key: value. Other YAML fields commonly found in headers of documents include metadata like author, subtitle, date as well as customization options like theme, fontcolor, fig-width, etc.\nYou can find out about all available YAML fields for HTML documentshere. The available YAML fields vary based on document format, e.g., see here for YAML fields for PDF documents and here for MS Word."
+  },
+  {
+    "objectID": "quarto.html#code-chunks",
+    "href": "quarto.html#code-chunks",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.5 Code chunks",
+    "text": "2.5 Code chunks\nQuarto documents can contain text and code. Computer code is included in code chunks, which are blocks of code that are delimited by triple backticks (```) and a language identifier (e.g., {r} for R code, {python} for Python code), cf example below:\n\nlibrary(ggplot2)\nlibrary(dplyr)\nx = rnorm(1000)\nx = tibble(x=x)\nx %&gt;% ggplot(aes(x=x)) + geom_histogram()\n\n\n\n\n\n\n\n\nWhen the document is rendered, the code in the chunks is executed, and the output (if any) is included in the rendered document."
+  },
+  {
+    "objectID": "quarto.html#markdown-text",
+    "href": "quarto.html#markdown-text",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.6 Markdown text",
+    "text": "2.6 Markdown text\nText is formatted (including section headings, hyperlinks, etc) using markdown syntax.\nIf using the source editor, you can achieve these with markdown expressions like ##, bold, etc.\nIf using the visual editor, you won’t need to learn much markdown syntax for authoring your document, as you can use the menus and shortcuts to add a heading, bold text, insert a table, etc."
+  },
+  {
+    "objectID": "quarto.html#customozation-to-woah-style",
+    "href": "quarto.html#customozation-to-woah-style",
+    "title": "Communicating with Quarto",
+    "section": "2.7 Customozation to WOAH style",
+    "text": "2.7 Customozation to WOAH style"
+  },
+  {
+    "objectID": "quarto.html#customization-to-woah-style",
+    "href": "quarto.html#customization-to-woah-style",
+    "title": "Communicating data-centric content with Quarto",
+    "section": "2.7 Customization to WOAH style",
+    "text": "2.7 Customization to WOAH style\nWOAH has a custom Quarto theme that can be used to produce documents that comply with WOAH style. To use the WOAH theme, add the following file to the folder containing your .qmd file: _brand.yml"
   }
 ]
