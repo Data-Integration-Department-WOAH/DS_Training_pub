@@ -89,7 +89,51 @@ When rendering, Quarto generates a new file that contains selected text, code, a
 
 ## YAML header
 
-An (optional) YAML header demarcated by three dashes (---) on either end.
+A quarto (.qmd) file can contain an  (optional) YAML header demarcated by three dashes (---) on either end.
+The chunk below shows a simple quarto file with a Yaml header and a single (brief) section in the body of the document:
+
+```{r,eval=FALSE}
+---
+title: "Untitled"
+editor: visual
+author: "G. Ramon"
+toc: true
+numbered: true
+date: last-modified
+format: 
+  html:
+    self-contained: true
+    toc: true
+    number-sections: true 
+    toc-depth: 3
+---
+      
+      
+  
+    
+# My first section
+
+blablabla
+
+
+```
+    
+    
+# My first section
+
+
+blablabla
+
+# A more advanced section for R code
+
+```{r}
+summary(cars)
+```
+
+
+# Appendix {.unnumbered}
+```
+
 
 When rendered, the title, "Hello, Quarto", will appear at the top of the rendered document with a larger font size than the rest of the document. The other two YAML fields denote that the output should be in html format and the document should open in the visual editor by default.
 
