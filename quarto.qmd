@@ -95,7 +95,7 @@ When rendered, the title, "Hello, Quarto", will appear at the top of the rendere
 
 The basic syntax of YAML uses key-value pairs in the format key: value. Other YAML fields commonly found in headers of documents include metadata like author, subtitle, date as well as customization options like theme, fontcolor, fig-width, etc. 
 
-You can find out about all available YAML fields for HTML documents[here](https://quarto.org/docs/reference/formats/html.html). The available YAML fields vary based on document format, e.g., see [here](https://quarto.org/docs/reference/formats/pdf.html) for YAML fields for PDF documents and [here](https://quarto.org/docs/reference/formats/docx.html) for MS Word.
+You can find out about all available YAML fields for HTML documents [here](https://quarto.org/docs/reference/formats/html.html). The available YAML fields vary based on document format, e.g., see [here](https://quarto.org/docs/reference/formats/pdf.html) for YAML fields for PDF documents and  [here](https://quarto.org/docs/reference/formats/docx.html) for MS Word.
 
 
 ## Code chunks
@@ -131,7 +131,8 @@ If using the visual editor, you won’t need to learn much markdown syntax for a
 ## Customization to WOAH style 
 
 WOAH has a custom Quarto theme that can be used to produce documents that comply with WOAH style.
-To use the WOAH theme, add the following file to the folder containing your .qmd file: [_brand.yml](./_brand.yml)
+To use the WOAH theme, add the following file to the folder containing your .qmd file: 
+[_brand.yml](https://github.com/Data-Integration-Department-WOAH/DS_Training_pub/blob/main/_brand.yml)
 
 # Presentations
 
