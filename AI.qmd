@@ -15,24 +15,71 @@ format:
     toc-depth: 3
 ---
 
-
-
-# Productivity tips for Rstudio 
+# Productivity tips for Rstudio
 
 ## In-line code completion with copilot
 
-##  ChatGPT and other LLMs support for R coding
+## ChatGPT and other LLMs support for R coding
+
+How to request help for a computer science issues: 
+
+-   **1980**: ask you next door colleague
+-   **1990** buy a subscription to the Spreadsheet Enthusiast magazine
+-   **2000**: google it
+-   **2010**: stackoverflow
+
+
+ ![](images/clipboard-1191669850.jpeg){width="200"}
+
+
+In recent years, LLMs have superseded traditional approaches for coding help:
+
+-   **2024**: chatGPT
+-   **2025**: Specialized models (enhanced *system prompt* + *fine-tuning* on domain data), e.g. [R and Rstudio Tutor](https://chatgpt.com/g/g-iedyANQtM-r-and-r-studio-tutor)
 
 # Positron
 
-# Programatic \& structured interactions with LLMs 
+# Prompts
 
+-   System prompt: sets the behavior of the model (e.g. "You are a helpful assistant.")
 
+-   User prompt: the actual request you want the model to help you with.
+
+-   It’s highly likely that you’ll end up writing long, possibly multi-page prompts.
+
+-   It is a good idea to have your prompt on a git repository, so you can track changes and revert to previous versions if needed.
+
+-   To ensure your success with this task,
+
+    -   First, put each prompt its own, separate file.
+    -   Second, write the prompts using Markdow (an markup language that’s easy to read and write).
+
+The reason to use Markdown is that it’s quite readable to LLMs (and humans), and it allows you to do things like: use headers, divide up a prompt into sections, itemised lists to enumerate multiple options.
+
+-   Be explicit about what you want the model to do. For example, instead of saying "Explain this code," say "Explain this R code line by line, including what each function does and why it's used here."
+
+-   Give examples
+
+# Programatic & structured interactions with LLMs
 
 ## Basic on interactions with LLMs
 
 ## APIs
 
-## Prompts
-
 ## Structured data
+
+# Five practical ways to future-proof your career with AI
+
+-   Audit your daily work: Spot repetitive tasks (emails, scheduling, reporting) and test AI tools that automate them.
+
+-   Upskill in one AI tool: Pick what’s relevant: ChatGPT for thinking and ideation, Copilot for data analytics. This list isn't exhaustive, just an example.
+
+-   Practice prompt writing: Get good at giving AI instructions: summarizing, creating, comparing, and drafting.
+
+-   Show your value as an “AI integrator”: Don’t just use tools privately. Present the savings/impact to your team or manager.
+
+-   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast.
+
+## References
+
+-   Ellmer vignette on [prompt design](https://ellmer.tidyverse.org/articles/prompt-design.html)
