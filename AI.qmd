@@ -41,9 +41,17 @@ In recent years, LLMs have superseded traditional approaches for coding help:
 
 # Prompts
 
--   System prompt: sets the behavior of the model (e.g. "You are a helpful assistant.")
+## The various types of prompts
 
--   User prompt: the actual request you want the model to help you with.
+- **The platform prompt**: unchangeable, set by the model provider, and affects every conversation. You can see what these look like from Anthropic, who publishes their [core system prompts)(https://docs.anthropic.com/en/release-notes/system-prompts).
+
+-   **The System prompt**: (aka developer prompt):  set when you create a new conversation, and affects every response. It’s used to provide additional instructions to the model, shaping its responses to your needs. It sets the behavior of the model (e.g. "You are a helpful assistant."),
+
+-   **The User prompt**: the actual request you want the model to help you with.
+
+OpenAI calls this the chain of command: if there are conflicts or inconsistencies in the prompts, the platform prompt overrides the system prompt, which in turn overrides the user prompt.
+
+## General recommandations for writing prompts
 
 -   It’s highly likely that you’ll end up writing long, possibly multi-page prompts.
 
@@ -52,13 +60,62 @@ In recent years, LLMs have superseded traditional approaches for coding help:
 -   To ensure your success with this task,
 
     -   First, put each prompt its own, separate file.
-    -   Second, write the prompts using Markdow (an markup language that’s easy to read and write).
-
-The reason to use Markdown is that it’s quite readable to LLMs (and humans), and it allows you to do things like: use headers, divide up a prompt into sections, itemised lists to enumerate multiple options.
+    -   Second, write the prompts using Markdow (an markup language that’s easy to read and write). The reason to use Markdown is that it’s quite readable to LLMs (and humans), and it allows you to do things like: use headers, divide up a prompt into sections, itemised lists to enumerate multiple options.
 
 -   Be explicit about what you want the model to do. For example, instead of saying "Explain this code," say "Explain this R code line by line, including what each function does and why it's used here."
 
 -   Give examples
+
+- Asking an LLM to suggest a good prompt is often a good idea.
+
+## Anatomy of a good GPT-5 prompt (credit: [Antoine Mersch](https://www.linkedin.com/feed/update/urn:li:activity:7363889669333213184/))
+
+
+
+* **Role**
+
+
+  - Act as an expert travel guide specializing in recommending lesser-known and unique outdoor hikes located within two hours of san francisco.
+
+
+* **Task**
+
+  - Start with a concise checklist (3 to 7 points) of steps you will follow to accomplish this task, focusing on conceptual planning rather than details.
+
+  - Identify and present the top 3 medium-length hikes (not among the most popular) located within two hours of san francisco. ensure each chosen hike offers a unique adventure through its scenery, isolation, or distinctive qualities.
+
+  - Exclude extremely popular hikes like mount tam, golden gate park, the presidio, and other major tourist sites in the san francisco area.
+
+* **Context**
+
+  - Prioritize accuracy: hike names must match official listings (e.g. alltrails), and all time and distance estimates must be realistic and reliable.
+
+  - Highlight what makes each hike exceptional in a concise summary.
+
+* **Reasoning** 
+
+  - Internally verify that all proposed hikes are real, lesser-known, and meet the defined parameters before responding. cross-check information (names, details) with reliable hiking sources.
+
+  - Optimize for clarity, conciseness, and practical value.
+
+*  **Output format**
+
+  - Return the results in a properly formatted markdown table with these columns:
+
+
+```markdown
+| Hike Name    | Address     | Distance (km) | Duration (h) | Summary     |
+|--------------|-------------|---------------|--------------|-------------|
+| Hike 1       | [Address]   | [XX]          | [X:XX]       | [Summary]   |
+| Hike 2       | [Address]   | [XX]          | [X:XX]       | [Summary]   |
+| Hike 3       | [Address]   | [XX]          | [X:XX]       | [Summary]   |
+```
+
+* **Stop conditions**
+
+  -  The task is complete when 
+    + three unique, verified, and medium-length hikes (excluding overly popular options) are returned in the requested format, 
+    + Validation has confirmed their full compliance with the requirements.
 
 # Programatic & structured interactions with LLMs
 
@@ -80,6 +137,6 @@ The reason to use Markdown is that it’s quite readable to LLMs (and humans), a
 
 -   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast.
 
-## References
+# Extra references {.unnumbered}
 
 -   Ellmer vignette on [prompt design](https://ellmer.tidyverse.org/articles/prompt-design.html)
