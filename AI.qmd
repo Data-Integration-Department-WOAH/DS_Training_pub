@@ -19,6 +19,13 @@ format:
 
 ## In-line code completion with copilot
 
+To activate Copilot support in Rstudio, 
+
+* Go to [GitHub](https://github.com) and create an account
+* From Rstudio: 
+  + Tools -> Global Options -> Copilot -> sign in Github
+  +  Tools -> Global Options -> Copilot -> Enable GitHub Copilot
+
 ## ChatGPT and other LLMs support for R coding
 
 How to request help for a computer science issues: 

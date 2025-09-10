@@ -1,5 +1,5 @@
 ---
-title: "Intro to Rstudio"
+title: "Data wrangling & plotting"
 subtitle: "Lecture notes"
 author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
 date: last-modified
@@ -11,18 +11,23 @@ format:
   html:
     self-contained: true
     toc: true
+    toc-depth: 2
     number-sections: true
 ---
 
-# Where to ask questions?
+
+# Part I: Intro to Rstudio
+
+
+## Where to ask questions?
 
 -   `Teams -> Data Science Training ->  Chat Training Summer-Autumn 2025` 
 
 -   PM to `@g.guillot` via teams or email
 
-# Poking around Rstudio
+## Poking around Rstudio
 
-## The various panes
+### The various panes
 
 ```         
 -   `Source`
@@ -34,13 +39,13 @@ format:
 -   `Files`, `plots` etc...
 ```
 
-## Clicking vs Scripting
+### Clicking vs Scripting
 
 -   Clicking is user-friendly but **error prone, not scalable, not traceable, not reproducible**
 
 -   Scripting is reliable (less error prone), scalable, traceable, reproducible
 
-## Rstudio as a pocket calculator
+### Rstudio as a pocket calculator
 
 ```{r,eval=TRUE}
     2+2
@@ -75,12 +80,12 @@ setwd("C:/Users/g.guillot/OneDrive - World Organisation For Animal Health/Data S
 
 NB: any character found after a \# is treated as a comment (disregarded by R). It is strongly recommended to add brief informative comments to your code to help your next-door colleague or you future self .
 
-# Loading data
+## Loading data
 
 -   Method 1 GUI: File -\> Import Dataset -\> From Excel (note the code preview)
 -   Method 2: use R commands (prefered, cf below)
 
-## A tiny dataset in `txt` format
+### A tiny dataset in `txt` format
 
 -   Try to load the `books.csv` data using the GUI
 
@@ -95,7 +100,7 @@ library(readr) # has to be done at start of each R session
 book_data <- read_csv("https://data-integration-department-woah.github.io/DS_Training_pub/data/books.csv")
 ```
 
-## Where are my data?
+### Where are my data?
 
 You can inspect the content of the dataset you just created by
 
@@ -111,9 +116,9 @@ book_data # print the dataset in the console
 book_data %>% str() # print info on  structure (more efficient in case of large dataset)
 ```
 
-## Miscellaneous remarks
+### Miscellaneous remarks
 
-### Piping
+#### Piping
 
 -   In older R code `book_data %>% str()` used to be written `str(book_data)`. More generally `data %>% function()` used to be written as `function(data)`. The latter is still widely found.
 
@@ -121,7 +126,7 @@ book_data %>% str() # print info on  structure (more efficient in case of large 
 
 -   In this training, we will strive to use the modern syntax `data %>% function()` or more generally `data %>% function(opt_arg = my_option)`
 
-### Code formatting
+#### Code formatting
 
 -   Naming conventions:
 
@@ -136,7 +141,7 @@ book_data %>% str() # print info on  structure (more efficient in case of large 
 
 -   No rule on code formatting (space, indentation, line end)
 
-## A larger dataset, in excel format
+### A larger dataset, in excel format
 
 Try now to load the `PRRS.xlsx` dataset.
 
@@ -171,7 +176,7 @@ PRRS <- read_excel(tmp)
 
 -   The `environment` pane
 
-## Exploring the structure of the `PRRS` dataset
+### Exploring the structure of the `PRRS` dataset
 
 -   Method 1 GUI: inspect information in the `Environment` pane (limited)
 -   Method 2: asking questions about the dataset via a script
@@ -191,16 +196,16 @@ PRRS %>% str()
 PRRS %>% summary()
 ```
 
-# Common data structures
+## Common data structures
 
-## Rectangular tables
+### Rectangular tables
 
 -   In Excel, data are organised in sheets and there is also almost no constraint on what a sheet can contain and how material is organised in a sheet
 -   In R, there are constraints
 -   A rectangular table in R is most commonly stored as a `data.frame` (old style) or a `tibble` (preferred)
     -   can mix numeric and character variables (columns)
 
-## Handling loosely structured data
+### Handling loosely structured data
 
 When a dataset can not fit in a rectangular table, a good option is often to store it as a list (or list of lists).
 
@@ -254,7 +259,7 @@ Remark: Note the use of the object `NA` (not available).
 -   used whenever a single value is missing
 -   understand algebra: try typing `NA+3`, `2/NA`, `5*NA`
 
-# Checking formatting issues in a dataset
+## Checking formatting issues in a dataset
 
 -   In this example we are using an add-on to R (something known as an R package) called `dataReporter` to check the dataset for common issues.
 
@@ -278,9 +283,9 @@ dataset %>% my_function()
   dataset %>% my_package::my_function()
 ```
 
-# Final remarks
+## Final remarks
 
-## Take-home messages
+### Take-home messages
 
 -   R users write scripts
 -   Common packages to load external data include `readr` and `readxl`
@@ -295,7 +300,7 @@ dataset %>% my_function()
     -   Feel free to ask LLMs general questions on any R related topic, a good place to start is [chatGPT R and Rstudio tutor](https://chatgpt.com/g/g-iedyANQtM-r-and-r-studio-tutor)
     -   In the first weeks of this training , please **refrain asking an LLM to write R scripts for you**, or you will never learn anything.
 
-# In-class exercise
+## In-class exercise
 
 -   The exercise consists in writing a short R script that executes the various steps below:
 
@@ -313,7 +318,7 @@ dataset %>% my_function()
 
 -   Re-open your script file and update it so that it performs the same task (rename variable `carat` into `weight`)
 
-# Self-study exercise
+## Self-study exercise
 
 -   Chose an excel file related to one of your current projects
 
@@ -328,7 +333,7 @@ Hints:
 -   Make sure you script is saved in a carefully commented `.R` file
 -   Make sure you understand all warning and error messages.
 
-# External resource
+## External resource
 
 -   External resource: [Basic Basics lesson unit from R-Ladies Sydney](https://rladiessydney.org/courses/ryouwithme/basicbasics)
 
@@ -337,6 +342,171 @@ Hints:
 
 
 
-# Presence and evaluation sheet
+## Presence and evaluation sheet
 
 Please take 1 min to fill the [presence and evaluation sheet](https://forms.office.com/Pages/ResponsePage.aspx?id=Y_X68W2wNUyHOTTMwoDcr65sY2lIPT9CrlVkSYnYNWZUM1E0MDNCN0Q5TktJRUFFNDdPUThDQVYxUC4u).
+
+
+
+# Part II: Basic syntax and vocabulary for data wrangling and graphics
+
+
+## Motivation
+
+After a dataset is loaded, we commonly have to go through steps such as checking, cleaning, pruning, reshaping, reformatting etc... The R package `dplyr` contains functions and a common set of rules (syntax/grammar) to do that. These package needs to be installed as:
+
+```{r,eval=FALSE}
+install.packages("dplyr")
+install.packages("tidyr")
+```
+
+and loaded
+
+```{r}
+library(dplyr)
+library(tidyr)
+```
+
+In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset
+
+## Data wrangling
+
+In this session, we are going to work with a toy dataset included in R, the `mtcars` dataset. For your convenience, this dataset is stored on the data folder:
+
+```{r}
+# loading the mtcars dataset
+library(readr) # needed to call  read_csv()
+library(magrittr) # needed for the pipe operator %>% 
+mtcars_data = read_csv("https://data-integration-department-woah.github.io/DS_Training_pub/data/mtcars.csv")
+
+# checking
+mtcars_data %>% dim()
+mtcars_data %>% colnames()
+
+# checking a specific variable
+mtcars_data$gear # return all values in the console
+mtcars_data$gear %>%  unique() # return the set of unique values
+mtcars_data$gear %>%  unique() %>% sort() # return the set of unique values and sort them 
+
+
+```
+
+### Filtering
+
+We can retain rows of a dataset matching a condition with `filter()`
+
+```{r}
+#  creating a subset of the data with only cars having 4  gears
+dat0 = mtcars_data %>% filter(gear == 4) 
+
+dat0
+```
+
+### Re-arranging rows with `arrange()`
+
+We can arrange rows of a data set with `arrange()`, for example by car make or mpg of gears:
+
+```{r}
+# creating a dataset with same variables but rows sorted by mpg
+dat1 = mtcars_data %>% arrange(mpg)
+dat1
+```
+
+### Selecting columns
+
+We can select a subset of columns with `select()`
+
+```{r}
+# creaintg a subset of the data containing only variables mpg and cyl
+dat2 = mtcars_data %>% select(mpg,cyl)
+dat2
+```
+
+### Creating a new variable with `mutate()`
+
+We can create a new variable, for example the power to weight ratio, defined as `hp/wt` with `mutate()` as:
+
+```{r}
+# creating a new dataset with new variable  ratio, defined as hp/wt
+dat3 = mtcars_data %>% mutate(ratio = hp/wt)
+dat3
+```
+
+### Combining several operations with multiple pipes
+
+Multiple data wrangling operations can be combined into a single, longer R expression as
+
+```{r}
+dat5 =  mtcars_data %>% 
+  filter(gear == 4) %>%  # only 4-gear cars
+  arrange(mpg) %>%  # arranging by mpg
+  mutate(ratio = hp/wt) # new variable
+dat5
+```
+
+## A first look at plotting
+
+### Basic `ggplot` syntax
+
+A scatter plot of `mpg` against `hp`:
+
+```{r}
+library(ggplot2)
+
+mtcars_data %>%  # what data?
+  ggplot( aes(x = hp, y = mpg) ) + # what variables on the axes?
+  geom_point() # what type of representation?
+```
+
+### Larger dots, with colours
+
+A slightly nicer plot with `wt` as colour shades (`colour = wt`) and larger dots (`cex=2`)
+
+```{r}
+mtcars_data %>% 
+  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +
+  geom_point() + 
+  scale_size(guide = "none")
+```
+
+### Adding a title and axes labels
+
+```{r}
+mtcars_data %>% 
+  ggplot( aes(x = hp, y = mpg, colour = wt, size=2) ) +
+  geom_point() +
+  scale_size(guide = "none") + 
+  labs(title = "MPG vs Horsepower",
+       x = "Horsepower (hp)",
+       y = "Miles per Gallon (mpg)") 
+```
+
+## Take-home messages and final remarks
+
+-   There is always a (combination of) `dplyr` function(s) that can transform your data along your needs
+-   The `ggplot` (so-called) grammar of graphics is complex but highly consistent.
+    -   Learning a few basic rules will allow you to go a long way
+    -   Soon we will see how to make our R programmer lives easier with built-in `co-pilot` support and LLM requests
+    -   Please refrain using LLMs for the time being
+
+## In-class exercise
+
+1.  Load the data contained in the Excel file `iris.xlsx` in your R session. *(Hint: use function `read_excel()` of the R package `readxl` as in Session 1).*
+2.  Rename variable `Species` into `Species.name`. *(Hint: use function `rename()`, generic syntax: `data %>% rename(new_name = old_name)`)*
+3.  Create a new variable approximating the petal area as the product of petal length by petal width.
+4.  Create a simple scatter plot of sepal width against sepal length
+5.  Add species name as colors in the previous plot
+6.  Add a title and better formatted axis labels
+
+## Self-study exercise
+
+- Select a simple dataset belonging to one of your current or past project (simple enough to consist of a single rectangular table).
+- Load this dataset in R.
+- Write instructions based on `filter, arrange, select, mutate` respectively.
+- Create a simple and nice looking scatter plot.
+
+## External resource
+
+-   [Introduction to dplyr](https://cloud.r-project.org/web/packages/dplyr/vignettes/dplyr.html) <!-- - [dplyr overview](https://dplyr.tidyverse.org/) -->
+-   [dplyr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+

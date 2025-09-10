@@ -87,7 +87,7 @@ Use the  Render button in the RStudio IDE to render the file and preview the out
 
 When rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file. The new file can be an HTML, PDF, MS Word document, presentation, website, book, interactive document, or other format.
 
-## YAML header
+## A simple example of quarto document with a YAML header
 
 A quarto (.qmd) file can contain an  (optional) YAML header demarcated by three dashes (---) on either end.
 The chunk below shows a simple quarto file with a Yaml header and a single (brief) section in the body of the document:
@@ -116,7 +116,7 @@ format:
 blablabla
 
 
-```
+
     
     
 # My first section
@@ -124,22 +124,28 @@ blablabla
 
 blablabla
 
-# A more advanced section for R code
 
-```{r}
-summary(cars)
 ```
 
 
-# Appendix {.unnumbered}
-```
 
-
-When rendered, the title, "Hello, Quarto", will appear at the top of the rendered document with a larger font size than the rest of the document. The other two YAML fields denote that the output should be in html format and the document should open in the visual editor by default.
+When rendered, the title will appear at the top of the rendered document with a larger font size than the rest of the document. The other  YAML fields denote that the output should be  with a specific  html format.
 
 The basic syntax of YAML uses key-value pairs in the format key: value. Other YAML fields commonly found in headers of documents include metadata like author, subtitle, date as well as customization options like theme, fontcolor, fig-width, etc. 
 
 You can find out about all available YAML fields for HTML documents [here](https://quarto.org/docs/reference/formats/html.html). The available YAML fields vary based on document format, e.g., see [here](https://quarto.org/docs/reference/formats/pdf.html) for YAML fields for PDF documents and  [here](https://quarto.org/docs/reference/formats/docx.html) for MS Word.
+
+
+
+##  Markdown text
+
+Text is formatted (including section headings, hyperlinks, etc) using markdown syntax.
+
+
+
+If using the source editor, you can achieve these with markdown expressions like ##, **bold**, etc.
+
+If using the visual editor, you won’t need to learn much markdown syntax for authoring your document, as you can use the menus and shortcuts to add a heading, bold text, insert a table, etc. 
 
 
 ## Code chunks
@@ -162,15 +168,6 @@ x %>% ggplot(aes(x=x)) + geom_histogram()
 When the document is rendered, the code in the chunks is executed, and the output (if any) is included in the rendered document.
 
 
-##  Markdown text
-
-Text is formatted (including section headings, hyperlinks, etc) using markdown syntax.
-
-
-
-If using the source editor, you can achieve these with markdown expressions like ##, **bold**, etc.
-
-If using the visual editor, you won’t need to learn much markdown syntax for authoring your document, as you can use the menus and shortcuts to add a heading, bold text, insert a table, etc. 
 
 ## Customization to WOAH style 
 
