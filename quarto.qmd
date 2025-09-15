@@ -43,7 +43,7 @@ Quarto is a scientific and technical publishing system that lets you create docu
 
 Quarto also incidentally solves all the problems listed in the previous section.
 
-## Ten reasons to use Quarto
+## Eight reasons to use Quarto
 
 -   **Reproducible**, code-linked outputs
 
@@ -119,11 +119,14 @@ blablabla
 
     
     
-# My first section
+# My second section
 
 
 blablabla
 
+## A sub-section
+
+blablabla
 
 ```
 

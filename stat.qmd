@@ -1,0 +1,224 @@
+---
+title: "Statistical thinking" 
+#subtitle: "Lecture notes"
+author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
+date: last-modified
+execute: 
+  eval: true
+  message: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    toc: true
+    number-sections: true 
+    toc-depth: 3
+---
+
+## Motivation
+
+The first steps of a data science project typically involve data wrangling, data exploration and descriptive statistics.
+
+An example is given below.
+
+```{r,echo=FALSE}
+library(dplyr)
+# simulate two variables with names in relation with animal health
+set.seed(123)
+n <- 100
+x <- rlnorm(n, meanlog = 1.3, sdlog = .2) # e.g. age of animals
+y <- 5 * x + rnorm(n, mean = 0, sd =5) # e.g. weight of animals
+data <- tibble(age = x, weight = y)
+```
+
+
+```{r}
+# a (fake, simulated) dataset consisting of age and weight of animals
+print(data)
+# descriptive statistics
+summary(data)
+
+
+# ggplotly scatter plot
+library(ggplot2)
+library(dplyr)
+library(plotly)
+# first the classical ggplot thing
+# we store the plot in object p
+p = data %>% ggplot(aes(x = age, y = weight)) +
+  geom_point(size=4,alpha=.3,color="brown") +
+  labs(title = "Scatter plot of weight vs age",
+       x = "Age (years)",
+       y = "Weight (kg)")
+# we convert p to an interactive plotly object 
+p %>% ggplotly()
+```
+
+The previous steps just confirm what we already know: weight tends to increase with age.
+
+Questions unaddressed include:  
+
+* What is proportion of animals with wirght exceeding 32kg in the real world?
+* What is the growth rate (in kg per year)?
+* What is the strength of the association between age and weight?
+* Can we predict weight from age?
+* What is the uncertainty associated with such predictions?
+
+Answering those questions requires to go **beyond descriptive statistics/ data visualization** and to fit a statistical model to the data.
+
+
+## What is a statistical model?  
+
+### Definition
+
+* A statistical model is a set of (mathematical/probabilistic) **assumptions** that scientist formulate **to represent the real-world process that generates data.** 
+* It describes the relationships between different variables in the data and allows us to make **inferences** (take guesses on data generating process) and **predictions** (take guesses on unobserved values) based on data and those relationships.
+
+### Example: animal weight as a normally distributed variable
+
+If we make the assumption that the weight of animals in the population follows a normal distribution with mean mu and standard deviation sigma, we can use the data to estimate mu and sigma.
+```{r}
+# estimate mu and sigma from the data
+mu_hat = mean(data$weight)
+sigma_hat = sd(data$weight)
+mu_hat
+sigma_hat
+# ggplot the empirical histogram (probability rather than count on the y axis)
+# + plot of estimated normal distribution  
+data %>% ggplot(aes(x=weight)) +
+  geom_histogram(aes(y=..density..),bins=20,fill="brown",alpha=.3) +
+  stat_function(fun = dnorm, args = list(mean = mu_hat, sd = sigma_hat), 
+                color = "red3", linewidth = 1) +
+  labs(title = "Histogram of weight with estimated normal distribution",
+       x = "Weight (kg)", y = "Density") 
+```
+
+
+
+* The model assumption that weight follows a normal distribution is a strong one, and it may not be entirely accurate (for example it implictly assume that a weight can be negative). 
+
+* Formulating a statistical model is an acknowledgment that  **data values are contingent**, in other words they could have been different (different sampling units, different errors in the measurement, different missingness due to incomplete reporting, etc).
+
+* A statistical model  provides a useful framework for understanding the data and assessing how much trust we should place in the data at hand and the conclusions we derive from it.
+
+* For example, if we want to the estimate proportion of animals above 35kg. A straightforward (but questionable) answer could be: 0% (such animals have not been observed in the data at hand).
+
+* Using our estimated normal distribution, the answer would be different: in probability theory, this can be computed as $1 - P(X \leq 35) = 1 - F(35)$ where F is the cumulative distribution function (CDF) of the normal distribution with mean $\hat{\mu}$ and standard deviation $\hat{\sigma}$.
+
+In R we evaluate this number denoted $\hat{p}$ as:
+
+```{r}
+# proportion of animals above 35kg
+p_hat = 1 - pnorm(35, mean = mu_hat, sd = sigma_hat)
+signif(p_hat*100,dig=2)
+```
+
+
+<!-- ### Example: linear regression model of weight as a function of age -->
+
+<!-- A simple statistical model to describe the relationship between weight and age is the linear regression model, which assumes that weight is a linear function of age plus some random noise. -->
+<!-- In probability terms, this can be written as: -->
+<!-- $$Y = \beta_0 + \beta_1  x + \varepsilon$$ -->
+<!-- where $Y$ is the weight, $x$ is the age, $\beta_0$ and $\beta_1$ are the coefficients of the linear function, and $\varepsilon$ is a random error term that follows a normal distribution with mean 0 and standard deviation $\nu$. -->
+<!-- We can use the data to estimate the coefficients $\beta_0$, $\beta_1$ and $\nu$ using the `lm` function in R: -->
+
+<!-- ```{r} -->
+<!-- # fit the linear regression model -->
+<!-- model = lm(weight ~ age, data = data) -->
+<!-- summary(model) -->
+
+<!-- # extract coefficients -->
+<!-- beta_0_hat = coef(model)[1] -->
+<!-- beta_1_hat = coef(model)[2] -->
+<!-- nu_hat = summary(model)$sigma -->
+<!-- beta_0_hat -->
+<!-- beta_1_hat -->
+<!-- nu_hat -->
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- # ggplot the data and the fitted regression line -->
+<!-- data %>% ggplot(aes(x = age, y = weight)) + -->
+<!--   geom_point(size=4,alpha=.3,color="brown") + -->
+<!--   geom_abline(intercept = beta_0_hat, slope = beta_1_hat, color = "red3", linewidth = 1) + -->
+<!--   labs(title = "Scatter plot of weight vs age with fitted regression line", -->
+<!--        x = "Age (years)", -->
+<!--        y = "Weight (kg)") -->
+<!-- ``` -->
+
+<!-- The model above allows us to make predictions about the weight of an animal given its age. -->
+<!-- For example, we can predict the weight of an animal that is 3 years old as follows: -->
+<!-- ```{r} -->
+<!-- # predict weight of an animal that is 3 years old -->
+<!-- age_new = 3 -->
+<!-- weight_pred = beta_0_hat + beta_1_hat * age_new -->
+<!-- weight_pred -->
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- # predict weight with prediction interval -->
+<!-- predict(model, newdata = tibble(age = age_new), interval = "prediction", level = 0.95) -->
+<!-- ``` -->
+
+
+<!-- We can also use the model to estimate the strength of the association between age and weight using the R-squared value, which is a measure of how well the model explains the variability in the data. -->
+<!-- ```{r} -->
+<!-- # R-squared value -->
+<!-- summary(model)$r.squared -->
+<!-- ``` -->
+
+
+
+## General statistical principles 
+
+### Data contingency and inference
+
+* Keep in mind that all conclusions you may draw from your data may not hold for the whole population your data were sampled from.
+  
+  
+* Extrapolating a conclusion from a sample to the whole population the data were sampled from  is called the problem of **statistical inference**. This problem is ubiquitous in data science. It became overlooked in recent years with the rise of machine learning, which focuses on prediction accuracy rather than understanding the data generating process. However, statistical inference remains crucial for making valid conclusions from data.
+
+* There problem of statistical inference is somehow immaterial or of lesser importance when the data at hand represents the whole population and measurement errors are of small magnitude. This is ofen the case in Official Statistics when statistical units are countries and data from all countries are available and obtained from reliable data collection systems.
+
+* When conlusions are extrapolated from a sample to another population, there will always be some uncertainty associated with those conclusions. Quantifying that uncertainty is a key aspect of statistical thinking.
+
+* The uncertainty is captured by a probability. The statistical toolbox offers multiple tools to assess the uncertainty/significance of a conclusion.
+
+* For this assessment to be valid, the data collection and the evidence generation must be done in a rigorous way. This is where  **study design** and **statistical analysis plans** comes into play.
+
+
+
+### Key considerations in designing a statistical study
+
+* Clear objectives: define the research question(s) precisely.
+
+* Target population & sampling: specify who/what is studied and ensure representativeness.
+
+* Study design choice: select appropriate design (e.g., experiment, cohort, survey) to minimize bias.
+
+* Control of confounding & bias: use randomization, blinding, stratification where relevant.
+
+* Sample size & power: plan enough observations for reliable inference.
+
+
+###  Key considerations in designing a statistical analysis
+
+* Pre-specify endpoints & hypotheses: avoid data-driven fishing.
+
+* Define analysis populations: e.g., intention-to-treat vs per-protocol.
+
+* Detail statistical methods: models, tests, adjustments for covariates.
+
+* Handling of missing data & outliers: specify imputation or sensitivity checks.
+
+* Multiplicity & subgroup analyses: state corrections and hierarchy.
+
+* Reporting format: outline how results (tables, graphs, effect sizes, CIs) will be presented, including uncertainty measures.
+
+
+## References {.unnumbered}
+
+* _Why Most Published Research Findings Are False_, John P. A. Ioannidis, PLOS Medicine 2(8): [e124](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1182327), 2005.
+
