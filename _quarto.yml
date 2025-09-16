@@ -3,24 +3,26 @@ project:
   output-dir: .
 
 website:
-  title: "WOAH - DATA SCIENCE TRAINING PROGRAM"
+  title: "DATA SCIENCE TRAINING PROGRAM"
   navbar:
     left:
       - text: "Home"
         href: index.qmd
       - text: "Rstudio"
         href: Notes_session1.qmd
-      - text: "Data wrangling & plotting I"
-        href: Notes_session2.qmd
-      - text: "Data wrangling & plotting II"
+      - text: "Data wrangling & plotting"
+      #   href: Notes_session2.qmd
+      # - text: "Data wrangling & plotting II"
         href: Notes_session3.qmd
-      - text: "Quarto"
+      - text: "Creating content with Quarto"
         href: quarto.qmd
+      - text: "Statistical modelling"
+        href: stat.qmd
       - text: "Georeferenced data"
         href: geo.qmd
-      - text: "Git"
+      - text: "Collaborating with Git"
         href: git.qmd
-      - text: "AI"
+      - text: "Leveraging AI"
         href: AI.qmd
 format:
   html:

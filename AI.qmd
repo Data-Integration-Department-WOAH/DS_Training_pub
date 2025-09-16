@@ -126,11 +126,34 @@ OpenAI calls this the chain of command: if there are conflicts or inconsistencie
 
 # Programatic & structured interactions with LLMs
 
-## Basic on interactions with LLMs
+## Chatbot versus programmatic interaction with LLMs
+
+The layman approach to using LLMs is to use a chatbot interface, such as ChatGPT or Gemini. This is fine for casual use, but has several limitations:
+
+-   Limited context window (e.g. 8k tokens for ChatGPT-4, 32k for Gemini Pro, 128k for GPT-4-turbo)
+-   Limited control over the model and its parameters
+-   Limited reproducibility (same prompt may yield different results) 
+-   Limited integration in existing workflows (e.g. R, Python, bash)
+-   Limited automation (e.g. batch processing of multiple documents)
+-   Limited customization (e.g. fine-tuning, custom models)
+-   Limited version control (e.g. tracking changes in prompts and outputs)
+-   Cost: per token, monitoring usage
+-   Vendor lock-in
+-   Working with (highly) structured inputs/outputs (e.g. R, Md, JSON)
+-   Working with large datasets
+-   Combining multiple AI models/tools
+-   Combining AI with traditional programming
+
+
+
 
 ## APIs
 
-## Structured data
+An APi is a set of rules and protocols that allow different software applications to communicate with each other.
+For example, when you use a weather app on your phone, it uses an API to fetch the latest weather data from a remote server.
+Most LLM providers offer APIs (Application Programming Interfaces) that allow you to interact with their models programmatically (through the use of computer programs). This gives you considerably more control and flexibility over how you use the models.
+
+## Working with structured data
 
 # Five practical ways to future-proof your career with AI
 
