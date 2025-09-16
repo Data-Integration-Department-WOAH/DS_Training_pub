@@ -11,8 +11,6 @@ website:
       - text: "Rstudio"
         href: Notes_session1.qmd
       - text: "Data wrangling & plotting"
-      #   href: Notes_session2.qmd
-      # - text: "Data wrangling & plotting II"
         href: Notes_session3.qmd
       - text: "Creating content with Quarto"
         href: quarto.qmd
