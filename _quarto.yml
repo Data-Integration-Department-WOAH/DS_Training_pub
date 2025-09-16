@@ -1,20 +1,19 @@
 project:
   type: website
   output-dir: .
-
 website:
   title: "DATA SCIENCE TRAINING PROGRAM"
   navbar:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Rstudio"
+      - text: "Data wrangling & plotting with R and Rstudio"
         href: Notes_session1.qmd
-      - text: "Data wrangling & plotting"
+      - text: "Combining datasets"
         href: Notes_session3.qmd
       - text: "Creating content with Quarto"
         href: quarto.qmd
-      - text: "Statistical modelling"
+      - text: "Statistical thinking"
         href: stat.qmd
       - text: "Georeferenced data"
         href: geo.qmd
