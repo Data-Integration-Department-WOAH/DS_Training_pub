@@ -153,7 +153,39 @@ An APi is a set of rules and protocols that allow different software application
 For example, when you use a weather app on your phone, it uses an API to fetch the latest weather data from a remote server.
 Most LLM providers offer APIs (Application Programming Interfaces) that allow you to interact with their models programmatically (through the use of computer programs). This gives you considerably more control and flexibility over how you use the models.
 
-## Working with structured data
+
+
+
+## The ellmer package
+
+The `ellmer` package is an R package that provides a simple and consistent interface to interact with various LLMs (Large Language Models) from different providers, such as OpenAI, Anthropic, Google and others. It allows you to easily switch between different models and providers without changing your code.
+
+An example with Google Gemini to get a recipe and get it stored in a neat qmd file.
+
+```{r,eval=FALSE}
+library(ellmer)
+system_prompt = "You are chefGPT, a world class chef and culinary expert. You create delicious recipes with detailed instructions and nutritional information. You write in a clear and engaging style that is easy to follow."
+
+user_prompt = "Create a recipe for a healthy and tasty vegan lasagna with spinach and mushrooms. Include a list of ingredients, step-by-step instructions, and nutritional information per serving. Format the recipe in markdown."
+
+api_key = Sys.getenv("GOOGLE_GEMINI_API_KEY")
+
+chat = chat_google_gemini(
+  model = "gemini-2.5-flash",
+  system_prompt = system_prompt,
+  api_key = api_key)
+
+response = chat$chat(user_prompt,
+                     echo=FALSE)
+cat(response)
+writeLines(response, "vegan_lasagna.qmd")
+
+library(rmarkdown)
+render("./vegan_lasagna.qmd")
+```
+
+
+
 
 # Five practical ways to future-proof your career with AI
 
@@ -166,6 +198,8 @@ Most LLM providers offer APIs (Application Programming Interfaces) that allow yo
 -   Show your value as an “AI integrator”: Don’t just use tools privately. Present the savings/impact to your team or manager.
 
 -   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast.
+
+
 
 # Extra references {.unnumbered}
 

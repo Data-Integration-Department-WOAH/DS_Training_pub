@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gilles Guillot, Data Integration Department, World Organisation for Animal Health">
-<meta name="dcterms.date" content="2025-09-16">
+<meta name="dcterms.date" content="2025-09-29">
 
 <title>Leveraging AI – DATA SCIENCE TRAINING PROGRAM</title>
 <style>
@@ -1791,11 +1791,11 @@ async function fuseSearch(query, fuse, fuseOptions) {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Notes_session1.html"> 
-<span class="menu-text">Rstudio</span></a>
+<span class="menu-text">Data wrangling &amp; plotting with R and Rstudio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Notes_session3.html"> 
-<span class="menu-text">Data wrangling &amp; plotting</span></a>
+<span class="menu-text">Combining datasets</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./quarto.html"> 
@@ -1803,7 +1803,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./stat.html"> 
-<span class="menu-text">Statistical modelling</span></a>
+<span class="menu-text">Statistical thinking</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./geo.html"> 
@@ -1849,7 +1849,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
   <ul class="collapse">
   <li><a href="#chatbot-versus-programmatic-interaction-with-llms" id="toc-chatbot-versus-programmatic-interaction-with-llms" class="nav-link" data-scroll-target="#chatbot-versus-programmatic-interaction-with-llms"><span class="header-section-number">4.1</span> Chatbot versus programmatic interaction with LLMs</a></li>
   <li><a href="#apis" id="toc-apis" class="nav-link" data-scroll-target="#apis"><span class="header-section-number">4.2</span> APIs</a></li>
-  <li><a href="#working-with-structured-data" id="toc-working-with-structured-data" class="nav-link" data-scroll-target="#working-with-structured-data"><span class="header-section-number">4.3</span> Working with structured data</a></li>
+  <li><a href="#the-ellmer-package" id="toc-the-ellmer-package" class="nav-link" data-scroll-target="#the-ellmer-package"><span class="header-section-number">4.3</span> The ellmer package</a></li>
   </ul></li>
   <li><a href="#five-practical-ways-to-future-proof-your-career-with-ai" id="toc-five-practical-ways-to-future-proof-your-career-with-ai" class="nav-link" data-scroll-target="#five-practical-ways-to-future-proof-your-career-with-ai"><span class="header-section-number">5</span> Five practical ways to future-proof your career with AI</a></li>
   <li><a href="#extra-references" id="toc-extra-references" class="nav-link" data-scroll-target="#extra-references">Extra references</a></li>
@@ -1878,7 +1878,7 @@ async function fuseSearch(query, fuse, fuseOptions) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 16, 2025</p>
+      <p class="date">September 29, 2025</p>
     </div>
   </div>
   
@@ -2016,8 +2016,31 @@ async function fuseSearch(query, fuse, fuseOptions) {
 <h2 data-number="4.2" class="anchored" data-anchor-id="apis"><span class="header-section-number">4.2</span> APIs</h2>
 <p>An APi is a set of rules and protocols that allow different software applications to communicate with each other. For example, when you use a weather app on your phone, it uses an API to fetch the latest weather data from a remote server. Most LLM providers offer APIs (Application Programming Interfaces) that allow you to interact with their models programmatically (through the use of computer programs). This gives you considerably more control and flexibility over how you use the models.</p>
 </section>
-<section id="working-with-structured-data" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="working-with-structured-data"><span class="header-section-number">4.3</span> Working with structured data</h2>
+<section id="the-ellmer-package" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="the-ellmer-package"><span class="header-section-number">4.3</span> The ellmer package</h2>
+<p>The <code>ellmer</code> package is an R package that provides a simple and consistent interface to interact with various LLMs (Large Language Models) from different providers, such as OpenAI, Anthropic, Google and others. It allows you to easily switch between different models and providers without changing your code.</p>
+<p>An example with Google Gemini to get a recipe and get it stored in a neat qmd file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="ot">=</span> <span class="st">&quot;You are chefGPT, a world class chef and culinary expert. You create delicious recipes with detailed instructions and nutritional information. You write in a clear and engaging style that is easy to follow.&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="ot">=</span> <span class="st">&quot;Create a recipe for a healthy and tasty vegan lasagna with spinach and mushrooms. Include a list of ingredients, step-by-step instructions, and nutritional information per serving. Format the recipe in markdown.&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>api_key <span class="ot">=</span> <span class="fu">Sys.getenv</span>(<span class="st">&quot;GOOGLE_GEMINI_API_KEY&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">=</span> <span class="fu">chat_google_gemini</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">&quot;gemini-2.5-flash&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> system_prompt,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_key =</span> api_key)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>response <span class="ot">=</span> chat<span class="sc">$</span><span class="fu">chat</span>(user_prompt,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">echo=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(response)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(response, <span class="st">&quot;vegan_lasagna.qmd&quot;</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span>(<span class="st">&quot;./vegan_lasagna.qmd&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="five-practical-ways-to-future-proof-your-career-with-ai" class="level1" data-number="5">
