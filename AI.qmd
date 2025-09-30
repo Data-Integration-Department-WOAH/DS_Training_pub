@@ -44,6 +44,13 @@ In recent years, LLMs have superseded traditional approaches for coding help:
 
 # Positron
 
+
+Positron is the  data science IDE of the AI era
+[demo](https://positron.posit.co/features.html)
+
+Soon packaged on te Enterprise Portal
+
+
 # Prompts
 
 ## The various types of prompts
