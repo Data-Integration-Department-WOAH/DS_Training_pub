@@ -19,25 +19,23 @@ format:
 
 ## In-line code completion with copilot
 
-To activate Copilot support in Rstudio, 
+To activate Copilot support in Rstudio,
 
-* Go to [GitHub](https://github.com) and create an account
-* From Rstudio: 
-  + Tools -> Global Options -> Copilot -> sign in Github
-  +  Tools -> Global Options -> Copilot -> Enable GitHub Copilot
+-   Go to [GitHub](https://github.com) and create an account
+-   From Rstudio:
+    -   Tools -\> Global Options -\> Copilot -\> sign in Github
+    -   Tools -\> Global Options -\> Copilot -\> Enable GitHub Copilot
 
 ## ChatGPT and other LLMs support for R coding
 
-How to request help for a computer science issues: 
+How to request help for a computer science issues:
 
 -   **1980**: ask you next door colleague
 -   **1990** buy a subscription to the Spreadsheet Enthusiast magazine
 -   **2000**: google it
 -   **2010**: stackoverflow
 
-
- ![](images/clipboard-1191669850.jpeg){width="200"}
-
+![](images/clipboard-1191669850.jpeg){width="200"}
 
 In recent years, LLMs have superseded traditional approaches for coding help:
 
@@ -50,9 +48,9 @@ In recent years, LLMs have superseded traditional approaches for coding help:
 
 ## The various types of prompts
 
-- **The platform prompt**: unchangeable, set by the model provider, and affects every conversation. You can see what these look like from Anthropic, who publishes their [core system prompts)(https://docs.anthropic.com/en/release-notes/system-prompts).
+-   **The platform prompt**: unchangeable, set by the model provider, and affects every conversation. You can see what these look like from Anthropic, who publishes their \[core system prompts)(https://docs.anthropic.com/en/release-notes/system-prompts).
 
--   **The System prompt**: (aka developer prompt):  set when you create a new conversation, and affects every response. It’s used to provide additional instructions to the model, shaping its responses to your needs. It sets the behavior of the model (e.g. "You are a helpful assistant."),
+-   **The System prompt**: (aka developer prompt): set when you create a new conversation, and affects every response. It’s used to provide additional instructions to the model, shaping its responses to your needs. It sets the behavior of the model (e.g. "You are a helpful assistant."),
 
 -   **The User prompt**: the actual request you want the model to help you with.
 
@@ -73,44 +71,39 @@ OpenAI calls this the chain of command: if there are conflicts or inconsistencie
 
 -   Give examples
 
-- Asking an LLM to suggest a good prompt is often a good idea.
+-   Asking an LLM to suggest a good prompt is often a good idea.
 
 ## Anatomy of a good GPT-5 prompt (credit: [Antoine Mersch](https://www.linkedin.com/feed/update/urn:li:activity:7363889669333213184/))
 
+-   **Role**
 
+    -   Act as an expert travel guide specializing in recommending lesser-known and unique outdoor hikes located within two hours of san francisco.
 
-* **Role**
+-   **Task**
 
+    -   Start with a concise checklist (3 to 7 points) of steps you will follow to accomplish this task, focusing on conceptual planning rather than details.
 
-  - Act as an expert travel guide specializing in recommending lesser-known and unique outdoor hikes located within two hours of san francisco.
+    -   Identify and present the top 3 medium-length hikes (not among the most popular) located within two hours of san francisco. ensure each chosen hike offers a unique adventure through its scenery, isolation, or distinctive qualities.
 
+    -   Exclude extremely popular hikes like mount tam, golden gate park, the presidio, and other major tourist sites in the san francisco area.
 
-* **Task**
+-   **Context**
 
-  - Start with a concise checklist (3 to 7 points) of steps you will follow to accomplish this task, focusing on conceptual planning rather than details.
+    -   Prioritize accuracy: hike names must match official listings (e.g. alltrails), and all time and distance estimates must be realistic and reliable.
 
-  - Identify and present the top 3 medium-length hikes (not among the most popular) located within two hours of san francisco. ensure each chosen hike offers a unique adventure through its scenery, isolation, or distinctive qualities.
+    -   Highlight what makes each hike exceptional in a concise summary.
 
-  - Exclude extremely popular hikes like mount tam, golden gate park, the presidio, and other major tourist sites in the san francisco area.
+-   **Reasoning**
 
-* **Context**
+    -   Internally verify that all proposed hikes are real, lesser-known, and meet the defined parameters before responding. cross-check information (names, details) with reliable hiking sources.
 
-  - Prioritize accuracy: hike names must match official listings (e.g. alltrails), and all time and distance estimates must be realistic and reliable.
+    -   Optimize for clarity, conciseness, and practical value.
 
-  - Highlight what makes each hike exceptional in a concise summary.
+-   **Output format**
 
-* **Reasoning** 
+-   Return the results in a properly formatted markdown table with these columns:
 
-  - Internally verify that all proposed hikes are real, lesser-known, and meet the defined parameters before responding. cross-check information (names, details) with reliable hiking sources.
-
-  - Optimize for clarity, conciseness, and practical value.
-
-*  **Output format**
-
-  - Return the results in a properly formatted markdown table with these columns:
-
-
-```markdown
+``` markdown
 | Hike Name    | Address     | Distance (km) | Duration (h) | Summary     |
 |--------------|-------------|---------------|--------------|-------------|
 | Hike 1       | [Address]   | [XX]          | [X:XX]       | [Summary]   |
@@ -118,11 +111,11 @@ OpenAI calls this the chain of command: if there are conflicts or inconsistencie
 | Hike 3       | [Address]   | [XX]          | [X:XX]       | [Summary]   |
 ```
 
-* **Stop conditions**
+-   **Stop conditions**
 
-  -  The task is complete when 
-    + three unique, verified, and medium-length hikes (excluding overly popular options) are returned in the requested format, 
-    + Validation has confirmed their full compliance with the requirements.
+    -   The task is complete when
+    -   three unique, verified, and medium-length hikes (excluding overly popular options) are returned in the requested format,
+    -   Validation has confirmed their full compliance with the requirements.
 
 # Programatic & structured interactions with LLMs
 
@@ -132,7 +125,7 @@ The layman approach to using LLMs is to use a chatbot interface, such as ChatGPT
 
 -   Limited context window (e.g. 8k tokens for ChatGPT-4, 32k for Gemini Pro, 128k for GPT-4-turbo)
 -   Limited control over the model and its parameters
--   Limited reproducibility (same prompt may yield different results) 
+-   Limited reproducibility (same prompt may yield different results)
 -   Limited integration in existing workflows (e.g. R, Python, bash)
 -   Limited automation (e.g. batch processing of multiple documents)
 -   Limited customization (e.g. fine-tuning, custom models)
@@ -144,17 +137,11 @@ The layman approach to using LLMs is to use a chatbot interface, such as ChatGPT
 -   Combining multiple AI models/tools
 -   Combining AI with traditional programming
 
-
-
-
 ## APIs
 
-An APi is a set of rules and protocols that allow different software applications to communicate with each other.
-For example, when you use a weather app on your phone, it uses an API to fetch the latest weather data from a remote server.
-Most LLM providers offer APIs (Application Programming Interfaces) that allow you to interact with their models programmatically (through the use of computer programs). This gives you considerably more control and flexibility over how you use the models.
+An APi is a set of rules and protocols that allow different software applications to communicate with each other. For example, when you use a weather app on your phone, it uses an API to fetch the latest weather data from a remote server. Most LLM providers offer APIs (Application Programming Interfaces) that allow you to interact with their models programmatically (through the use of computer programs). This gives you considerably more control and flexibility over how you use the models.
 
-
-
+Instructions about how to set up a Google Gemini API key for Rstudio can be found [here](https://ozancanozdemir.github.io/r/llm-and-R-ellmer/)
 
 ## The ellmer package
 
@@ -184,9 +171,6 @@ library(rmarkdown)
 render("./vegan_lasagna.qmd")
 ```
 
-
-
-
 # Five practical ways to future-proof your career with AI
 
 -   Audit your daily work: Spot repetitive tasks (emails, scheduling, reporting) and test AI tools that automate them.
@@ -197,9 +181,12 @@ render("./vegan_lasagna.qmd")
 
 -   Show your value as an “AI integrator”: Don’t just use tools privately. Present the savings/impact to your team or manager.
 
--   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast.
+-   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast, e.g.
 
-
+    -   Marcel Salathé, \[www.linkedin.com/in/salathe/\](www.linkedin.com/in/salathe)
+    -   Oliver Morgan, \[www.linkedin.com/in/oliver-morgan-globalhealth/\](www.linkedin.com/in/oliver-morgan-globalhealth/) (credit Paolo Tizzani for mentioning it first)
+    -   The Posit [Blog](https://posit.co/blog/)
+    -   The Posit AI [newsletter](https://posit.co/blog/?search=AI)
 
 # Extra references {.unnumbered}
 
