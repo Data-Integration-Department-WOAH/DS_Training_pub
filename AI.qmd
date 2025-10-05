@@ -30,10 +30,10 @@ To activate Copilot support in Rstudio,
 
 How to request help for a computer science issues:
 
--   **1980**: ask you next door colleague
--   **1990** buy a subscription to the Spreadsheet Enthusiast magazine
--   **2000**: google it
--   **2010**: stackoverflow
+-   **1980**: Ask you next door colleague
+-   **1990** Buy a subscription to the Spreadsheet Enthusiast magazine
+-   **2000**: Google
+-   **2010**: Stackoverflow
 
 ![](images/clipboard-1191669850.jpeg){width="200"}
 
@@ -45,8 +45,9 @@ In recent years, LLMs have superseded traditional approaches for coding help:
 # Positron
 
 
-Positron is the  data science IDE of the AI era
+Positron is the polyglot data science IDE of the AI era
 [demo](https://positron.posit.co/features.html)
+[Overview](https://positron.posit.co/migrate-rstudio.html)
 
 Soon packaged on te Enterprise Portal
 
@@ -139,10 +140,10 @@ The layman approach to using LLMs is to use a chatbot interface, such as ChatGPT
 -   Limited version control (e.g. tracking changes in prompts and outputs)
 -   Cost: per token, monitoring usage
 -   Vendor lock-in
--   Working with (highly) structured inputs/outputs (e.g. R, Md, JSON)
--   Working with large datasets
--   Combining multiple AI models/tools
--   Combining AI with traditional programming
+-   Restrained possibilities to work with (highly) structured inputs/outputs (e.g. R, Md, JSON)
+-   Limited possibilities to work with large datasets
+-   No possibility to combine multiple AI models/tools
+-   No possibility to combine AI with traditional programming
 
 ## APIs
 
@@ -190,8 +191,8 @@ render("./vegan_lasagna.qmd")
 
 -   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast, e.g.
 
-    -   Marcel Salathé, \[www.linkedin.com/in/salathe/\](www.linkedin.com/in/salathe)
-    -   Oliver Morgan, \[www.linkedin.com/in/oliver-morgan-globalhealth/\](www.linkedin.com/in/oliver-morgan-globalhealth/) (credit Paolo Tizzani for mentioning it first)
+    -   Marcel Salathé, [www.linkedin.com/in/salathe/](www.linkedin.com/in/salathe)
+    -   Oliver Morgan, [www.linkedin.com/in/oliver-morgan-globalhealth/](www.linkedin.com/in/oliver-morgan-globalhealth/) (credit Paolo Tizzani for mentioning it first)
     -   The Posit [Blog](https://posit.co/blog/)
     -   The Posit AI [newsletter](https://posit.co/blog/?search=AI)
 

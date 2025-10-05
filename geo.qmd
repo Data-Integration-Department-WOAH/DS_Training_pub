@@ -1,25 +1,388 @@
 ---
-title: "Geo-referenced data" 
-#subtitle: "Lecture notes"
-author: "Gilles Guillot, Data Integration Department, World Organisation for Animal Health"
-date: last-modified
-execute: 
-  eval: true
-  message: false
-  warning: false
-format:
+title: "Maps and GIS in R"
+format: 
   html:
-    self-contained: true
     toc: true
-    number-sections: true 
-    toc-depth: 3
+    toc-depth: 1
+    # toc-location: left
+    # code-fold: true
+    self-contained: true
+editor: visual
 ---
 
+# Outline {.unnumbered}
 
-# The various types of spatial (geo-referenced) data
+Have you ever looked at a map in a news article or a research paper and wondered, "How can I make that with my own data?" You're in the right place! R and RStudio are not just for statistics and charts; they are incredibly powerful tools for creating, analyzing, and visualizing spatial data.
 
-# The IT side
+This guide is for the absolute beginner. We'll skip the heavy jargon and focus on the core ideas, using analogies and pictures to build your understanding from the ground up.
 
-# Loading data
+**Our goal today:**
 
-# Visualizing georeferenced data 
+*   Understand the two main types of spatial data.
+*   Learn why a "Coordinate Reference System" (CRS) is the secret sauce of all maps.
+*   Get hands-on with the most important R packages for GIS.
+*   Read, explore, and plot your very own spatial data!
+
+Let's dive in!
+
+
+#  What are Spatial Data?
+
+At its heart, spatial data is just regular data with an extra piece of information: **location**. It answers the "where" question.
+
+Think about a spreadsheet of coffee shops. A normal spreadsheet might have columns for `name`, `rating`, and `average_price`. A *spatial* dataset would also include `latitude` and `longitude`.
+
+There are two main "flavors" of spatial data, and understanding the difference is key.
+
+## Vector Data
+
+Think of vector data like a drawing made of specific, defined shapes. It uses points, lines, and polygons to represent objects in the real world.
+
+*   **Points:** A single location.
+    *   *Example:* Location of a coffee shop, a city, or a specific tree.
+*   **Lines:** A series of connected points.
+    *   *Example:* A river, a road, or a hiking trail.
+*   **Polygons:** A series of connected points that form a closed area.
+    *   *Example:* The boundary of a country, a park's border, or a lake.
+
+
+
+Vector data is great because it's precise and every shape can have data attached to it (like a country's name and population attached to its polygon).
+
+## Raster Data
+
+Think of raster data like a digital photograph or a TV screen. It's a grid of pixels (or cells), where each cell has a specific value.
+
+*   It doesn't represent distinct objects, but rather a continuous surface.
+*   *Example:* A satellite image, an elevation map (where each cell's value is the height above sea level), or a temperature map.
+
+
+
+Raster data is perfect for representing things that vary continuously across a landscape.
+
+***
+
+## Coordinate Reference Systems (CRS)
+
+This is the most important—and often most confusing—concept in GIS.
+
+**Analogy:** Imagine you have two friends, one in Paris and one in New York, and you ask them both for directions to their favorite cafe. You can't use the Paris directions in New York! They are based on different starting points and street grids.
+
+A **Coordinate Reference System (CRS)** is like the "street grid" for the entire planet. It's a standardized way of defining where things are on a 3D, spherical Earth and how to represent them on a flat 2D map (a process called "projection").
+
+
+**Why does it matter?**
+
+If your data layers don't share the same CRS, R won't know how to place them on top of each other. It would be like trying to put a map of Texas on top of a map of France—they simply won't line up!
+
+Thankfully, you don't need to be an expert. You just need to know:
+
+*   Every spatial dataset **must** have a CRS.
+*   When combining datasets, you often need to **transform** them to the same CRS.
+*   CRSs are often identified by a code, like **"EPSG:4326"**, which is the standard for GPS latitude/longitude.
+
+***
+
+#  Setting Up Your RStudio environment
+
+To work with spatial data, we need to install some specialized packages. Think of these as adding a new set of tools to your workshop.
+
+*   `sf`: The star of the show for **vector** data. It stands for "Simple Features" and is the modern standard in R.
+*   `terra`: The modern, powerful package for working with **raster** data.
+*   `tidyverse`: We'll use this for general data wrangling and for plotting with its amazing `ggplot2` package.
+
+Let's install and load them.
+
+```{r setup, message=FALSE, warning=FALSE}
+# Install the packages if you don't have them yet
+# install.packages("sf")
+# install.packages("terra")
+# install.packages("tidyverse")
+
+# Load the packages for this session
+library(sf)
+library(terra)
+library(tidyverse)
+```
+
+***
+
+#  Your First Map: Working with Vector Data
+
+Let's get our hands dirty! We'll use a dataset of world countries that comes with the `spData` package.
+
+## Step 1: Read the Data
+
+We use the `st_read()` function from the `sf` package to read spatial data. A common format for vector data is a "shapefile" (which is actually a collection of files with a `.shp` extension).
+
+```{r read-vector}
+# For this example, we'll load data that comes with a package
+# In the real world, you might do: 
+# world_sf <- st_read("path/to/your/data/countries.shp")
+
+# Let's load the example 'world' dataset
+world_sf <- st_as_sf(spData::world)
+
+```
+
+## Step 2: Inspect the Data
+
+What did we just create? Let's look at it.
+
+```{r inspect-vector}
+print(world_sf)
+```
+
+Notice a few things:
+
+*   It looks a lot like a regular `data.frame` or `tibble`! It has rows (for countries) and columns (for variables like `name_long`, `pop`, `continent`).
+*   **The magic is in the last column: `geometry`**. This special column holds the spatial information (the polygons for each country).
+*   The header tells us the `CRS`: `WGS 84` (which is `EPSG:4326`), the standard GPS system.
+
+## Step 3: A Quick Plot
+
+The fastest way to see your data is with the `plot()` function.
+
+```{r plot-vector-base}
+plot(world_sf)
+```
+
+That's a map! But we can do so much better. The `sf` package works beautifully with `ggplot2`. The magic function is `geom_sf()`.
+
+```{r plot-vector-ggplot}
+ggplot() +
+  geom_sf(data = world_sf) +
+  theme_minimal() +
+  labs(title = "Map of the World")
+```
+
+## Step 4: Combine GIS with Data Wrangling
+
+The best part about `sf` is that you can use all your favorite `dplyr` verbs on it! Let's map only the countries in Africa.
+
+```{r filter-vector}
+# Use the filter verb from dplyr
+africa_sf <- world_sf |> 
+  filter(continent == "Africa")
+
+# Plot the result
+ggplot() +
+  geom_sf(data = africa_sf, fill = "seagreen", color = "white") +
+  theme_void() +
+  labs(title = "Map of Africa")
+```
+
+***
+
+#  Working with Raster Data
+
+Now let's explore a raster dataset. We'll get a file that shows the "raster" version of the world.
+
+## Step 1: Read the Data
+
+We use the `rast()` function from the `terra` package. A common raster format is a "GeoTIFF" (`.tif`).
+
+```{r read-raster}
+# Construct a path to a raster file that comes with the 'terra' package
+raster_file_path <- system.file("ex/elev.tif", package="terra")
+
+# Load the elevation raster data
+elevation_raster <- rast(raster_file_path)
+```
+
+## Step 2: Inspect the Data
+
+Let's see what this object contains.
+
+```{r inspect-raster}
+print(elevation_raster)
+```
+
+This looks very different from the vector data:
+
+*   `dimensions`: Tells us the number of rows, columns, and layers (pixels).
+*   `resolution`: The size of each pixel in the real world (in this case, in meters).
+*   `extent`: The geographic bounding box of the raster.
+*   `crs`: The Coordinate Reference System. It's crucial that this matches our vector data if we want them to overlap!
+
+## Step 3: A Quick Plot
+
+The `plot()` function from `terra` is the easiest way to visualize a raster.
+
+```{r plot-raster}
+plot(elevation_raster, main = "A Map of Elevation")
+```
+
+The colors here represent the value in each cell—in this case, higher elevation is shown in lighter colors.
+
+***
+
+# Combining Vector and Raster
+
+The real power of GIS comes from combining different data types to answer questions.
+
+**Question:** What is the average elevation of major world cities?
+
+To answer this, we need to:
+1.  Get a **vector** dataset of city points.
+2.  Use our **raster** elevation map.
+3.  "Extract" the elevation value from the raster cell that lies underneath each city point.
+
+## Step 1: Get City Data
+
+Let's use another built-in dataset for simplicity.
+
+```{r get-cities}
+# Load the 'world.cities' dataset
+data(world.cities, package = "maps")
+
+# Convert it into an sf object
+# We need to tell sf where the coordinates are and what CRS they are in
+cities_sf <- st_as_sf(world.cities, 
+                      coords = c("long", "lat"), 
+                      crs = "EPSG:4326")
+
+# Let's just look at the 10 most populous cities to keep it simple
+top_cities_sf <- cities_sf |> 
+  arrange(desc(pop)) |> 
+  slice_head(n = 10)
+
+print(top_cities_sf)
+```
+
+## Step 2: The `extract()` Operation
+
+This is where the magic happens. The `terra::extract()` function takes vector points and a raster, and it returns the raster values at those point locations.
+
+**Important!** Our raster and vector data need to be in the same CRS. Let's check.
+The `elevation_raster` CRS is a bit complex, while our cities are in standard `EPSG:4326`. We must first **transform** the cities to match the raster's CRS.
+
+```{r transform-crs}
+# Get the CRS from the raster
+target_crs <- st_crs(elevation_raster)
+
+# Transform the cities' CRS to match the raster's CRS
+cities_transformed_sf <- st_transform(top_cities_sf, crs = target_crs)
+```
+
+Now we can extract!
+
+```{r extract-values}
+# Extract the elevation values
+city_elevations <- terra::extract(elevation_raster, cities_transformed_sf)
+
+# The result is a data.frame. Let's combine it with our city names.
+cities_with_elevation <- top_cities_sf |> 
+  mutate(elevation_m = city_elevations$elevation)
+
+# Show the final result! (Note: the elevation data is just an example, not real world)
+print(cities_with_elevation)
+```
+
+We've successfully merged information from a raster grid onto our vector points. This is a foundational skill in GIS!
+
+
+# An example of interactive plot with ggplotly
+
+
+## What’s Happening Here
+
+1. **`terra::rast()`** loads a sample elevation raster (gridded data).  
+2. **`rnaturalearth` + `sf`** brings in political boundaries.  
+3. **`st_sample()`** creates random points as stand-in “cities”.  
+4. **`geom_raster()`** draws the raster background.  
+5. **`geom_sf()`** overlays vector data (borders and points).  
+6. **`ggplotly()`** makes it interactive — hover tooltips and zoom/pan.
+
+
+
+## Pro Tips
+
+✅ Always check coordinate systems match:
+```r
+st_crs(countries)
+crs(elev_crop)
+
+```
+
+## Full Code
+
+```{r gis_raster_vector_overlay, message=FALSE, warning=FALSE}
+# --- Load Packages ---
+library(terra)       # raster handling
+library(sf)          # vector data
+library(ggplot2)     # plotting
+library(plotly)      # interactivity
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(dplyr)
+
+# --- Step 1: Load Raster Data ---
+# Example: Use a built-in elevation raster from the terra package
+elev <- rast(system.file("ex/elev.tif", package = "terra"))
+
+# Crop to a smaller extent for easier plotting
+elev_crop <- crop(elev, ext(5.741667, 6.533333, 49.44167, 50.19167))  # roughly central Europe
+
+# Convert raster to data frame for ggplot
+elev_df <- as.data.frame(elev_crop, xy = TRUE)
+colnames(elev_df) <- c("x", "y", "elevation")
+
+# --- Step 2: Load Vector Data ---
+# Get countries and filter for region covering the raster
+countries <- ne_countries(scale = "medium", returnclass = "sf") %>%
+  st_transform(crs(elev_crop)) %>%
+  filter(admin %in% c("Austria", "Switzerland", "Germany", "Italy"))
+
+# Add some "cities" (we’ll use random points for the example)
+set.seed(42)
+city_points <- st_sample(countries, size = 20)
+city_points <- st_sf(name = paste("City", 1:20), geometry = city_points)
+
+# --- Step 3: Plot with ggplot ---
+p <- ggplot() +
+  # Raster background
+  geom_raster(data = elev_df, aes(x = x, y = y, fill = elevation)) +
+  scale_fill_viridis_c(option = "C", name = "Elevation (m)") +
+  
+  # Country borders
+  geom_sf(data = countries, fill = NA, color = "white", linewidth = 0.6) +
+  
+  # City points
+  geom_sf(data = city_points, aes(text = name), color = "red", size = 2) +
+  
+  labs(
+    title = "Elevation Map with Cities Overlay",
+    subtitle = "Combining Raster (terra) + Vector (sf) + ggplotly()",
+    caption = "Raster: terra::elev.tif | Vector: Natural Earth data"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "right",
+    plot.title = element_text(face = "bold", size = 16)
+  )
+
+# --- Step 4: Make it Interactive ---
+interactive_map <- ggplotly(p, tooltip = c("text", "fill"))
+
+# --- Step 5: Display ---
+interactive_map
+
+```
+
+
+# Conclusion
+
+ You've taken your first steps into the exciting world of spatial data analysis with R.
+
+**We've learned:**
+*   The difference between **vector** (points, lines, polygons) and **raster** (grids) data.
+*   That the **CRS** is the essential "address system" that makes maps work.
+*   How to use `sf` to read, plot, and manipulate vector data with `dplyr`.
+*   How to use `terra` to read and plot raster data.
+*   How to combine both data types to answer new questions.
+
+This is just the beginning. From here, you can explore making beautiful, interactive maps, performing complex spatial analysis, and telling powerful, data-driven stories with a geographic perspective.
+
+Happy mapping!
+
