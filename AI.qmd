@@ -56,7 +56,7 @@ Soon packaged on te Enterprise Portal
 
 ## The various types of prompts
 
--   **The platform prompt**: unchangeable, set by the model provider, and affects every conversation. You can see what these look like from Anthropic, who publishes their \[core system prompts)(https://docs.anthropic.com/en/release-notes/system-prompts).
+-   **The platform prompt**: unchangeable, set by the model provider, and affects every conversation. You can see what these look like from Anthropic, who publishes their [core system prompts](https://docs.anthropic.com/en/release-notes/system-prompts).
 
 -   **The System prompt**: (aka developer prompt): set when you create a new conversation, and affects every response. It’s used to provide additional instructions to the model, shaping its responses to your needs. It sets the behavior of the model (e.g. "You are a helpful assistant."),
 
@@ -192,10 +192,13 @@ render("./vegan_lasagna.qmd")
 -   Commit 30 minutes/week to AI learning: Subscribe to one AI newsletter or course. Small, consistent steps compound fast, e.g.
 
     -   Marcel Salathé, [www.linkedin.com/in/salathe/](www.linkedin.com/in/salathe)
-    -   Oliver Morgan, [www.linkedin.com/in/oliver-morgan-globalhealth/](www.linkedin.com/in/oliver-morgan-globalhealth/) (credit Paolo Tizzani for mentioning it first)
+    -   Oliver Morgan, [www.linkedin.com/in/oliver-morgan-globalhealth/](www.linkedin.com/in/oliver-morgan-globalhealth/)
     -   The Posit [Blog](https://posit.co/blog/)
     -   The Posit AI [newsletter](https://posit.co/blog/?search=AI)
+    - The OECD AI platform on [LinkedIn](https://www.linkedin.com/company/oecd-ai/posts/?feedView=all)  
 
 # Extra references {.unnumbered}
 
 -   Ellmer vignette on [prompt design](https://ellmer.tidyverse.org/articles/prompt-design.html)
+- Anatomy of a good GPT-5 [prompt](credit: Antoine Mersch)
+-  Anthropic's [core system prompts](https://docs.anthropic.com/en/release-notes/system-prompts).
