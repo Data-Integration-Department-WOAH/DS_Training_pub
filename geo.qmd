@@ -304,6 +304,7 @@ crs(elev_crop)
 library(terra)
 library(sf)
 library(ggplot2)
+library(plotly)
 library(dplyr)
 
 # --- Raster ---

@@ -45,11 +45,17 @@ In recent years, LLMs have superseded traditional approaches for coding help:
 # Positron
 
 
-Positron is the polyglot data science IDE of the AI era
-[demo](https://positron.posit.co/features.html)
-[Overview](https://positron.posit.co/migrate-rstudio.html)
+Positron is the polyglot data science IDE of the AI era.
+It supports R, Python, Julia, SQL, and more, all in one environment. It seamlessly integrates with large language models (LLMs) to enhance your coding experience.
+It offers advanced features like in-line code generation, code explanation, and error correction, making it easier to write and understand code.
+It provides a unified interface for data science workflows, allowing you to work with multiple languages and tools without switching contexts.
 
-Soon packaged on te Enterprise Portal
+References:
+- [demo](https://positron.posit.co/features.html)
+- [Overview](https://positron.posit.co/migrate-rstudio.html)
+- [Positron tutorials as R package](https://ppbds.github.io/positron.tutorials/)
+
+*Soon packaged on WOAH Enterprise Portal...*
 
 
 # Prompts
@@ -197,8 +203,14 @@ render("./vegan_lasagna.qmd")
     -   The Posit AI [newsletter](https://posit.co/blog/?search=AI)
     - The OECD AI platform on [LinkedIn](https://www.linkedin.com/company/oecd-ai/posts/?feedView=all)  
 
-# Extra references {.unnumbered}
+# References {.unnumbered}
 
--   Ellmer vignette on [prompt design](https://ellmer.tidyverse.org/articles/prompt-design.html)
-- Anatomy of a good GPT-5 [prompt](credit: Antoine Mersch)
--  Anthropic's [core system prompts](https://docs.anthropic.com/en/release-notes/system-prompts).
+* Prompt engineering resources:
+   -   Ellmer vignette on [prompt design](https://ellmer.tidyverse.org/articles/prompt-design.html)
+   - Anatomy of a good GPT-5 [prompt](credit: Antoine Mersch)
+   -  Anthropic's [core system prompts](https://docs.anthropic.com/en/release-notes/system-prompts).
+
+* Positron resources:
+   - [demo](https://positron.posit.co/features.html)
+   - [Overview](https://positron.posit.co/migrate-rstudio.html)
+   - [Positron tutorials as R packages](https://ppbds.github.io/positron.tutorials/)
