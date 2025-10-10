@@ -5,7 +5,7 @@ format:
     toc: true
     toc-depth: 1
     # toc-location: left
-    # code-fold: true
+    code-fold: true
     self-contained: true
 editor: visual
 ---
@@ -231,21 +231,31 @@ The colors here represent the value in each cell—in this case, higher elevatio
 <!-- Let's use another built-in dataset for simplicity. -->
 
 <!-- ```{r get-cities} -->
+
 <!-- # Load the 'world.cities' dataset -->
+
 <!-- data(world.cities, package = "maps") -->
 
 <!-- # Convert it into an sf object -->
+
 <!-- # We need to tell sf where the coordinates are and what CRS they are in -->
+
 <!-- cities_sf <- st_as_sf(world.cities,  -->
+
 <!--                       coords = c("long", "lat"),  -->
+
 <!--                       crs = "EPSG:4326") -->
 
 <!-- # Let's just look at the 10 most populous cities to keep it simple -->
+
 <!-- top_cities_sf <- cities_sf |>  -->
+
 <!--   arrange(desc(pop)) |>  -->
+
 <!--   slice_head(n = 10) -->
 
 <!-- print(top_cities_sf) -->
+
 <!-- ``` -->
 
 <!-- ## Step 2: The `extract()` Operation -->
@@ -255,25 +265,35 @@ The colors here represent the value in each cell—in this case, higher elevatio
 <!-- **Important!** Our raster and vector data need to be in the same CRS. Let's check. The `elevation_raster` CRS is a bit complex, while our cities are in standard `EPSG:4326`. We must first **transform** the cities to match the raster's CRS. -->
 
 <!-- ```{r transform-crs} -->
+
 <!-- # Get the CRS from the raster -->
+
 <!-- target_crs <- st_crs(elevation_raster) -->
 
 <!-- # Transform the cities' CRS to match the raster's CRS -->
+
 <!-- cities_transformed_sf <- st_transform(top_cities_sf, crs = target_crs) -->
+
 <!-- ``` -->
 
 <!-- Now we can extract! -->
 
 <!-- ```{r extract-values} -->
+
 <!-- # Extract the elevation values -->
+
 <!-- city_elevations <- terra::extract(elevation_raster, cities_transformed_sf) -->
 
 <!-- # The result is a data.frame. Let's combine it with our city names. -->
+
 <!-- cities_with_elevation <- top_cities_sf |>  -->
+
 <!--   mutate(elevation_m = city_elevations$elevation) -->
 
 <!-- # Show the final result! (Note: the elevation data is just an example, not real world) -->
+
 <!-- print(cities_with_elevation) -->
+
 <!-- ``` -->
 
 <!-- We've successfully merged information from a raster grid onto our vector points. This is a foundational skill in GIS! -->
@@ -380,7 +400,6 @@ leaflet(data = africa) %>%
   setView(lng = 20, lat = 0, zoom = 3)
 
 ```
-
 
 # Conclusion
 
