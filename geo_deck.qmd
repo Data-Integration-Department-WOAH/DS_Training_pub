@@ -11,207 +11,185 @@ editor: visual
 
 # 
 
-Have you ever looked at a map in a news article or a research paper and wondered, “How can I make that with my own data?”  
+Have you ever looked at a map in a news article or a research paper and wondered, “How can I make that with my own data?”
 
 **R and RStudio** are not just for statistics and charts; they’re also incredibly **powerful tools for creating, analyzing, and visualizing spatial data.**
 
-  
-
 # Our goals today:
 
-- Understand the two main types of spatial data  
-- Learn why a Coordinate Reference System (CRS) matters  
-- Get hands-on with the key GIS packages in R  
-- Read, explore, and plot your own spatial data  
-
-
+-   Understand the two main types of spatial data\
+-   Learn why a Coordinate Reference System (CRS) matters\
+-   Get hands-on with the key GIS packages in R\
+-   Read, explore, and plot your own spatial data
 
 # What Are Spatial Data?
 
-- Spatial data is regular data with an added dimension — **location**.  
+-   Spatial data is regular data with an added dimension — **location**.
 
-- A spreadsheet of coffee shops might have columns for name, rating, and price.  
-- Spatial data adds latitude and longitude, allowing you to answer the question “Where?”.
+-   A spreadsheet of coffee shops might have columns for name, rating, and price.\
 
-  
+-   Spatial data adds latitude and longitude, allowing you to answer the question “Where?”.
 
 ## Vector Data
 
-- Vector data represent discrete features as shapes:  
-  - **Points:** Single locations such as cities or trees  
-  - **Lines:** Connected points such as roads or rivers  
-  - **Polygons:** Enclosed areas such as countries or lakes  
+-   Vector data represent discrete features as shapes:
 
-- Each shape can have attributes like names, population, or type.  
+    -   **Points:** Single locations such as cities or trees\
+    -   **Lines:** Connected points such as roads or rivers\
+    -   **Polygons:** Enclosed areas such as countries or lakes
 
+-   Each shape can have attributes like names, population, or type.
 
-- Vectors are precise and ideal for representing boundaries and specific features.
-
-
+-   Vectors are precise and ideal for representing boundaries and specific features.
 
 ## Raster Data
 
-- Raster data represent continuous surfaces as grids of pixels, similar to digital photographs.  
+-   Raster data represent continuous surfaces as grids of pixels, similar to digital photographs.
 
-- Each cell has a value, such as temperature, elevation, or vegetation index.  
-Rasters are perfect for surfaces that vary continuously across a landscape.  
+-   Each cell has a value, such as temperature, elevation, or vegetation index.\
+    Rasters are perfect for surfaces that vary continuously across a landscape.
 
-- Examples include satellite imagery, elevation maps, and temperature models.
-
-
+-   Examples include satellite imagery, elevation maps, and temperature models.
 
 # Coordinate Reference Systems (CRS)
 
-- A **Coordinate Reference System (CRS)** defines how geographic data relate to real-world locations.  
+-   A **Coordinate Reference System (CRS)** defines how geographic data relate to real-world locations.
 
-- It’s the “map projection” that translates a spherical Earth into a flat map.  
+-   It’s the “map projection” that translates a spherical Earth into a flat map.
 
-- If datasets use different CRSs, they won’t align correctly.  
+-   If datasets use different CRSs, they won’t align correctly.
 
-- Key CRS examples:
-- **EPSG:4326:** GPS latitude/longitude  
-- **EPSG:3857:** Web Mercator (used by most online maps)
+-   Key CRS examples:
+
+-   **EPSG:4326:** GPS latitude/longitude\
+
+-   **EPSG:3857:** Web Mercator (used by most online maps)
 
 # Spatial data tasks
 
-
-- loading / combining different types of spatial data
-- displaying data (not necessarily maps)
-- analyzing spatial relationships
-
+-   loading / combining different types of spatial data
+-   displaying data (not necessarily maps)
+-   analyzing spatial relationships
 
 # Setting Up the RStudio Environment
 
-- To work with spatial data in R, install and load the key GIS packages:  
-  - **sf:** Handles vector data (“Simple Features” model)  
-  - **terra:** Handles raster data (modern and efficient)  
-  - **tidyverse:** Provides data wrangling and plotting tools  
-  - **ggplot2:** For static map visualizations
-  - **leaflet:** Builds interactive web maps  
-  - **plotly:** Makes ggplot2 graphics interactive  
-
-- These packages form the backbone of spatial analysis in R.
-
-
+-   To work with spatial data in R, install and load the key GIS packages:
+    -   **sf:** Handles vector data (“Simple Features” model)\
+    -   **terra:** Handles raster data (modern and efficient)\
+    -   **tidyverse:** Provides data wrangling and plotting tools\
+    -   **ggplot2:** For static map visualizations
+    -   **leaflet:** Builds interactive web maps\
+    -   **plotly:** Makes ggplot2 graphics interactive
+-   These packages form the backbone of spatial analysis in R.
 
 # Working with Vector Data
 
-- Vector data store shapes (points, lines, polygons) with attributes.  
+-   Vector data store shapes (points, lines, polygons) with attributes.
 
-- Use the `sf` package to read, inspect, and plot shapefiles and GeoPackages.  
+-   Use the `sf` package to read, inspect, and plot shapefiles and GeoPackages.
 
-- Key functions:
-  - `st_read()` to import spatial files  
-  - `st_crs()` to check coordinate reference systems  
-  - `st_transform()` to reproject data  
-  - `geom_sf()` in `ggplot2` for visualization  
+-   Key functions:
+
+    -   `st_read()` to import spatial files\
+    -   `st_crs()` to check coordinate reference systems\
+    -   `st_transform()` to reproject data\
+    -   `geom_sf()` in `ggplot2` for visualization
 
 Example: Reading a world map and filtering for Africa before plotting it.
 
-
-
 # Working with Raster Data
 
-- Raster data represent continuous surfaces as pixel grids.  
+-   Raster data represent continuous surfaces as pixel grids.
 
-- Use the `terra` package to handle raster files such as GeoTIFFs.  
+-   Use the `terra` package to handle raster files such as GeoTIFFs.
 
-- Key functions:
-  - `rast()` to read raster data  
-  - `plot()` for quick visualizations  
-  - `crop()` and `mask()` to focus on regions  
-  - `extract()` to obtain raster values at vector locations  
+-   Key functions:
+
+    -   `rast()` to read raster data\
+    -   `plot()` for quick visualizations\
+    -   `crop()` and `mask()` to focus on regions\
+    -   `extract()` to obtain raster values at vector locations
 
 Rasters are often used for elevation, climate, or remote sensing data.
 
-
-
 # Combining Vector and Raster Data
 
-- The power of GIS lies in combining vector and raster information.  
+-   The power of GIS lies in combining vector and raster information.
 
-- Example: Calculating the average elevation of cities using raster elevation data.  
+-   Example: Calculating the average elevation of cities using raster elevation data.
 
-- Steps:
-1. Obtain city coordinates as a vector layer.  
-2. Load the elevation raster.  
-3. Ensure both share the same CRS.  
-4. Use the `extract()` function to get raster values for each city point.  
-5. Merge and analyze the results.  
+-   Steps:
+
+1.  Obtain city coordinates as a vector layer.\
+2.  Load the elevation raster.\
+3.  Ensure both share the same CRS.\
+4.  Use the `extract()` function to get raster values for each city point.\
+5.  Merge and analyze the results.
 
 This approach allows you to connect spatial features with environmental attributes.
 
-
-
 # Interactive Mapping with ggplotly
 
-- The `plotly` package transforms static ggplot2 maps into interactive visualizations.  
+-   The `plotly` package transforms static ggplot2 maps into interactive visualizations.
 
-- Benefits:
-  - Zoom and pan around maps  
-  - Hover over features to see attributes  
-  - Integrate raster and vector layers dynamically  
+-   Benefits:
 
-- A typical workflow includes:
-1. Creating a ggplot map using `geom_sf()` or `geom_raster()`.  
-2. Passing the plot to `ggplotly()` for interactivity.  
+    -   Zoom and pan around maps\
+    -   Hover over features to see attributes\
+    -   Integrate raster and vector layers dynamically
+
+-   A typical workflow includes:
+
+1.  Creating a ggplot map using `geom_sf()` or `geom_raster()`.\
+2.  Passing the plot to `ggplotly()` for interactivity.
 
 This produces web-ready, dynamic spatial plots suitable for reports or dashboards.
 
-
-
 # Interactive Mapping with Leaflet
 
-`leaflet` provides an easy way to create web-based interactive maps directly in R.  
+`leaflet` provides an easy way to create web-based interactive maps directly in R.
 
-Main concepts:
-- **Base tiles:** Background map layers (OpenStreetMap, Esri, etc.)  
-- **Vector overlays:** Add polygons, lines, and points with `addPolygons()` and `addCircles()`.  
-- **Popups and labels:** Display information when users click or hover.  
-- **Legends and controls:** Provide interactivity and context.  
+Main concepts: - **Base tiles:** Background map layers (OpenStreetMap, Esri, etc.)\
+- **Vector overlays:** Add polygons, lines, and points with `addPolygons()` and `addCircles()`.\
+- **Popups and labels:** Display information when users click or hover.\
+- **Legends and controls:** Provide interactivity and context.
 
 Example applications include population maps, route visualizations, and thematic layers.
-
-
 
 # Comparison: ggplotly vs Leaflet
 
 | Feature | ggplotly | leaflet |
-|----------|-----------|----------|
+|-----------------------|--------------------------|-----------------------|
 | Style | Converts static plots to interactive ones | Built for interactive web maps |
 | CRS handling | Uses projected coordinates | Uses web Mercator (EPSG:3857) |
 | Data size | Best for smaller datasets | Scales better for large maps |
 | Interactivity | Moderate (hover, zoom) | High (clicks, layers, popups) |
 | Use case | Reports and dashboards | Web maps and Shiny apps |
 
-Both tools complement each other:  
+Both tools complement each other:\
 `ggplotly` is great for data storytelling, while `leaflet` shines in exploration.
-
-
 
 # Conclusion
 
-You’ve learned the foundations of GIS in R:  
+You’ve learned the foundations of GIS in R:
 
-- The difference between vector and raster data  
-- The importance of CRS for alignment  
-- How to use `sf` for vector analysis and `terra` for raster operations  
-- How to combine spatial data layers  
-- How to create interactive maps using `ggplotly` and `leaflet`  
+-   The difference between vector and raster data\
+-   The importance of CRS for alignment\
+-   How to use `sf` for vector analysis and `terra` for raster operations\
+-   How to combine spatial data layers\
+-   How to create interactive maps using `ggplotly` and `leaflet`
 
 With these tools, you can explore, analyze, and visualize spatial data entirely within RStudio.
-
-
 
 # Next Steps
 
 Continue your GIS journey by exploring:
 
-- Spatial joins and buffering with `sf`  
-- Terrain and remote sensing analysis with `terra`  
-- Interactive dashboards using `leaflet` and `shiny`  
-- Advanced map design with `tmap` and `ggspatial`  
+-   Spatial joins and buffering with `sf`\
+-   Terrain and remote sensing analysis with `terra`\
+-   Interactive dashboards using `leaflet` and `shiny`\
+-   Advanced map design with `tmap` and `ggspatial`
 
-Keep experimenting — the mapmaking possibilities in R are endless.  
+Keep experimenting — the mapmaking possibilities in R are endless.
 
 🎉 **Happy Mapping!** 🗺️
